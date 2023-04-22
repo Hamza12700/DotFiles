@@ -32,6 +32,9 @@ alias ll='exa -la --icons'
 alias ls='exa -la --icons'
 alias cat='bat'
 alias ip='ip --color=auto'
+alias spi='sudo pacman -S'
+alias yi='yay -S'
+alias gst='git status'
 
 # LunarVim
 export PATH=/home/hamza/.local/bin:$PATH
