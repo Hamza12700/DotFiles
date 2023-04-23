@@ -31,3 +31,5 @@
 - [MesloLGS NF](https://github.com/romkatv/powerlevel10k#fonts) Font
 
 ![Screen Shot](./screenshot.jpg)
+
+f
