@@ -41,6 +41,8 @@ export PATH=/home/hamza/.local/bin:$PATH
 
 # Zoxide
 eval "$(zoxide init zsh)"
+# Atuin
+eval "$(atuin init zsh)"
 
 # Zplug
 source $HOME/.zplug/init.zsh
