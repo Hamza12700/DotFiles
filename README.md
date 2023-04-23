@@ -1,4 +1,4 @@
-.# DotFiles By Us
+# DotFiles By Us
 
 
 #### My dot files
