@@ -38,4 +38,4 @@
 
 - [Zoxide](https://github.com/ajeetdsouza/zoxide) A smarter cd command. Supports all major shells
 
-![Screen Shot](./screenshot.jpg)
+![Screen Shot](./screenshot.png)
