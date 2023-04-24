@@ -39,6 +39,13 @@ alias gst='git status'
 # LunarVim
 export PATH=/home/hamza/.local/bin:$PATH
 
+# Pnpm
+export PNPM_HOME="/home/hamza/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # Zoxide
 eval "$(zoxide init zsh)"
 # Atuin
