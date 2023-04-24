@@ -38,4 +38,6 @@
 
 - [Zoxide](https://github.com/ajeetdsouza/zoxide) A smarter cd command. Supports all major shells
 
+- [Httpie](https://github.com/httpie/httpie) HTTPie for Terminal — modern, user-friendly command-line HTTP client for the API era
+
 ![Screen Shot](./screenshot.png)
