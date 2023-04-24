@@ -20,7 +20,7 @@
 > 
 > - [PowerLevel10k](https://github.com/romkatv/powerlevel10k) 
 
-#### Requirements
+#### Tools
 
 - [Zplug](https://github.com/zplug/zplug) Plaugin Manager
 
@@ -29,5 +29,13 @@
 - [Alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator
 
 - [MesloLGS NF](https://github.com/romkatv/powerlevel10k#fonts) Font
+
+- [Aruin](https://github.com/ellie/atuin) Magical shell history
+
+- [LunarVim](https://github.com/LunarVim/LunarVim) LunarVim is an IDE layer for Neovim
+
+- [Pnpm](https://pnpm.io/) Fast, disk space efficient package manager
+
+- [Zoxide](https://github.com/ajeetdsouza/zoxide) A smarter cd command. Supports all major shells
 
 ![Screen Shot](./screenshot.jpg)
