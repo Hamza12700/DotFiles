@@ -30,7 +30,7 @@
 
 - [MesloLGS NF](https://github.com/romkatv/powerlevel10k#fonts) Font
 
-- [Aruin](https://github.com/ellie/atuin) Magical shell history
+- [Atuin](https://github.com/ellie/atuin) Magical shell history
 
 - [LunarVim](https://github.com/LunarVim/LunarVim) LunarVim is an IDE layer for Neovim
 
