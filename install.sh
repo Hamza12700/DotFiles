@@ -82,3 +82,35 @@ installer ()
   echo "Note: if the powerlevel10k doesn't activate when reopen the terminal try running manually: p10k\n"
   zplug inatall
 }
+
+# Checking if yay is install
+if which yay >/dev/null; then
+  installer
+else
+  echo "yay not found!"
+  read -p "Do you want to build yay from source? [y/N] " yn
+  case "$yn" in
+    y* ) 
+      if which git >/dev/null; then
+        git clone https://aur.archlinux.org/yay.git
+        pushd yay/
+        makepkg -si --noconfirm
+        popd
+        installer
+      else
+        echo "git not found!"
+        echo "Installing git\n"
+        sudo pacman -S git
+        git clone https://aur.archlinux.org/yay.git
+        pushd yay/
+        makepkg -si --noconfirm
+        popd
+        installer
+      fi
+    ;;
+    *) 
+      sudo pacman -S yay
+      installer
+    ;;
+  esac
+fi
