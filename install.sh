@@ -1,3 +1,5 @@
+#!/bin/sh
+
 nvimInstaller () {
   version=$(nvim --version | awk '/NVIM/ {print $2}')
   if [[ $version == *"-dev"* ]]; then
