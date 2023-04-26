@@ -1,3 +1,26 @@
+nvimInstaller () {
+  version=$(nvim --version | awk '/NVIM/ {print $2}')
+  if [[ $version == *"-dev"* ]]; then
+    echo "Development version of neovim $version is installed!"
+    read -p "Do you want to install latest version LunarVim [Y/n]" vyn
+    if [ "$vyn" == "n" ]; then
+      echo "Skipping..."
+    else
+      echo "Installing Lastest Version of LunarVim\n"
+      bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+    fi
+  else
+    echo "Stable version of neovim $version is installed!"
+    read -p "Do you want to install stable version of LunarVim [Y/n]" vyn
+    if [ "$vyn" == "n" ]; then
+      echo "Skipping..."
+    else
+      echo "Installing Stable Version of LunarVim\n"
+      LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+    fi
+  fi
+}
+
 installer ()
 {
   cat << EOL
@@ -14,7 +37,7 @@ installer ()
 
   # Installing Packages
   echo "Installing Packages\n"
-  yay -S nitch alacritty atuin httpie neovim atuin zoxide exa bat --noconfirm --needed
+  yay -S nitch alacritty atuin httpie atuin zoxide exa bat --noconfirm --needed
   clear
   
   # Checking if the font directory exist
@@ -31,15 +54,26 @@ installer ()
     clear
   fi
 
-  # LunarVim
-  read -p "Do you want to install LunarVim [y/N] " lv
-  case "$lv" in
-    y) 
-      LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-    ;;
-    *) echo "\nSkipping...\n"
-    ;;
-  esac
+  # Neovim/LunarVim
+  if command -c nvim &> /dev/null; then
+    nvimInstaller 
+  else
+    echo "Neovim is not installed!"
+    echo "Do you want to install nightly version of nvim OR stable version?"
+    echo "[1] Nightly Version"
+    echo "[2] Stable Version"
+    read -p "Installation process [1/2]" vyn
+
+    if [[ "$vyn" -eq 2 ]]; then
+      echo "Installation Stable Version of Neovim"
+      sudo pacman -S neovim --noconfirm
+      nvimInstaller
+    else
+      echo "Installation Nightly Version of Neovim"
+      yay -S neovim-nightly
+      nvimInstaller
+    fi
+  fi
 
   # Pnpm
   echo "Do you want to install pnpm throught the AUR helper or the official install script?"
