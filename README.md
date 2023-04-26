@@ -24,7 +24,7 @@ Theses are some the list of tools that I use daily!
 
 - [Alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator
 
-- [MesloLGS NF](https://github.com/romkatv/powerlevel10k#fonts) Font
+- [Hack Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack) Iconic font aggregator, collection, & patcher. 3,600+ icons
 
 - [Atuin](https://github.com/ellie/atuin) Magical shell history
 
