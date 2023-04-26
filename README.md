@@ -21,8 +21,6 @@ Theses are some the list of tools that I use daily!
 	> - [Zsh-Completions](https://github.com/zsh-users/zsh-completions)
 	> 
 	> - [Zsh-History-Substring-Search](https://github.com/zsh-users/zsh-history-substring-search)
-	> 
-	> - [PowerLevel10k](https://github.com/romkatv/powerlevel10k) 
 
 - [Alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator
 
