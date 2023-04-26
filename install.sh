@@ -23,13 +23,9 @@ nvimInstaller () {
 
 installer ()
 {
-  cat << EOL
-
-    ---
-    Updating...
-    ---
-
-    EOL
+  echo "---"
+  echo "Updating"
+  echo "---\n"
 
   # Updating
   yay -Syu --noconfirm
