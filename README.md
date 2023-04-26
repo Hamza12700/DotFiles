@@ -8,21 +8,21 @@ Theses are some the list of tools that I use daily!
 
 - [Zplug](https://github.com/zplug/zplug) Zsh Plugins Manager
 
-> **Plugins**:
-> 
-> - [Zsh-Autosuggestion](https://github.com/zsh-users/zsh-autosuggestions)
-> 
-> - [Zplug-cd](https://github.com/b4b4r07/zplug-cd)
-> 
-> - [Zplug-rm](https://github.com/b4b4r07/zplug-rm)
-> 
-> - [Zsh-Syntax-Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-> 
-> - [Zsh-Completions](https://github.com/zsh-users/zsh-completions)
-> 
-> - [Zsh-History-Substring-Search](https://github.com/zsh-users/zsh-history-substring-search)
-> 
-> - [PowerLevel10k](https://github.com/romkatv/powerlevel10k) 
+	> **Plugins**:
+	> 
+	> - [Zsh-Autosuggestion](https://github.com/zsh-users/zsh-autosuggestions)
+	> 
+	> - [Zplug-cd](https://github.com/b4b4r07/zplug-cd)
+	> 
+	> - [Zplug-rm](https://github.com/b4b4r07/zplug-rm)
+	> 
+	> - [Zsh-Syntax-Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+	> 
+	> - [Zsh-Completions](https://github.com/zsh-users/zsh-completions)
+	> 
+	> - [Zsh-History-Substring-Search](https://github.com/zsh-users/zsh-history-substring-search)
+	> 
+	> - [PowerLevel10k](https://github.com/romkatv/powerlevel10k) 
 
 - [Alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator
 
