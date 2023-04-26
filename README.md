@@ -36,4 +36,6 @@ Theses are some the list of tools that I use daily!
 
 - [Httpie](https://github.com/httpie/httpie) HTTPie for Terminal — modern, user-friendly command-line HTTP client for the API era
 
+- [EXA](https://github.com/ogham/exa) A modern replacement for `ls`
+
 ![Screen Shot](./screenshot.png)
