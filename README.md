@@ -2,9 +2,13 @@
 
 #### My dot files
 
-**Zsh Plugin Manager** [Zplug](https://github.com/zplug/zplug)
+Theses are some the list of tools that I use daily! 
 
-> Plugins:
+#### Tools
+
+- [Zplug](https://github.com/zplug/zplug) Zsh Plugins Manager
+
+> **Plugins**:
 > 
 > - [Zsh-Autosuggestion](https://github.com/zsh-users/zsh-autosuggestions)
 > 
@@ -19,12 +23,6 @@
 > - [Zsh-History-Substring-Search](https://github.com/zsh-users/zsh-history-substring-search)
 > 
 > - [PowerLevel10k](https://github.com/romkatv/powerlevel10k) 
-
-#### Tools
-
-- [Zplug](https://github.com/zplug/zplug) Plaugin Manager
-
-- [PowerLevel10k](https://github.com/romkatv/powerlevel10k) A Zsh Theme
 
 - [Alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator
 
