@@ -35,23 +35,9 @@ installer ()
 
   # Installing Packages
   echo "Installing Packages\n"
-  yay -S nitch alacritty atuin httpie atuin zoxide exa bat --noconfirm --needed
+  yay -S nitch alacritty atuin ttf-hack-nerd httpie atuin zoxide exa bat --noconfirm --needed
   clear
   
-  # Checking if the font directory exist
-  if [ -e ~/.local/share/fonts/ ]; then
-    cp -r ./MesloLGS/* ~/.local/share/fonts/
-    fc-cache -vf
-    clear
-  else
-    echo "Fonts directory don't exist"
-    echo "Creating fonts directory in ~/.local/share/fonts\n"
-    mkdir ~/.local/share/fonts
-    cp -r ./MesloLGS/* ~/.local/share/fonts/
-    fc-cache -vf
-    clear
-  fi
-
   # Neovim/LunarVim
   if command -c nvim &> /dev/null; then
     nvimInstaller 
