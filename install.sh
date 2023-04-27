@@ -97,7 +97,6 @@ installer ()
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
   echo "\nInstalling plugins\n"
   exec zsh
-  echo "Note: if the powerlevel10k doesn't activate when reopen the terminal try running manually: p10k\n"
   zplug inatall
 }
 
