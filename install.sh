@@ -126,8 +126,9 @@ else
       fi
     ;;
     *) 
-      sudo pacman -S yay
-      installer
+      echo "Yay is not installed!"
+      echo "Existing"
+      exit
     ;;
   esac
 fi
