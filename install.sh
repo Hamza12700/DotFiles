@@ -39,7 +39,7 @@ installer ()
   clear
   
   # Neovim/LunarVim
-  if command -c nvim &> /dev/null; then
+  if command -v nvim &> /dev/null; then
     nvimInstaller 
   else
     echo "Neovim is not installed!"
