@@ -31,6 +31,9 @@ alias ip='ip --color=auto'
 alias spi='sudo pacman -S'
 alias yi='yay -S'
 alias gst='git status'
+alias rm='trash'
+alias reload='source ~/.zshrc'
+alias gg='lazygit'
 
 # Useful function
 take() {
