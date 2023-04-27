@@ -35,7 +35,7 @@ installer ()
 
   # Installing Packages
   echo "Installing Packages\n"
-  yay -S nitch alacritty atuin ttf-hack-nerd httpie atuin zoxide exa bat starship --noconfirm --needed
+  yay -S nitch alacritty atuin ttf-hack-nerd ttf-meslo-nerd httpie atuin zoxide exa bat starship --noconfirm --needed
   clear
   
   # Neovim/LunarVim
