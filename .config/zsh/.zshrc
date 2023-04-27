@@ -32,6 +32,12 @@ alias spi='sudo pacman -S'
 alias yi='yay -S'
 alias gst='git status'
 
+# Useful function
+take() {
+  mkdir -p $1
+  cd $1
+}
+
 # LunarVim
 export PATH=/home/hamza/.local/bin:$PATH
 
