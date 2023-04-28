@@ -35,7 +35,7 @@ installer ()
 
   # Installing Packages
   echo "Installing Packages\n"
-  yay -S nitch lxappearance papirus-icon-theme thunar ranger alacritty lazygit atuin ttf-hack-nerd trash-cli ttf-meslo-nerd httpie atuin zoxide exa bat starship --noconfirm --needed
+  yay -S nitch lxappearance git papirus-icon-theme thunar ranger alacritty lazygit atuin ttf-hack-nerd trash-cli ttf-meslo-nerd httpie atuin zoxide exa bat starship --noconfirm --needed
   clear
   
   # Neovim/LunarVim
@@ -108,22 +108,11 @@ else
   read -p "Do you want to build yay from source? [y/N] " yn
   case "$yn" in
     y* ) 
-      if which git >/dev/null; then
-        git clone https://aur.archlinux.org/yay.git
-        pushd yay/
-        makepkg -si --noconfirm
-        popd
-        installer
-      else
-        echo "git not found!"
-        echo "Installing git\n"
-        sudo pacman -S git
-        git clone https://aur.archlinux.org/yay.git
-        pushd yay/
-        makepkg -si --noconfirm
-        popd
-        installer
-      fi
+      git clone https://aur.archlinux.org/yay.git
+      pushd yay/
+      makepkg -si --noconfirm
+      popd
+      installer
     ;;
     *) 
       echo "Yay is not installed!"
