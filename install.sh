@@ -35,7 +35,7 @@ installer ()
 
   # Installing Packages
   echo "Installing Packages\n"
-  yay -S nitch lxappearance git papirus-icon-theme thunar alsa-utils alsa-firmware pipewire-audio pipewire-alsa pipewire-pulse bluez xclip feh nitrogen ranger alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli ttf-meslo-nerd httpie atuin zoxide exa bat starship nodejs unzip --noconfirm --needed
+  yay -S nitch lxappearance arc-gtk-theme git papirus-icon-theme thunar alsa-utils alsa-firmware pipewire-audio pipewire-alsa pipewire-pulse bluez xclip feh nitrogen ranger alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli ttf-meslo-nerd httpie atuin zoxide exa bat starship nodejs unzip --noconfirm --needed
   clear
   
   # Neovim/LunarVim
