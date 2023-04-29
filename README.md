@@ -2,7 +2,7 @@
 
 #### My dot files
 
-Theses are some the list of tools that I use daily! 
+Theses are the list of tools that I use daily! 
 
 #### Tools
 
