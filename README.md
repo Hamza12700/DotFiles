@@ -46,8 +46,8 @@ Theses are some the list of tools that I use daily!
   
 - Terminal
 
-![screenshot](/home/hamza/GitHub/DotFiles/screenshots/screenshot.png)
+![screenshot](./screenshots/screenshot.png)
 
 - LunarVim | Btop
 
-![screenshot](/home/hamza/GitHub/DotFiles/screenshots/screenshot2.png)
+![screenshot](./screenshots/screenshot2.png)
