@@ -38,4 +38,8 @@ Theses are some the list of tools that I use daily!
 
 - [EXA](https://github.com/ogham/exa) A modern replacement for `ls`
 
+- [Rofi](https://github.com/davatorium/rofi) App Launcher
+
+- [LunarVIm](https://lunarvim.org) NeoVim IDE
+
 ![Screen Shot](./screenshot.png)
