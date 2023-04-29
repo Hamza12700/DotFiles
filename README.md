@@ -41,6 +41,8 @@ Theses are the list of tools that I use daily!
 - [Rofi](https://github.com/davatorium/rofi) App Launcher
 
 - [LunarVIm](https://lunarvim.org) NeoVim IDE
+
+- [Nitch](https://github.com/unxsh/nitch) Incredibly fast system fetch written in nim
   
 ### ScreenShots
   
