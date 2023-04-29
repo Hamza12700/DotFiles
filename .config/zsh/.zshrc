@@ -33,7 +33,7 @@ alias yi='yay -S'
 alias gst='git status'
 alias rm='trash'
 alias reload='source ~/.zshrc'
-alias gg='lazygit'
+alias lg='lazygit'
 
 # Useful function
 take() {
