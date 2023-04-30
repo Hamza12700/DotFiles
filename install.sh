@@ -23,6 +23,17 @@ nvimInstaller () {
   fi
 }
 
+# Rofi Installer
+rofiInstaller() {
+  echo "Cloning rofi themes\n"
+  git clone https://github.com/lr-tech/rofi-themes-collection.git
+  mkdir -p ~/.local/share/rofi/themes/
+  cp -r ./rofi-themes-collection/themes/* ~/.local/share/rofi/themes
+  echo "\nYou can choose the rofi theme by running: rofi -show run, and then type rofi-theme-selector"
+  echo "Then choose what theme you like!"
+  cp ./config/rofi/config.rasi ~/.config/rofi/
+}
+
 installer ()
 {
   echo "---"
@@ -35,7 +46,7 @@ installer ()
 
   # Installing Packages
   echo "Installing Packages\n"
-  yay -S nitch lxappearance arc-gtk-theme git papirus-icon-theme thunar alsa-utils alsa-firmware pipewire-audio pipewire-alsa pipewire-pulse bluez xclip feh nitrogen ranger alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli ttf-meslo-nerd httpie atuin zoxide exa bat starship nodejs unzip --noconfirm --needed
+  yay -S nitch lxappearance arc-gtk-theme git papirus-icon-theme thunar alsa-utils alsa-firmware pipewire-audio pipewire-alsa pipewire-pulse bluez xclip feh nitrogen ranger alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli ttf-meslo-nerd httpie atuin zoxide exa bat starship nodejs rofi unzip --noconfirm --needed
   clear
   
   # Neovim/LunarVim
@@ -90,6 +101,18 @@ installer ()
   else
     mv ~/.zshrc ~/.zshrc.bak
     cp ./.config/zsh/.zshrc ~/
+  fi
+
+  # Rofi Installation
+  echo "Coping rofi config\n"
+  if [ -e ~/.config/rofi/config.rasi ]; then
+    echo "Rofi config found"
+    echo "Moving config.rasi to config.rasi.bak"
+    mv ~/.config/rofi/config.rasi ~/.config/rofi/config.rasi.bak
+    rofiInstaller
+  else
+    mkdir -p ~/.config/rofi
+    rofiInstaller
   fi
 
   # Installing Zplug
