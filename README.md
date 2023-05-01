@@ -2,24 +2,24 @@
 
 #### My dot files
 
-Theses are the list of tools that I use daily! 
+Theses are the list of tools that I use daily!
 
 #### Tools
 
 - [Zplug](https://github.com/zplug/zplug) Zsh Plugins Manager
-  
+
   > **Plugins**:
-  > 
+  >
   > - [Zsh-Autosuggestion](https://github.com/zsh-users/zsh-autosuggestions)
-  > 
+  >
   > - [Zplug-cd](https://github.com/b4b4r07/zplug-cd)
-  > 
+  >
   > - [Zplug-rm](https://github.com/b4b4r07/zplug-rm)
-  > 
+  >
   > - [Zsh-Syntax-Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-  > 
+  >
   > - [Zsh-Completions](https://github.com/zsh-users/zsh-completions)
-  > 
+  >
   > - [Zsh-History-Substring-Search](https://github.com/zsh-users/zsh-history-substring-search)
 
 - [Alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator
@@ -43,13 +43,13 @@ Theses are the list of tools that I use daily!
 - [LunarVIm](https://lunarvim.org) NeoVim IDE
 
 - [Nitch](https://github.com/unxsh/nitch) Incredibly fast system fetch written in nim
-  
+
 ### ScreenShots
-  
-- Terminal
 
-![screenshot](./screenshots/screenshot.png)
+- Btop | Google
 
-- LunarVim | Btop
+![screenshot](./screenshots/btop-google.png)
 
-![screenshot](./screenshots/screenshot2.png)
+- LunarVim
+
+![screenshot](./screenshots/lunarvim.png)
