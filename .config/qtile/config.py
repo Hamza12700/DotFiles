@@ -90,7 +90,7 @@ keys = [
     ),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "e", lazy.spawn("thunar"), desc="file manager"),
-    Key([mod], "h", lazy.spawn("roficlip"), desc="clipboard"),
+    Key([mod], "h", lazy.spawn("copyq show"), desc="clipboard"),
     Key([mod], "w", lazy.spawn("firefox"), desc="FireFox"),
     Key(
         [mod],
