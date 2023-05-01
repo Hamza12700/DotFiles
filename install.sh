@@ -46,7 +46,7 @@ installer ()
 
   # Installing Packages
   printf "Installing Packages\n"
-  yay -S nitch unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet networkmanager-dmenu-git nm-connection-editor npm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter ttf-droid ttf-hack ttf-hack-nerd ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono zsh lxappearance arc-gtk-theme git papirus-icon-theme thunar alsa-utils alsa-firmware pipewire-audio pipewire-alsa pipewire-pulse bluez xclip feh nitrogen ranger alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli ttf-meslo-nerd httpie atuin zoxide exa bat starship nodejs rofi unzip --noconfirm --needed
+  yay -S nitch unclutter ksnip brightnessctl btop dunst fd fzf github-cli network-manager-applet networkmanager-dmenu-git nm-connection-editor npm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter ttf-droid ttf-hack ttf-hack-nerd ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono zsh lxappearance arc-gtk-theme git papirus-icon-theme thunar alsa-utils alsa-firmware pipewire-audio pipewire-alsa pipewire-pulse bluez xclip feh nitrogen ranger alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli ttf-meslo-nerd httpie atuin zoxide exa bat starship nodejs rofi unzip --noconfirm --needed
   clear
   
   # Neovim/LunarVim
