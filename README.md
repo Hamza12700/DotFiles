@@ -28,8 +28,6 @@ Theses are the list of tools that I use daily!
 
 - [Atuin](https://github.com/ellie/atuin) Magical shell history
 
-- [LunarVim](https://github.com/LunarVim/LunarVim) LunarVim is an IDE layer for Neovim
-
 - [Pnpm](https://pnpm.io/) Fast, disk space efficient package manager
 
 - [Zoxide](https://github.com/ajeetdsouza/zoxide) A smarter cd command. Supports all major shells
