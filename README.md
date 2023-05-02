@@ -46,11 +46,11 @@ Theses are the list of tools that I use daily!
 
 - Btop
 
-![screenshot](/home/hamza/GitHub/DotFiles/screenshots/btop.png)
+![screenshot](./screenshots/btop.png)
 
 - Desktop
 
-![screenshot](/home/hamza/GitHub/DotFiles/screenshots/desktop.png)
+![screenshot](./screenshots/desktop.png)
 
 ### Installation
 
