@@ -14,6 +14,10 @@ zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
+# You need this if you're using vscode to authentic
+# See https://code.visualstudio.com/docs/editor/settings-sync#_linux
+export $(dbus-launch)
+
 # History configurations
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -31,6 +35,8 @@ alias ip='ip --color=auto'
 alias spi='sudo pacman -S'
 alias yi='yay -S'
 alias gst='git status'
+alias gpl='git pull'
+alias gph='git push'
 alias rm='trash'
 alias reload='source ~/.zshrc'
 alias lg='lazygit'
