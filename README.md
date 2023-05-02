@@ -58,14 +58,16 @@ Theses are the list of tools that I use daily!
 
 ```bash
 yay -S nitch copyq unclutter ksnip brightnessctl btop dunst fd fzf github-cli network-manager-applet networkmanager-dmenu-git nm-connection-editor \
-  npm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter ttf-droid ttf-hack ttf-hack-nerd ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols \
-  ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono zsh lxappearance arc-gtk-theme git papirus-icon-theme thunar alsa-utils alsa-firmware pipewire-audio pipewire-alsa \
+  npm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter ttf-droid ttf-hack ttf-hack-nerd ttf-jetbrains-mono \
+  ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono zsh lxappearance arc-gtk-theme git \
+  papirus-icon-theme thunar alsa-utils alsa-firmware pipewire-audio pipewire-alsa \
   pipewire-pulse bluez xclip feh nitrogen ranger alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli \
-  ttf-meslo-nerd httpie atuin zoxide exa bat starship nodejs rofi unzip alsamixer neovim-nightly pavucontrol base-devel pipewire-jack python-psutil --noconfirm --needed
+  ttf-meslo-nerd httpie atuin zoxide exa bat starship nodejs rofi unzip alsamixer \
+  neovim-nightly pavucontrol base-devel pipewire-jack python-psutil --noconfirm --needed
 ```
 
 - [LunarVim](https://www.lunarvim.org/docs/installation) - Latest Version
 
-- [Pnpm](https://pnpm.io/)
+- [Pnpm](https://pnpm.io/) - Optional
 
 - [Zplug](https://github.com/zplug/zplug#installation)
