@@ -1,25 +1,25 @@
 # DotFiles
 
-#### My dot files
+### My dot files
 
 Theses are the list of tools that I use daily!
 
-#### Tools
+### Tools
 
 - [Zplug](https://github.com/zplug/zplug) Zsh Plugins Manager
-
+  
   > **Plugins**:
-  >
+  > 
   > - [Zsh-Autosuggestion](https://github.com/zsh-users/zsh-autosuggestions)
-  >
+  > 
   > - [Zplug-cd](https://github.com/b4b4r07/zplug-cd)
-  >
+  > 
   > - [Zplug-rm](https://github.com/b4b4r07/zplug-rm)
-  >
+  > 
   > - [Zsh-Syntax-Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-  >
+  > 
   > - [Zsh-Completions](https://github.com/zsh-users/zsh-completions)
-  >
+  > 
   > - [Zsh-History-Substring-Search](https://github.com/zsh-users/zsh-history-substring-search)
 
 - [Alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator
@@ -44,10 +44,28 @@ Theses are the list of tools that I use daily!
 
 ### ScreenShots
 
-- Btop | Google
+- Btop
 
-![screenshot](./screenshots/btop-google.png)
+![screenshot](/home/hamza/GitHub/DotFiles/screenshots/btop.png)
 
-- LunarVim
+- Desktop
 
-![screenshot](./screenshots/lunarvim.png)
+![screenshot](/home/hamza/GitHub/DotFiles/screenshots/desktop.png)
+
+### Installation
+
+**Dependencies**
+
+```bash
+yay -S nitch copyq unclutter ksnip brightnessctl btop dunst fd fzf github-cli network-manager-applet networkmanager-dmenu-git nm-connection-editor \
+  npm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter ttf-droid ttf-hack ttf-hack-nerd ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols \
+  ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono zsh lxappearance arc-gtk-theme git papirus-icon-theme thunar alsa-utils alsa-firmware pipewire-audio pipewire-alsa \
+  pipewire-pulse bluez xclip feh nitrogen ranger alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli \
+  ttf-meslo-nerd httpie atuin zoxide exa bat starship nodejs rofi unzip alsamixer neovim-nightly pavucontrol base-devel pipewire-jack python-psutil --noconfirm --needed
+```
+
+- [LunarVim](https://www.lunarvim.org/docs/installation) - Latest Version
+
+- [Pnpm](https://pnpm.io/)
+
+- [Zplug](https://github.com/zplug/zplug#installation)
