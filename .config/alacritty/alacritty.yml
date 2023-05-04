@@ -484,8 +484,8 @@ font:
 # Key bindings
 
 key_bindings:
-  - { key: V, mods: Control, action: Paste }
-  - { key: C, mods: Alt, action: Copy }
+  - { key: V, mods: Shift, action: Paste }
+  - { key: C, mods: Shift, action: Copy }
 
 # Key bindings are specified as a list of objects. For example, this is the
 # default paste binding:
