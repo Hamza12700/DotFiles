@@ -231,7 +231,7 @@ screens = [
                     background="#343F44",
                 ),
                 widget.Volume(
-                    font="JetBrains Mono",
+                    font="JetBrains Mono Bold",
                     fontsize=13,
                     background="#343F44",
                     foreground="#86918A",
