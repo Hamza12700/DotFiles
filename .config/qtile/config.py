@@ -35,11 +35,11 @@ keys = [
         desc="Move window up"),
     Key([mod, "shift"], "h", lazy.layout.grow_left(),
         desc="Grow window to the left"),
+    Key([mod, "shift"], "l", lazy.layout.grow_right(),
+        desc="Grow window to the right"),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "shift"], "l", lazy.layout.grow_right(),
-        desc="Grow window to the right"),
     Key([mod, "shift"], "j", lazy.layout.grow_down(),
         desc="Grow window down"),
     Key([mod, "shift"], "k", lazy.layout.grow_up(),
@@ -61,16 +61,6 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-
-    # WIP
-    # Key([mod], "p", lazy.spawn(
-    #     "sh -c ~/.config/rofi/scripts/power"), desc="powermenu"),
-    # Key(
-    #     [mod],
-    #     "t",
-    #     lazy.spawn("sh -c ~/.config/rofi/scripts/themes"),
-    #     desc="theme_switcher",
-    # ),
 
     # C U S T O M
     Key(
@@ -122,6 +112,7 @@ for i in groups:
     )
 
 
+# http://docs.qtile.org/en/stable/manual/ref/layouts.html
 layouts = [
     layout.MonadTall(
         border_focus="#1F1D2E",
@@ -229,7 +220,7 @@ screens = [
                     background="#343F44",
                 ),
                 widget.Volume(
-                    font="JetBrains Mono Bold",
+                    font="JetBrains Mono",
                     fontsize=13,
                     theme_path="~/.config/qtile/Assets/Volume/",
                     emoji=True,
@@ -240,7 +231,7 @@ screens = [
                     background="#343F44",
                 ),
                 widget.Volume(
-                    font="JetBrains Mono Bold",
+                    font="JetBrains Mono",
                     fontsize=13,
                     background="#343F44",
                     foreground="#86918A",
