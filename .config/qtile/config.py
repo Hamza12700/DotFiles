@@ -86,7 +86,7 @@ keys = [
         desc="volume down",
     ),
     Key(
-        [], "XF86AudioMute", lazy.spawn("pulsemixer --toggle-mute"), desc="Volume Mute"
+        [], "XF86AudioMute", lazy.spawn("amixer set Master toggle"), desc="Volume Mute"
     ),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "e", lazy.spawn("thunar"), desc="file manager"),
