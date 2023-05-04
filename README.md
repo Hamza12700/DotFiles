@@ -67,7 +67,7 @@ yay -S nitch copyq unclutter ksnip brightnessctl btop dunst fd fzf github-cli ne
 
 **AMD Drivers**
 ```bash
-yay -S mesa xf86-video-amdgpu xf86-video-ati mesa-vdpau libva-vdpau-driver libvdpau-va-gl libva-mesa-driver vulkan-radeon --noconfirm --needed
+yay -S mesa amd-ucode xf86-video-amdgpu xf86-video-ati mesa-vdpau libva-vdpau-driver libvdpau-va-gl libva-mesa-driver vulkan-radeon --noconfirm --needed
 ```
 
 **Audio Packages**
