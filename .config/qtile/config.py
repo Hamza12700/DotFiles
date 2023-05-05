@@ -63,21 +63,6 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # C U S T O M
-    Key(
-        [],
-        "XF86AudioRaiseVolume",
-        lazy.spawn("pactl set-sink-volume 0 +5%"),
-        desc="Volume Up",
-    ),
-    Key(
-        [],
-        "XF86AudioLowerVolume",
-        lazy.spawn("pactl set-sink-volume 0 -5%"),
-        desc="volume down",
-    ),
-    Key(
-        [], "XF86AudioMute", lazy.spawn("amixer set Master toggle"), desc="Volume Mute"
-    ),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "e", lazy.spawn("thunar"), desc="file manager"),
     Key([mod], "h", lazy.spawn("copyq show"), desc="clipboard"),
@@ -111,8 +96,7 @@ for i in groups:
         ]
     )
 
-
-# http://docs.qtile.org/en/stable/manual/ref/layouts.html
+# https://docs.qtile.org/en/latest/manual/ref/layouts.html
 layouts = [
     layout.MonadTall(
         border_focus="#1F1D2E",
@@ -215,27 +199,6 @@ screens = [
                     fontsize=13,
                     update_interval=5,
                 ),
-                widget.Spacer(
-                    length=8,
-                    background="#343F44",
-                ),
-                widget.Volume(
-                    font="JetBrains Mono",
-                    fontsize=13,
-                    theme_path="~/.config/qtile/Assets/Volume/",
-                    emoji=True,
-                    background="#343F44",
-                ),
-                widget.Spacer(
-                    length=-5,
-                    background="#343F44",
-                ),
-                widget.Volume(
-                    font="JetBrains Mono Bold",
-                    fontsize=13,
-                    background="#343F44",
-                    foreground="#86918A",
-                ),
                 widget.Image(
                     filename="~/.config/qtile/Assets/5.png",
                     background="#343F44",
@@ -304,7 +267,7 @@ floating_layout = layout.Floating(
 )
 
 
-# stuff
+# AutoStart
 @hook.subscribe.startup_once
 def autostart():
     subprocess.call([os.path.expanduser("~/.config/qtile/autostart.sh")])
