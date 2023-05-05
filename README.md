@@ -52,6 +52,8 @@ Theses are the list of tools that I use daily!
 
 ![screenshot](./screenshots/desktop.png)
 
+![screenshot](./screenshots/music.png)
+
 ### Installation
 
 **Dependencies**
