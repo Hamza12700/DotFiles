@@ -32,14 +32,12 @@ alias ll='exa -la --icons --group-directories-first'
 alias ls='exa -la --icons --group-directories-first'
 alias cat='bat'
 alias ip='ip --color=auto'
-alias spi='sudo pacman -S'
-alias yi='yay -S'
 alias gst='git status'
 alias gpl='git pull'
 alias gph='git push'
 alias rm='trash'
 alias reload='source ~/.zshrc'
-alias lg='lazygit'
+alias gg='lazygit'
 
 # Useful function
 take() {
