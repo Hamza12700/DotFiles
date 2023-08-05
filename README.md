@@ -38,8 +38,6 @@ My Hyprland dotfiles.
 
 ## Installation
 
-### Dependencies
-
 #### Base Packages
 
 ```bash
