@@ -38,7 +38,15 @@ My Hyprland dotfiles.
 
 ## Installation
 
-#### Base Packages
+To install all the required and optional packages you can run the [Installation Script](https://github.com/Hamza12700/DotFiles/blob/main/installer/install.sh)
+
+> [!IMPORTANT] You'll need to download [Gum](https://github.com/charmbracelet/gum). Gum is a tool for glamorous shell scripts.
+> To install `gum` simply run `sudo pacman -S gum`
+
+
+## Manual Installation
+
+For manual installation you can install the following packages.
 
 ```bash
 yay -Syu neofetch jq wl-paste hyprpicker swaylock-effects waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
@@ -49,13 +57,13 @@ yay -Syu neofetch jq wl-paste hyprpicker swaylock-effects waybar xdg-desktop-por
   neovim-nightly polkit-kde-agent base-devel --noconfirm --needed
 ```
 
-#### AMD Drivers
+### AMD Drivers
 
 ```bash
 yay -S mesa amd-ucode xf86-video-amdgpu xf86-video-ati mesa-vdpau libva-vdpau-driver libvdpau-va-gl libva-mesa-driver vulkan-radeon --noconfirm --needed
 ```
 
-#### Audio Packages
+### Audio Packages
 
 ```bash
 yay -S pavucontrol pipewire pipewire-pulse gst-plugin-pipewire pipewire-jack libpulse pulseaudio pipewire-alsa alsa-utils \
