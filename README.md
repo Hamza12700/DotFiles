@@ -40,7 +40,8 @@ My Hyprland dotfiles.
 
 To install all the required and optional packages you can run the [Installation Script](https://github.com/Hamza12700/DotFiles/blob/main/installer/install.sh)
 
-> [!IMPORTANT] You'll need to download [Gum](https://github.com/charmbracelet/gum). Gum is a tool for glamorous shell scripts.
+> [!IMPORTANT]
+> You'll need to download [Gum](https://github.com/charmbracelet/gum). Gum is a tool for glamorous shell scripts.
 > To install `gum` simply run `sudo pacman -S gum`
 
 
