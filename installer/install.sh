@@ -75,3 +75,32 @@ else
   sleep 1
   clear
 fi
+
+# Installing Packages
+
+requiredPackages() {
+  gum style --foreground=$greenColor --margin "1 2" "Installing Packages"
+  yay -Syu neofetch jq wl-paste hyprpicker swaylock-effects waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
+  networkmanager-dmenu-git nm-connection-editor npm pnpm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter \
+  ttf-droid ttf-hack ttf-hack-nerd ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
+  ttf-nerd-fonts-symbols-mono zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
+  alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli httpie zoxide exa bat starship nodejs rofi unzip \
+  neovim-nightly polkit-kde-agent base-devel tldr --noconfirm --needed
+  
+  gum style --foreground=$greenColor --margin "1 2" "All required packages are now installed"
+  sleep 2
+  clear
+}
+
+if ! command -v yay &> /dev/null; then
+  gum style --foreground 215 --margin "1 2" "Yay is not installed. Attempting to install..."
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si
+  cd ..
+  rm -rf yay
+
+  requiredPackages
+else
+  requiredPackages
+fi
