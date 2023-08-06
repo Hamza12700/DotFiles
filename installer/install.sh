@@ -25,3 +25,9 @@ else
   exec zsh
   zshInstaller
 fi
+
+# Installing Rofi-Themes
+gum style --foreground=$greenColor --margin "1 2" "Installing Rofi-Themes"
+gum spin --spinner line --title "Cloning Rofi-Themes" -- git clone https://github.com/lr-tech/rofi-themes-collection.git 
+mkdir -p ~/.local/share/rofi/themes/
+mv rofi-themes-collection/themes/* ~/.local/share/rofi/themes/
