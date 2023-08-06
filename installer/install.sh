@@ -104,3 +104,14 @@ if ! command -v yay &> /dev/null; then
 else
   requiredPackages
 fi
+
+# AMD Drivers Installation
+
+amdDriversInstall() {
+  gum style --foreground=$greenColor --margin "1 2" "Installing AMD Drivers"
+  yay -S mesa amd-ucode xf86-video-amdgpu xf86-video-ati mesa-vdpau libva-vdpau-driver libvdpau-va-gl libva-mesa-driver vulkan-radeon --noconfirm --needed
+  sleep 1
+  clear
+}
+
+gum confirm "Would you like to install AMD Drivers?" && amdDriversInstall || gum style --foreground 215 --margin "1 2" "Not installing AMD Drivers"; sleep 2 && clear
