@@ -149,4 +149,4 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "/home/hamza/.local/share/rofi/themes/nord.rasi"
+@theme "/home/hamza/.local/share/rofi/themes/rounded-nord-dark.rasi"
