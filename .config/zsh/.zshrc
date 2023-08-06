@@ -57,8 +57,9 @@ esac
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
 # Atuin
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 # Zplug
 source $HOME/.zplug/init.zsh
