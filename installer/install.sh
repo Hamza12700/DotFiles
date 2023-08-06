@@ -48,3 +48,30 @@ gum spin --spinner line --title "Cloning Rofi-Themes" -- git clone https://githu
 mkdir -p ~/.local/share/rofi/themes/
 mv rofi-themes-collection/themes/* ~/.local/share/rofi/themes/
 rm -rf rofi-themes-collection
+
+# Link rofi config
+rofiLink() {
+  config_file="$HOME/.config/rofi/config.rasi"
+  theme_line='@theme "/home/hamza/.local/share/rofi/themes/rounded-nord-dark.rasi"'
+
+  if grep -qF "$theme_line" "$config_file"; then
+    sed -i "s|@theme \".*\"|$theme_line|" "$config_file"
+  else
+    echo "$theme_line" >> "$config_file"
+  fi
+  gum style --foreground=$greenColor --margin "1 2" "Done!"
+  sleep 1
+  clear
+}
+
+if [ -f "$HOME/.config/rofi/config.rasi" ]; then
+  gum style --foreground 215 --margin "1 2" "Rofi config found!"
+  gum confirm "Do you want to add the rounded-nord-dark theme for roif?" && rofiLink || gum style --foreground 215 --margin "1 2" "Didn't add the theme for rofi!"
+else
+  gum style --foreground 215 --margin "1 2" "Rofi config doesn't exist!" 
+  mkdir -p $HOME/.config/rofi
+  ln -s ../.config/rofi/config.rasi ~/.config/rofi/config.rasi
+  gum style --foreground=$greenColor --margin "1 2" "Done!"
+  sleep 1
+  clear
+fi
