@@ -49,6 +49,8 @@ To install all the required and optional packages you can run the [Installation 
 
 For manual installation you can install the following packages.
 
+### Packages
+
 ```bash
 yay -Syu neofetch jq wl-paste hyprpicker swaylock-effects waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
   networkmanager-dmenu-git nm-connection-editor npm pnpm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter \
