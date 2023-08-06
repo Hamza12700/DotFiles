@@ -26,6 +26,22 @@ else
   zshInstaller
 fi
 
+# linking .zshrc
+
+linkZsh() {
+  ln -s ../.config/zsh/.zshrc ~/.zshrc
+  gum style --foreground=$greenColor --margin "1 2" "Linked the new zshrc config to ~/.zshrc"
+  sleep 2
+  clear
+}
+
+if [ -f "$HOME/.zshrc" ]; then
+  gum style --foreground 215 --margin "1 2" --bold ".zshrc file exists" 
+  gum confirm "Do you want to delete the existing zshrc and link the new zshrc config?" && rm ~/.zshrc && linkZsh || gum style --foreground=$redColor --margin "1 2" "Didn't link the new zshrc config!"
+else
+  linkZsh 
+fi
+
 # Installing Rofi-Themes
 gum style --foreground=$greenColor --margin "1 2" "Installing Rofi-Themes"
 gum spin --spinner line --title "Cloning Rofi-Themes" -- git clone https://github.com/lr-tech/rofi-themes-collection.git 
