@@ -1,0 +1,73 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["wlr/workspaces", "hyprland/window"],
+    "modules-center": [],
+    "modules-right": ["pulseaudio", "custom/updates", "network", "cpu", "memory", "clock", "tray"],
+
+    "wlr/workspaces": {
+     "format": "{name}",
+     "on-scroll-up": "hyprctl dispatch workspace e+1",
+     "on-scroll-down": "hyprctl dispatch workspace e-1",
+     "on-click": "activate"
+    },
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{: %R   %d/%m}",
+    },
+    "cpu": {
+        "on-click": "alacritty -e btop",
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "on-click": "alacritty -e btop",
+        "format": "{}% "
+    },
+
+    "custom/updates": {
+        "exec": "(checkupdates ; yay -Qua) | wc -l",
+        "interval": 12000,
+        "format": "󰇚 {}",
+        "on-click": "alacritty -e yay -Syu --noconfirm --devel",
+        "tooltip": false
+    },
+    
+    "network": {
+        "format-wifi": "{essid} " ,
+        "format-ethernet": "{essid} " ,
+        "tooltip-format": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": [
+            "",
+            "",
+            "󰕾",
+            ""
+          ]
+        },
+        "on-click": "pavucontrol"
+    },
+}
+
