@@ -2,6 +2,8 @@
 
 My Hyprland dotfiles.
 
+![HomeScreen](./screenshots/home-screenshot.png)
+
 ## Tools
 
 - [Zplug](https://github.com/zplug/zplug) Zsh Plugins Manager | **Required**
