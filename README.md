@@ -12,8 +12,6 @@ My Hyprland dotfiles.
 
 - [Rofi](https://github.com/davatorium/rofi) App Launcher
 
-- [Rofi Themes](https://github.com/newmanls/rofi-themes-collection#installing-themes)
-
 - [Alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator
 
 - [Atuin](https://github.com/ellie/atuin) Magical shell history
@@ -46,13 +44,13 @@ yay -Syu neofetch jq wl-paste hyprpicker swaylock-effects waybar xdg-desktop-por
   neovim-nightly polkit-kde-agent base-devel --noconfirm --needed
 ```
 
-### AMD Drivers
+### AMD Drivers | Optional
 
 ```bash
 yay -S mesa amd-ucode xf86-video-amdgpu xf86-video-ati mesa-vdpau libva-vdpau-driver libvdpau-va-gl libva-mesa-driver vulkan-radeon --noconfirm --needed
 ```
 
-### Audio Packages
+### Audio Packages | Optional
 
 ```bash
 yay -S pavucontrol pipewire pipewire-pulse gst-plugin-pipewire pipewire-jack libpulse pulseaudio pipewire-alsa alsa-utils \
