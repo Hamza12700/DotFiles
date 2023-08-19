@@ -38,7 +38,7 @@
         "exec": "(checkupdates ; yay -Qua) | wc -l",
         "interval": 12000,
         "format": "󰇚 {}",
-        "on-click": "alacritty -e yay -Syu --noconfirm --devel",
+        "on-click": "alacritty -e yay -Syu --noconfirm",
         "tooltip": false
     },
     
