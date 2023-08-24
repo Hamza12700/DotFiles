@@ -22,7 +22,7 @@ if ps -p $$ -ocomm= | grep -q "zsh"; then
   zshInstaller 
 else
   gum style --foreground=$redColor --margin "Not using zsh"
-  exec zsh
+  zsh
   zshInstaller
 fi
 
