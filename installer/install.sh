@@ -48,6 +48,7 @@ gum spin --spinner line --title "Cloning Rofi-Themes" -- git clone https://githu
 mkdir -p ~/.local/share/rofi/themes/
 mv rofi-themes-collection/themes/* ~/.local/share/rofi/themes/
 rm -rf rofi-themes-collection
+clear
 
 # Link rofi config
 rofiLink() {
