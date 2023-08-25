@@ -37,7 +37,7 @@ linkZsh() {
 
 if [ -f "$HOME/.zshrc" ]; then
   gum style --foreground 215 --margin "1 2" --bold ".zshrc file exists" 
-  gum confirm "Do you want to delete the existing zshrc and link the new zshrc config?" && rm ~/.zshrc && linkZsh || gum style --foreground=$redColor --margin "1 2" "Didn't link the new zshrc config!"
+  gum confirm "Do you want to delete the existing zshrc and link the new zshrc config?" && rm ~/.zshrc; linkZsh || gum style --foreground=$redColor --margin "1 2" "Didn't link the new zshrc config!"
 else
   linkZsh 
 fi
@@ -70,7 +70,7 @@ if [ -f "$HOME/.config/rofi/config.rasi" ]; then
   gum confirm "Do you want to add the rounded-nord-dark theme for roif?" && rofiLink || gum style --foreground 215 --margin "1 2" "Didn't add the theme for rofi!"
 else
   gum style --foreground 215 --margin "1 2" "Rofi config doesn't exist!" 
-  mkdir -p $HOME/.config/rofi
+  mkdir -p "$HOME/.config/rofi"
   ln -s ../.config/rofi/config.rasi ~/.config/rofi/config.rasi
   gum style --foreground=$greenColor --margin "1 2" "Done!"
   sleep 1
@@ -96,9 +96,10 @@ requiredPackages() {
 if ! command -v yay &> /dev/null; then
   gum style --foreground 215 --margin "1 2" "Yay is not installed. Attempting to install..."
   git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg -si
-  cd ..
+  (
+    cd yay || exit
+    makepkg -si
+  )
   rm -rf yay
 
   requiredPackages
@@ -115,4 +116,4 @@ amdDriversInstall() {
   clear
 }
 
-gum confirm "Would you like to install AMD Drivers?" && amdDriversInstall || gum style --foreground 215 --margin "1 2" "Not installing AMD Drivers"; sleep 2 && clear
+gum confirm "Would you like to install AMD Drivers?" && amdDriversInstall || gum style --foreground 215 --margin "1 2" "Not installing AMD Drivers"
