@@ -2,7 +2,7 @@
 
 My Hyprland dotfiles.
 
-![HomeScreen](./screenshots/home-screenshot.png)
+![HomeScreen](./screenshots/screenshot.png)
 
 ## Tools
 
