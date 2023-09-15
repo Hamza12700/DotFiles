@@ -28,8 +28,8 @@ setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 
 # Aliases
-alias ll='exa -la --icons --group-directories-first'
-alias ls='exa -la --icons --group-directories-first'
+alias ll='eza -la --icons --group-directories-first'
+alias ls='eza -la --icons --group-directories-first'
 alias cat='bat'
 alias ip='ip --color=auto'
 alias gst='git status'
