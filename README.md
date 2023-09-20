@@ -18,7 +18,7 @@ My Hyprland dotfiles.
 
 - [Zoxide](https://github.com/ajeetdsouza/zoxide) A smarter cd command. Supports all major shells
 
-- [EXA](https://github.com/ogham/exa) A modern replacement for `ls`
+- [EZA](https://github.com/eza-community/eza) A modern replacement for `ls`
 
 ## Installation
 
