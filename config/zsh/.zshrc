@@ -6,6 +6,7 @@ setopt autocd
 bindkey '^[[1;5C' forward-word                    # ctrl + ->
 bindkey '^[[1;5D' backward-word                   # ctrl + <-
 bindkey '^ ' autosuggest-accept
+bindkey -s '^Z' 'zi\n'
 
 # Completions
 autoload -Uz compinit
