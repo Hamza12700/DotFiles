@@ -81,8 +81,7 @@ fi
 
 linkHypr() {
   ln -s ../config/hypr ~/.config/hypr
-  gum style --foreground=$greenColor --margin "1 2" "Linked the new hyprland config to ~/.config/hypr"
-  sleep 2
+  gum style --foreground=$greenColor --margin "1 2" "Linked the new hyprland config to ~/.config/hypr" sleep 2
   clear
 }
 
@@ -91,6 +90,21 @@ if [ -f "$HOME/.config/hypr/" ]; then
 	gum confirm "Do you want to delete the existing hyprland-config and link the new hyprland-config?" && rm ~/.config/hypr; linkHypr || gum style --foreground=$redColor --margin "1 2" "Didn't link the new hyprland-config!"
 else
   linkHypr 
+fi
+
+# Linking WayBar
+
+linkWayBar() {
+	ln -s ../config/waybar ~/.config/waybar	
+	gum style --foreground=$greenColor --margin "1 2" "Linked the new waybar config to ~/.config/waybar" sleep 2
+	clear
+}
+
+if [ -f "$HOME/.config/waybar/" ]; then
+	gum style --foreground 215 --margin "1 2" --bold "waybar config exists" 
+	gum confirm "Do you want to delete the existing waybar-config and link the new waybar-config?" && rm ~/.config/waybar; linkWayBar || gum style --foreground=$redColor --margin "1 2" "Didn't link the new waybar-config!"
+else
+	linkWayBar
 fi
 
 # Installing Packages
