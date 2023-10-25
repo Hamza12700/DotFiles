@@ -77,12 +77,28 @@ else
   clear
 fi
 
+# Linking Hyprland config
+
+linkHypr() {
+  ln -s ../config/hypr ~/.config/hypr
+  gum style --foreground=$greenColor --margin "1 2" "Linked the new hyprland config to ~/.config/hypr"
+  sleep 2
+  clear
+}
+
+if [ -f "$HOME/.config/hypr/" ]; then
+  gum style --foreground 215 --margin "1 2" --bold "hyprland config exists" 
+	gum confirm "Do you want to delete the existing hyprland-config and link the new hyprland-config?" && rm ~/.config/hypr; linkHypr || gum style --foreground=$redColor --margin "1 2" "Didn't link the new hyprland-config!"
+else
+  linkHypr 
+fi
+
 # Installing Packages
 
 requiredPackages() {
   gum style --foreground=$greenColor --margin "1 2" "Installing Packages"
-  yay -Syu neofetch jq wl-paste hyprpicker swaylock-effects waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
-  networkmanager-dmenu-git nm-connection-editor npm pnpm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter \
+  yay -Syu neofetch jq hyprpicker swaylock-effects waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
+  networkmanager-dmenu-git nm-connection-editor npm pnpm noto-fonts-emoji noto-fonts noto-fonts-extra picom tree-sitter \
   ttf-droid ttf-hack ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
   ttf-nerd-fonts-symbols-mono wireplumber zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
   alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli httpie zoxide eza bat starship nodejs rofi unzip \
