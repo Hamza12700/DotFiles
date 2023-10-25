@@ -81,8 +81,7 @@ fi
 
 linkHypr() {
   ln -s ../config/hypr ~/.config/hypr
-  gum style --foreground=$greenColor --margin "1 2" "Linked the new hyprland config to ~/.config/hypr"
-  sleep 2
+  gum style --foreground=$greenColor --margin "1 2" "Linked the new hyprland config to ~/.config/hypr" sleep 2
   clear
 }
 
