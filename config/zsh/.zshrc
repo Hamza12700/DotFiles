@@ -60,6 +60,9 @@ eval "$(zoxide init zsh)"
 # Atuin
 eval "$(atuin init zsh --disable-up-arrow)"
 
+# Golang
+export PATH=$PATH:/home/hamza/go/bin
+
 # Zplug
 source $HOME/.zplug/init.zsh
 
