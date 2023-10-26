@@ -36,6 +36,7 @@ alias ip='ip --color=auto'
 alias rm='trash'
 alias reload='source ~/.zshrc'
 alias gg='lazygit'
+alias gprod='go build -ldflags "-w -s"'
 
 # Useful function
 take() {
