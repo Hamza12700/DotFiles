@@ -116,7 +116,7 @@ requiredPackages() {
   ttf-droid ttf-hack ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
   ttf-nerd-fonts-symbols-mono wireplumber zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
   alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli httpie zoxide eza bat starship nodejs rofi unzip \
-  neovim-nightly polkit-kde-agent thorium-browser-bin diskonaut dust base-devel tldr --noconfirm --needed
+  neovim-nightly-bin polkit-kde-agent thorium-browser-bin diskonaut dust base-devel tldr --noconfirm --needed
   
   gum style --foreground=$greenColor --margin "1 2" "All required packages are now installed"
   sleep 2
