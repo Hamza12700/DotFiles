@@ -22,26 +22,27 @@ My Hyprland dotfiles.
 
 ## Installation
 
-To install all the required and optional packages you can run the [Installation Script](https://github.com/Hamza12700/DotFiles/blob/main/installer/install.sh)
+You will need to install `git` and `stow`
+Clone the repo and `cd` into the `config` directory
+```bash
+git clone https://github.com/hamza12700/DotFiles && \
+cd DotFiles/config
+```
 
-> [!IMPORTANT]
-> You'll need to download [Gum](https://github.com/charmbracelet/gum). Gum is a tool for glamorous shell scripts.
-> To install `gum` simply run `sudo pacman -S gum`
+Run `stow`to symlink everything or just select what you want
+```bash
+stow */ -t ~/
+```
 
-
-## Manual Installation
-
-For manual installation you can install the following packages.
-
-### Packages
+## Packages
 
 ```bash
-yay -Syu neofetch jq wl-paste hyprpicker swaylock-effects waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
-  networkmanager-dmenu-git nm-connection-editor npm pnpm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter \
+yay -Syu neofetch jq hyprpicker swaylock-effects waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
+  networkmanager-dmenu-git nm-connection-editor npm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter \
   ttf-droid ttf-hack ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
   ttf-nerd-fonts-symbols-mono zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
   alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli httpie zoxide exa bat starship nodejs rofi unzip \
-  neovim-nightly polkit-kde-agent base-devel --noconfirm --needed
+  neovim-nightly-bin polkit-kde-agent base-devel --noconfirm --needed
 ```
 
 ### AMD Drivers | Optional
