@@ -29,7 +29,7 @@ git clone https://github.com/hamza12700/DotFiles && \
 cd DotFiles/config
 ```
 
-Run `stow`to symlink everything or just select what you want
+Run `stow` to symlink everything or just select what you want
 ```bash
 stow */ -t ~/
 ```
