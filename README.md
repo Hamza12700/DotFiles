@@ -38,11 +38,11 @@ stow */ -t ~/
 
 ```bash
 yay -Syu neofetch jq hyprpicker swaylock-effects waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
-  networkmanager-dmenu-git nm-connection-editor npm noto-fonts-emoji noto-fonts noto-fonts-extra picom spotify-launcher tree-sitter \
+  networkmanager-dmenu-git nm-connection-editor npm noto-fonts-emoji noto-fonts noto-fonts-extra picom tree-sitter \
   ttf-droid ttf-hack ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
-  ttf-nerd-fonts-symbols-mono zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
-  alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli httpie zoxide exa bat starship nodejs rofi unzip \
-  neovim-nightly-bin polkit-kde-agent base-devel --noconfirm --needed
+  ttf-nerd-fonts-symbols-mono wireplumber zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
+  alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli httpie zoxide eza bat starship nodejs rofi unzip \
+  neovim-nightly-bin polkit-kde-agent thorium-browser-bin diskonaut dust base-devel tldr --noconfirm --needed
 ```
 
 ### AMD Drivers | Optional
