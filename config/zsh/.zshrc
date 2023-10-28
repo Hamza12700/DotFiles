@@ -82,3 +82,10 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
 
 zplug load
+
+# bun completions
+[ -s "/home/hamza/.bun/_bun" ] && source "/home/hamza/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
