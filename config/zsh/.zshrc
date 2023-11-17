@@ -19,6 +19,9 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 # See https://code.visualstudio.com/docs/editor/settings-sync#_linux
 export $(dbus-launch)
 
+# Default editor
+export EDITOR=nvim
+
 # History configurations
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
