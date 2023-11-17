@@ -8,8 +8,7 @@ lvim.keys.normal_mode["<leader><leader>"] = vim.cmd.so
 lvim.keys.normal_mode["<leader>u"] = vim.cmd.UndotreeToggle
 vim.keymap.set("i", "jj", "<Esc>")
 
-vim.cmd.autocmd('BufRead,BufNewFile /home/hamza/.config/waybar/config setfiletype json')
-vim.cmd.autocmd('BufRead,BufNewFile /home/hamza/GitHub/DotFiles/config/waybar/config setfiletype json')
+vim.cmd.autocmd('BufRead,BufNewFile */waybar/config setfiletype json')
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
