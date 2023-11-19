@@ -12,6 +12,7 @@ vim.cmd.autocmd('BufRead,BufNewFile */waybar/config setfiletype json')
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
+vim.o.termguicolors = true
 
 lvim.colorscheme = "onedark"
 require('onedark').setup {
