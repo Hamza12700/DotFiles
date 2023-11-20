@@ -22,6 +22,9 @@ export $(dbus-launch)
 # Default editor
 export EDITOR=nvim
 
+# Cargo bin directory
+export PATH=/home/hamza/.cargo/bin:$PATH
+
 # History configurations
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
