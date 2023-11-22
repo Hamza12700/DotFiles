@@ -55,6 +55,7 @@ awful.spawn.with_shell("dunst")
 awful.spawn.with_shell("feh --bg-fill ~/GitHub/DotFiles/wallpapers/wallpaper.png")
 awful.spawn.with_shell("~/.config/polybar/launch.sh")
 awful.spawn.with_shell("xrandr --output LVDS1 --off")
+awful.spawn.with_shell("unclutter --timeout 3")
 awful.spawn.with_shell("./xhidehook.sh")
 -- AppLets
 awful.spawn.with_shell("nm-applet")
