@@ -24,12 +24,14 @@ My Hyprland dotfiles.
 
 You will need to install `git` and `stow`
 Clone the repo and `cd` into the `config` directory
+
 ```bash
 git clone https://github.com/hamza12700/DotFiles && \
 cd DotFiles/config
 ```
 
 Run `stow` to symlink everything or just select what you want
+
 ```bash
 stow */ -t ~/
 ```
@@ -38,7 +40,7 @@ stow */ -t ~/
 
 ```bash
 yay -Syu neofetch jq jless difftastic zellij hyprpicker swaylock-effects waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
-  networkmanager-dmenu-git nm-connection-editor npm noto-fonts-emoji noto-fonts noto-fonts-extra picom tree-sitter \
+  networkmanager-dmenu-git xidlehook nm-connection-editor npm noto-fonts-emoji noto-fonts noto-fonts-extra picom tree-sitter \
   ttf-droid ttf-hack ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
   ttf-nerd-fonts-symbols-mono wireplumber zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
   alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli httpie zoxide eza bat starship nodejs rofi unzip \
