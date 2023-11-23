@@ -40,7 +40,6 @@ end
 
 -- AutoStart Apps
 awful.spawn.with_shell("picom")
-awful.spawn.with_shell("dunst")
 awful.spawn.with_shell("feh --bg-fill ~/GitHub/DotFiles/wallpapers/wallpaper.png")
 awful.spawn.with_shell("~/.config/polybar/launch.sh")
 awful.spawn.with_shell("xrandr --output LVDS1 --off")
