@@ -43,6 +43,7 @@ alias rm='trash'
 alias reload='source ~/.zshrc'
 alias gg='lazygit'
 alias gprod='go build -ldflags "-w -s"'
+alias yi='yay -S'
 
 # Useful function
 take() {
