@@ -56,11 +56,7 @@ take() {
 export PATH=/home/hamza/.local/bin:$PATH
 
 # Pnpm
-export PNPM_HOME="/home/hamza/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+export PATH=/home/hamza/.local/share/pnpm:$PATH
 
 # Zoxide
 eval "$(zoxide init zsh)"
