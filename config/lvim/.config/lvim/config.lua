@@ -8,37 +8,39 @@ lvim.keys.normal_mode["<leader><leader>"] = vim.cmd.so
 lvim.keys.normal_mode["<leader>u"] = vim.cmd.UndotreeToggle
 vim.keymap.set("i", "jj", "<Esc>")
 
-vim.cmd.autocmd('BufRead,BufNewFile */waybar/config setfiletype json')
+vim.cmd.autocmd("BufRead,BufNewFile */waybar/config setfiletype json")
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
 vim.o.termguicolors = true
+vim.opt.background = "dark"
 
 lvim.colorscheme = "onedark"
-require('onedark').setup {
-    style = 'darker'
-}
+require("onedark").setup({
+	style = "darker",
+})
 
 -- Plugins
 lvim.plugins = {
-  { "mbbill/undotree" },
-  { "rust-lang/rust.vim" },
-  { "andweeb/presence.nvim" },
-  { "nvim-treesitter/nvim-treesitter-context" },
-  { "simrat39/rust-tools.nvim",
-    config = function ()
-      require('rust-tools').setup({
-        inlay_hints = true
-      })
-    end
-  },
-  { "navarasu/onedark.nvim" },
-  { "fatih/vim-go" },
-  {
-    'j-hui/fidget.nvim',
-    tag = 'legacy',
-    config = function()
-      require("fidget").setup()
-    end,
-  }
+	{ "mbbill/undotree" },
+	{ "rust-lang/rust.vim" },
+	{ "andweeb/presence.nvim" },
+	{ "nvim-treesitter/nvim-treesitter-context" },
+	{
+		"simrat39/rust-tools.nvim",
+		config = function()
+			require("rust-tools").setup({
+				inlay_hints = true,
+			})
+		end,
+	},
+	{ "navarasu/onedark.nvim" },
+	{ "fatih/vim-go" },
+	{
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+		config = function()
+			require("fidget").setup()
+		end,
+	},
 }
