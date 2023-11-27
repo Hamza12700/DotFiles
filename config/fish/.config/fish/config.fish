@@ -29,6 +29,7 @@ set -gx PATH /home/hamza/.local/bin/lvim $PATH
 
 # Pnpm
 set -gx PATH /home/hamza/.local/share/pnpm $PATH
+set -gx PNPM_HOME /home/hamza/.local/share/pnpm
 
 # Golang Bin Directory
 set -gx PATH /home/hamza/go/bin $PATH
