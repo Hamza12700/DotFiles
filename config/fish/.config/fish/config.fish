@@ -1,16 +1,3 @@
-# Abbreviations
-abbr -a gg lazygit
-abbr -a yi yay -S
-abbr -a ys yay -Ss
-abbr -a rm trash
-abbr -a ip ip --color=auto
-abbr -a cat bat
-abbr -a gprod go build -ldflags "-w -s"
-abbr -a reload source ~/.config/fish/config.fish
-
-# Alias
-alias ls="eza -la --icons --group-directories-first"
-
 # Disabling the greeting message
 set fish_greeting
 
@@ -34,14 +21,30 @@ set -gx PNPM_HOME /home/hamza/.local/share/pnpm
 # Golang Bin Directory
 set -gx PATH /home/hamza/go/bin $PATH
 
-# KeyBinds
-bind \cz "zi; commandline -f repaint" # [Ctrl + z] - zoxide fizzy finder
-bind -k nul "commandline -f accept-autosuggestion" # [Ctrl + space] - accept-autosuggestion
-
 if status --is-interactive
+
     # Zoxide
     zoxide init fish | source
 
     # Starship Prompt
     starship init fish | source
+
+
+    # KeyBinds
+    bind \cz "zi; commandline -f repaint" # [Ctrl + z] - zoxide fizzy finder
+    bind -k nul "commandline -f accept-autosuggestion" # [Ctrl + space] - accept-autosuggestion
+
+    # Abbreviations
+    abbr -a gg lazygit
+    abbr -a yi yay -S
+    abbr -a ys yay -Ss
+    abbr -a rm trash
+    abbr -a ip ip --color=auto
+    abbr -a cat bat
+    abbr -a gprod go build -ldflags "-w -s"
+    abbr -a reload source ~/.config/fish/config.fish
+
+    # Alias
+    alias ls="eza -la --icons --group-directories-first"
+
 end
