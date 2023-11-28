@@ -23,6 +23,7 @@ My Hyprland dotfiles.
 ## Installation
 
 You will need to install `git` and `stow`
+
 Clone the repo and `cd` into the `config` directory
 
 ```bash
