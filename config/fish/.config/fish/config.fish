@@ -12,7 +12,7 @@ set -gx BUN_INSTALL $HOME/.bun
 set -gx PATH $BUN_INSTALL/bin $PATH
 
 # LunarVim
-set -gx PATH /home/hamza/.local/bin/lvim $PATH
+set -gx PATH /home/hamza/.local/bin $PATH
 
 # Pnpm
 set -gx PATH /home/hamza/.local/share/pnpm $PATH
