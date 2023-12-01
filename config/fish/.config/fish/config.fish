@@ -33,6 +33,7 @@ if status --is-interactive
     # KeyBinds
     bind \cz "zi; commandline -f repaint" # [Ctrl + z] - zoxide fizzy finder
     bind -k nul "commandline -f accept-autosuggestion" # [Ctrl + space] - accept-autosuggestion
+    bind \cf "fd -E '.git|node_modules' . | fzf | xargs -n 1 nvim" # [Ctrl + f] - Fizzy find a file/dir and open it in noevim
 
     # Abbreviations
     abbr -a gg lazygit
