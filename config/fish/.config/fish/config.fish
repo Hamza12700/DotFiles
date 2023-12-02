@@ -38,6 +38,7 @@ if status --is-interactive
     # Abbreviations
     abbr -a gg lazygit
     abbr -a yi yay -S
+    abbr -a yr yay -R
     abbr -a ys yay -Ss
     abbr -a rm trash
     abbr -a ip ip --color=auto
