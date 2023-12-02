@@ -6,9 +6,9 @@ My Hyprland dotfiles.
 
 ## Setup
 
-- **Window Manager:** [Htprland](https://hyprland.org/)
+- **Window Manager:** [Hyprland](https://hyprland.org/)
 
-- **Shels:** [Fish](https://github.com/fish-shell/fish-shell)
+- **Shell:** [Fish](https://github.com/fish-shell/fish-shell)
 
 - **App Launcher:** [Rofi](https://github.com/davatorium/rofi)
 
