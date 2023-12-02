@@ -4,21 +4,15 @@ My Hyprland dotfiles.
 
 ![HomeScreen](./screenshots/screenshot.png)
 
-## Tools
+## Setup
 
-- [Zplug](https://github.com/zplug/zplug) Zsh Plugins Manager
+- **Window Manager:** [Htprland](https://hyprland.org/)
 
-- [MesloLGS NF Fonts](https://github.com/romkatv/powerlevel10k-media/tree/master) Iconic font aggregator, collection, 3,600+ icons
+- **Shels:** [Fish](https://github.com/fish-shell/fish-shell)
 
-- [Rofi](https://github.com/davatorium/rofi) App Launcher
+- **App Launcher:** [Rofi](https://github.com/davatorium/rofi)
 
-- [Alacritty](https://github.com/alacritty/alacritty) A cross-platform, OpenGL terminal emulator
-
-- [Atuin](https://github.com/ellie/atuin) Magical shell history
-
-- [Zoxide](https://github.com/ajeetdsouza/zoxide) A smarter cd command. Supports all major shells
-
-- [EZA](https://github.com/eza-community/eza) A modern replacement for `ls`
+- **Terminal:** [Alacritty](https://github.com/alacritty/alacritty)
 
 ## Installation
 
