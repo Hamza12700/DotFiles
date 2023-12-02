@@ -1,4 +1,3 @@
 default_shell "fish"
-pane_frames false
 copy_command "wl-copy"
 scrollback_editor "/usr/bin/nvim"
