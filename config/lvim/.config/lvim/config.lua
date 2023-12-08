@@ -15,11 +15,6 @@ vim.opt.expandtab = false
 vim.o.termguicolors = true
 vim.opt.background = "dark"
 
-lvim.colorscheme = "onedark"
-require("onedark").setup({
-	style = "darker",
-})
-
 -- Plugins
 lvim.plugins = {
 	{ "mbbill/undotree" },
