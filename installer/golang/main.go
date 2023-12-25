@@ -1,3 +1,6 @@
+	cmd := exec.Command("clear")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
 
 func isCommandAvailable(commandName string) bool {
 	color.Green("Checking if '%s' command exist", commandName)
