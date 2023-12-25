@@ -1,3 +1,4 @@
+const yayGit string = "git clone https://aur.archlinux.org/yay.git"
 	cmd := exec.Command("clear")
 	cmd.Stdout = os.Stdout
 	cmd.Run()
