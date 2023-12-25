@@ -1,4 +1,15 @@
+package main
+
+import (
+	"fmt"
+	"os"
+	"os/exec"
+
+	"github.com/fatih/color"
+)
+
 const yayGit string = "git clone https://aur.archlinux.org/yay.git"
+
 func main() {
 
 	cmd := exec.Command("clear")
@@ -6,6 +17,7 @@ func main() {
 	cmd.Run()
 
 	color.Cyan("Golang installer!\n\n")
+
 	color.Green("Checking the AUR Helper")
 	if isCommandAvailable("yay") {
 		color.Cyan("'yay' AUR Helper Found!")
