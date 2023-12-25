@@ -52,6 +52,6 @@ yay -S mesa amd-ucode xf86-video-amdgpu xf86-video-ati mesa-vdpau libva-vdpau-dr
 ### Audio Packages | Optional
 
 ```bash
-yay -S pavucontrol pulsemixer wireplumber pipewire jack2 pulseaudio pipewire-alsa alsa-utils \
- alsa-firmware pipewire-audio pulseaudio-bluetooth pulseaudio-equalizer pulseaudio-jack --noconfirm --needed
+yay -S pavucontrol wireplumber pipewire pipewire-jack pipewire-alsa pipewire-pulse alsa-utils \
+ alsa-firmware pipewire-audio --noconfirm --needed
 ```
