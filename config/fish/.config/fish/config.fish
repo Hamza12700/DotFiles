@@ -50,3 +50,6 @@ if status --is-interactive
     alias ls="eza -la --icons --group-directories-first"
 
 end
+
+# opam configuration
+source /home/hamza/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
