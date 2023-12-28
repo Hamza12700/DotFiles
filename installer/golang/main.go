@@ -21,9 +21,9 @@ func main() {
 
 	color.Green("Checking the AUR Helper")
 	if isCommandAvailable("yay") {
-		color.Cyan("'yay' AUR Helper Found!")
+		successPrint("yay AUR Helper found")
 	} else {
-		color.Red("'yay' AUR Helper not found!")
+		errorPrint("yay AUR Helper not found")
 		color.Yellow("Install it? [y/n]")
 		var yes string
 		fmt.Scanln(&yes)
@@ -34,40 +34,41 @@ func main() {
 	}
 
 	if isCommandAvailable("stow") {
-		color.Cyan("The command found!")
+		successPrint("stow command found!")
+		linkConfigDirs()
 	} else {
-		color.Red("The commmand not found!")
+		errorPrint("stow command not found")
+		requiredPkgInstaller("stow")
 	}
 }
 
-func isCommandAvailable(commandName string) bool {
-	color.Green("Checking if '%s' command exist", commandName)
-	cmd := exec.Command("/bin/sh", "-c", "command -v "+commandName)
-	if err := cmd.Run(); err != nil {
-		return false
-	}
-	return true
-}
+func requiredPkgInstaller(pkg string) {
+	pacman := exec.Command("sudo", "pacman", "-S", pkg)
+	pacman.Stdout = os.Stdout
+	pacman.Stderr = os.Stderr
+	pacman.Stdin = os.Stdin
+	color.Green("Would you like to install %s [y/n]", pkg)
+	var yes string
+	fmt.Scanln(&yes)
 
-func yayInstall() {
-	checkCmd := exec.Command("git", "clone", yayGit)
-	checkCmd.Stdout = os.Stdout
-	checkCmd.Stderr = os.Stderr
-
-	cloneErr := checkCmd.Run()
-	if cloneErr != nil {
-		color.Red("Error cloning the repo")
-		log.Fatal(cloneErr)
-	}
-
-	exec.Command("cd", "yay").Run()
-	install := exec.Command("makepkg", "-si")
-	install.Stderr = os.Stderr
-	install.Stdout = os.Stdout
-	install.Stdin = os.Stdin
-	installErr := install.Run()
-	if installErr != nil {
-		color.Red("Something went wrong!")
-		log.Fatal(installErr)
+	if yes == "y" {
+		pacman.Run()
+	} else {
+		errorPrint("Didn't install the package!")
+		os.Exit(1)
 	}
 }
+
+func linkConfigDirs() {
+	currDur, _ := os.Getwd()
+	exec.Command("cd", "../../config/").Run()
+	link := exec.Command("stow", "*/", "-t", "~/")
+	linkErr := link.Run()
+	if linkErr != nil {
+		errorPrint("Something went wrong while linking the config dirs!")
+		log.Fatal(linkErr)
+	}
+	successPrint("Successfully link the config dirs")
+	exec.Command("cd", currDur)
+}
+
