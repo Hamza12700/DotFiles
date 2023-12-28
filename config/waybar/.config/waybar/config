@@ -25,12 +25,10 @@
   },
 
   "tray": {
-    // "icon-size": 21,
-    "spacing": 10
+    "spacing": 8
   },
   "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{: %R   %d/%m}"
+    "format": "{: %R    %d/%m}"
   },
   "cpu": {
     "on-click": "alacritty -e btop",
@@ -62,13 +60,10 @@
     "format-bluetooth": "{icon} {volume}%",
     "format-muted": "󰝟 Muted",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", "󰕾", ""]
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "default": ["", " ", "󰕾 ", " "]
     },
     "on-click": "pavucontrol"
   }
