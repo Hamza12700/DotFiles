@@ -34,7 +34,7 @@ stow */ -t ~/
 ## Packages
 
 ```bash
-yay -Syu neofetch firefox yt-dlp grim slurp hyprland-git copyq mpv gnome-keyring fish wf-recorder luarocks xclip gdu cpufetch gpg-tui jq jless difftastic zellij hyprpicker swaylock-effects \
+yay -Syu neofetch ly firefox yt-dlp grim slurp hyprland-git copyq mpv gnome-keyring fish wf-recorder luarocks xclip gdu cpufetch gpg-tui jq jless difftastic zellij hyprpicker swaylock-effects \
   waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
   networkmanager-dmenu-git xidlehook nm-connection-editor npm noto-fonts-emoji noto-fonts noto-fonts-extra picom tree-sitter \
   ttf-droid ttf-hack ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
