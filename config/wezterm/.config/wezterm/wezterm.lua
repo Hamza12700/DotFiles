@@ -25,6 +25,12 @@ config.keys = {
     mods = "ALT",
     action = wezterm.action.CloseCurrentPane { confirm = true }
   },
+
+  {
+    key = "n",
+    mods = "CTRL|ALT",
+    action = wezterm.action.SplitHorizontal
+  },
 }
 
 return config
