@@ -18,4 +18,13 @@ config.window_close_confirmation = 'NeverPrompt'
 config.font_size = 9
 config.hide_tab_bar_if_only_one_tab = true
 
+--- Keybinds
+config.keys = {
+  {
+    key = "w",
+    mods = "ALT",
+    action = wezterm.action.CloseCurrentPane { confirm = true }
+  },
+}
+
 return config
