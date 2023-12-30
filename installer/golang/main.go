@@ -63,6 +63,7 @@ func linkConfigDirs() {
 	currDur, _ := os.Getwd()
 	exec.Command("cd", "../../config/").Run()
 	link := exec.Command("stow", "*/", "-t", "~/")
+	link.Stderr = os.Stderr
 	linkErr := link.Run()
 	if linkErr != nil {
 		errorPrint("Something went wrong while linking the config dirs!")
