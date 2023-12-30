@@ -31,6 +31,11 @@ config.keys = {
     mods = "CTRL|ALT",
     action = wezterm.action.SplitHorizontal
   },
+  {
+    key = "m",
+    mods = "CTRL|ALT",
+    action = wezterm.action.SplitVertical
+  },
 }
 
 return config
