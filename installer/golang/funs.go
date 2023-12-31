@@ -8,6 +8,8 @@ import (
 	"github.com/fatih/color"
 )
 
+const yayGit string = "git clone https://aur.archlinux.org/yay.git"
+
 func isCommandAvailable(commandName string) bool {
 	color.Green("Checking if '%s' command exist", commandName)
 	cmd := exec.Command("/bin/sh", "-c", "command -v "+commandName)
