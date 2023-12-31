@@ -23,7 +23,7 @@ config.keys = {
   {
     key = "w",
     mods = "ALT",
-    action = wezterm.action.CloseCurrentPane { confirm = true }
+    action = wezterm.action.CloseCurrentPane { confirm = false }
   },
 
   {
