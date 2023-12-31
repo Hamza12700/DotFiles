@@ -61,6 +61,23 @@ func yayInstall() {
 	}
 }
 
+
+func requiredPkgInstaller(pkg string) {
+	pacman := exec.Command("sudo", "pacman", "-S", pkg)
+	pacman.Stdout = os.Stdout
+	pacman.Stderr = os.Stderr
+	pacman.Stdin = os.Stdin
+	color.Green("Would you like to install %s [y/n]", pkg)
+	var yes string
+	fmt.Scanln(&yes)
+
+	if yes == "y" {
+		pacman.Run()
+	}
+	errorPrint("Didn't install the required package!")
+	os.Exit(1)
+}
+
 func successPrint(chars string) {
 	color.Cyan("\n\n%s\n\n", chars)
 }
