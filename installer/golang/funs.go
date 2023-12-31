@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -20,6 +21,24 @@ func isCommandAvailable(commandName string) bool {
 }
 
 func yayInstall() {
+
+	if !isCommandAvailable("git") {
+		errorPrint("'git' command not found!")
+		color.Cyan("Would you like to install it? [y/n]")
+		var yesOrNo string
+		fmt.Scanln(yesOrNo)
+
+		if yesOrNo == "y" {
+			gitInstall := exec.Command("sudo pacman -S git")
+			gitInstall.Stderr = os.Stderr
+			gitInstall.Stdin = os.Stdin
+			gitInstall.Stdout = os.Stdout
+			gitInstall.Run()
+		}
+
+		log.Fatalln("'git' isn't installed!")
+	}
+
 	yayInstall := exec.Command("git", "clone", yayGit)
 	yayInstall.Stdout = os.Stdout
 	yayInstall.Stderr = os.Stderr
