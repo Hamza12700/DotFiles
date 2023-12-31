@@ -97,5 +97,5 @@ func linkConfigDirs() {
 		log.Fatal(linkErr)
 	}
 	successPrint("Successfully link the config dirs")
-	exec.Command("cd", currDur)
+	exec.Command("cd", currDur).Run()
 }
