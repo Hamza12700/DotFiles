@@ -1,4 +1,4 @@
-module hamza12700/dotfiles/installer/golang
+module github.com/hamza12700/dotfiles/installer/golang
 
 go 1.21.5
 
