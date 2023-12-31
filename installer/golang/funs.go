@@ -61,7 +61,6 @@ func yayInstall() {
 	}
 }
 
-
 func requiredPkgInstaller(pkg string) {
 	pacman := exec.Command("sudo", "pacman", "-S", pkg)
 	pacman.Stdout = os.Stdout
@@ -73,9 +72,10 @@ func requiredPkgInstaller(pkg string) {
 
 	if yes == "y" {
 		pacman.Run()
+	} else {
+		errorPrint("Didn't install the required package!")
+		os.Exit(1)
 	}
-	errorPrint("Didn't install the required package!")
-	os.Exit(1)
 }
 
 func successPrint(chars string) {
