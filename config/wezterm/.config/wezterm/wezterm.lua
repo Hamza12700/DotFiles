@@ -27,10 +27,17 @@ config.keys = {
   },
 
   {
+    key = "w",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.CloseCurrentTab { confirm = false }
+  },
+
+  {
     key = "n",
     mods = "CTRL|ALT",
     action = wezterm.action.SplitHorizontal
   },
+
   {
     key = "m",
     mods = "CTRL|ALT",
