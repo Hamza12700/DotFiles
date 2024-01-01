@@ -20,4 +20,9 @@ func main() {
 
 	isCommandAvailable("stow")
 	linkConfigDirs()
+
+	// Updating the system
+
+	successPrint("Updating the system")
+	sysCommand("yay", "-Syu")
 }
