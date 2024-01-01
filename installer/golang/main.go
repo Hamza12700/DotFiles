@@ -57,4 +57,11 @@ func main() {
 
 	file.Close()
 	
+	// Enabling systemD services
+
+	services := []string{ "bluetooth", "ly" }	
+	for _, service := range services {
+		systemDServiceActivate(service)
+	}
+
 }
