@@ -11,13 +11,12 @@ import (
 
 const yayGit string = "git clone https://aur.archlinux.org/yay.git"
 
-func isCommandAvailable(commandName string) bool {
+func isCommandAvailable(commandName string) {
 	color.Green("Checking if '%s' command exist", commandName)
 	cmd := exec.Command("/bin/sh", "-c", "command -v "+commandName)
 	if err := cmd.Run(); err != nil {
-		return false
+		requiredPkgInstaller(commandName)
 	}
-	return true
 }
 
 func yayInstall() {
@@ -27,7 +26,6 @@ func yayInstall() {
 		color.Cyan("Would you like to install it? [y/n]")
 		var yesOrNo string
 		fmt.Scanln(yesOrNo)
-
 		if yesOrNo == "y" {
 			gitInstall := exec.Command("sudo pacman -S git")
 			gitInstall.Stderr = os.Stderr
