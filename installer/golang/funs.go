@@ -61,6 +61,11 @@ func requiredPkgInstaller(pkg string) {
 	}
 }
 
+// Enable SystemD Services
+func systemDServiceActivate(name string) {
+	sysCommand("sudo", "systemctl", "enable", "%s.service", name)
+}
+
 // Run system command with stdout, stdin and stderr
 func sysCommand(command string, args ...string) {
 	cmd := exec.Command(command, args...)
