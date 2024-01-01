@@ -61,6 +61,18 @@ func requiredPkgInstaller(pkg string) {
 	}
 }
 
+// Run system command with stdout, stdin and stderr
+func sysCommand(command string, args ...string) {
+	cmd := exec.Command(command, args...)
+	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	
+	if cmdErr := cmd.Run(); cmdErr != nil {
+		log.Fatalln(cmdErr)
+	}
+}
+
 func successPrint(chars string) {
 	color.Cyan("\n\n%s\n\n", chars)
 }
