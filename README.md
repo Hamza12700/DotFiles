@@ -43,6 +43,25 @@ yay -Syu neofetch podman qjackctl ly firefox yt-dlp grim slurp hyprland-git copy
   alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli httpie zoxide eza bat starship nodejs rofi unzip \
   neovim-nightly-bin polkit-kde-agent diskonaut dust base-devel tldr --noconfirm --needed
 ```
+### Install rofi themes
+
+Clone the repo of:
+
+```bash
+git clone https://github.com/lr-tech/rofi-themes-collection.git &&
+cd rofi-themes-collection
+```
+
+Create the directory for the themes:
+
+```bash
+mkdir -p ~/.local/share/rofi/themes/
+```
+Copy all the themes in `~/.local/share/rofi/themes/`:
+
+```bash
+cp -r themes/* ~/.local/share/rofi/themes/
+```
 
 ### AMD Drivers | Optional
 
