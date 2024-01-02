@@ -49,9 +49,10 @@ func main() {
 
 		if n > 0 {
 			fmt.Println(pkgs)
+		if readBytes > 0 {
+			sysCommand("yay", "-S", pkgs, "--needed", "--noconfirm")
 		}
 
-		sysCommand("yay", "-S", pkgs, "--needed", "--noconfirm")
 	}
 
 	file.Close()
