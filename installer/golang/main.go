@@ -12,9 +12,9 @@ import (
 
 func main() {
 
-	cmd := exec.Command("clear")
-	cmd.Stdout = os.Stdout
-	cmd.Run()
+	clear := exec.Command("clear")
+	clear.Stdout = os.Stdout
+	clear.Run()
 
 	color.Cyan("Golang installer!\n\n")
 
