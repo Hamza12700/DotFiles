@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"os"
 	"os/exec"
@@ -37,22 +36,22 @@ func main() {
 	buffer := make([]byte, 1024)
 	for {
 		readBytes, readErr := file.Read(buffer)
+
+		// Means that the file descriptor has reached the end of the file
+		if readBytes == 0 {
 			break
 		}
 
-		if err != nil {
-			fmt.Println(err)
+		if readErr != nil {
+			fmt.Println(readErr)
 			continue
 		}
 
-		pkgs := string(buffer[:n])
+		pkgs := string(buffer[:readBytes])
 
-		if n > 0 {
-			fmt.Println(pkgs)
 		if readBytes > 0 {
 			sysCommand("yay", "-S", pkgs, "--needed", "--noconfirm")
 		}
-
 	}
 
 	file.Close()
