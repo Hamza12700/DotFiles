@@ -36,8 +36,7 @@ func main() {
 
 	buffer := make([]byte, 1024)
 	for {
-		n, err := file.Read(buffer)
-		if err == io.EOF {
+		readBytes, readErr := file.Read(buffer)
 			break
 		}
 
