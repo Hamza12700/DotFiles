@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"log"
 	"os"
 	"os/exec"
+	"strings"
 
 	"github.com/fatih/color"
 )
@@ -28,32 +30,36 @@ func main() {
 	successPrint("Updating the system")
 	sysCommand("yay", "-Syu")
 
-	file, fileErr := os.Open("packages.txt")
+	// Installing packages
+
+	file, fileErr := os.Open("../../README.md")
 	if fileErr != nil {
 		log.Fatal(fileErr)
 	}
 
-	buffer := make([]byte, 1024)
-	for {
-		readBytes, readErr := file.Read(buffer)
+	scanner := bufio.NewScanner(file)
+	pkgsFound := false
 
-		// Means that the file descriptor has reached the end of the file
-		if readBytes == 0 {
+	for scanner.Scan() {
+		line := scanner.Text()
+
+		if strings.Contains(line, "yay") {
+			pkgsFound = true
+		}
+
+		if pkgsFound {
+			sysCommand(line)
+		}
+
+		if strings.Contains(line, "--needed") {
+			pkgsFound = false
 			break
-		}
-
-		if readErr != nil {
-			fmt.Println(readErr)
-			continue
-		}
-
-		pkgs := string(buffer[:readBytes])
-
-		if readBytes > 0 {
-			sysCommand("yay", "-S", pkgs, "--needed", "--noconfirm")
 		}
 	}
 
+	if readErr := scanner.Err(); readErr != nil {
+		log.Fatalln(readErr)
+	}
 	file.Close()
 	
 	// Enabling systemD services
