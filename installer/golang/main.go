@@ -25,12 +25,10 @@ func main() {
 	linkConfigDirs()
 
 	// Updating the system
-
 	successPrint("Updating the system")
 	sysCommand("yay", "-Syu")
 
 	// Installing packages
-
 	file, fileErr := os.Open("../../README.md")
 	if fileErr != nil {
 		log.Fatal(fileErr)
@@ -62,10 +60,12 @@ func main() {
 	file.Close()
 	
 	// Enabling systemD services
-
 	services := []string{ "bluetooth", "ly" }	
 	for _, service := range services {
 		systemDServiceActivate(service)
 	}
+
+	// Cloning: https://github.com/hamza12700/neovim
+	sysCommand("git clone https://github.com/hamza12700/neovim.git ~/.config/nvim")
 
 }
