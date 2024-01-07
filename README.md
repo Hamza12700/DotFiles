@@ -40,7 +40,7 @@ yay -Syu neofetch cargo rustup wezterm-git podman qjackctl ly firefox yt-dlp gri
   networkmanager-dmenu-git nm-connection-editor npm noto-fonts-emoji noto-fonts noto-fonts-extra picom tree-sitter \
   ttf-droid ttf-hack ttf-jetbrains-mono ttf-meslo-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
   ttf-nerd-fonts-symbols-mono wireplumber zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
-  alacritty lazygit atuin ttf-hack-nerd pacman-contrib trash-cli httpie zoxide eza bat starship nodejs rofi unzip \
+  alacritty lazygit ttf-hack-nerd pacman-contrib trash-cli httpie zoxide eza bat starship nodejs rofi unzip \
   neovim-nightly-bin polkit-kde-agent diskonaut dust base-devel tldr --noconfirm --needed
 ```
 ### Install rofi themes
