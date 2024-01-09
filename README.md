@@ -38,7 +38,7 @@ yay -Syu wget neofetch cargo rustup wezterm-git podman qjackctl ly firefox yt-dl
   luarocks xclip gdu cpufetch gpg-tui jq zellij swaylock-effects \
   waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
   networkmanager-dmenu-git nm-connection-editor npm picom \
-  ttf-jetbrains-mono ttf-meslo-nerd \
+  ttf-jetbrains-mono ttf-meslo-nerd yazi ffmpegthumbnailer unarchiver jq poppler fd ripgrep fzf zoxide \
   wireplumber zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
   alacritty lazygit ttf-hack-nerd pacman-contrib trash-cli zoxide eza bat starship nodejs rofi unzip \
   polkit-kde-agent diskonaut dust base-devel tldr --noconfirm --needed
