@@ -41,7 +41,7 @@ yay -Syu wget neofetch parallel cargo rustup wezterm-git podman qjackctl ly fire
   ttf-jetbrains-mono ttf-meslo-nerd yazi ffmpegthumbnailer unarchiver jq poppler fd ripgrep fzf zoxide \
   wireplumber zsh go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg ranger \
   alacritty lazygit ttf-hack-nerd pacman-contrib trash-cli zoxide eza bat starship nodejs rofi unzip \
-  polkit-kde-agent diskonaut dust base-devel tldr --noconfirm --needed
+  polkit-kde-agent diskonaut dust base-devel tlrc-bin --noconfirm --needed
 ```
 ### Install rofi themes
 
