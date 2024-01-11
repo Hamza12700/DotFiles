@@ -36,7 +36,7 @@
     "tooltip": false
   },
   "memory": {
-    "on-click": "alacritty -e btop",
+    "on-click": "wezterm start -- btop",
     "format": "{}% "
   },
 
@@ -44,7 +44,7 @@
     "exec": "(checkupdates ; yay -Qua) | wc -l",
     "interval": 12000,
     "format": "󰇚 {}",
-    "on-click": "alacritty -e yay -Syu --noconfirm",
+    "on-click": "wezterm start -- yay -Syu --noconfirm",
     "tooltip": false
   },
 
