@@ -48,6 +48,7 @@ if status --is-interactive
 
     # Alias
     alias ls="eza -la --icons --group-directories-first"
+    alias vim="nvim"
 
 end
 
