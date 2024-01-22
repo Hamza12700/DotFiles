@@ -2,7 +2,7 @@
 set fish_greeting
 
 # Gloable Variables
-set -U EDITOR nvim
+set -gx EDITOR nvim
 
 # Cargo Bin Directory
 set -gx PATH /home/hamza/.cargo/bin $PATH
