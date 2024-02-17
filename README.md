@@ -34,14 +34,14 @@ stow */ -t ~/
 ## Packages
 
 ```bash
-yay -Syu wget imagemagick neofetch entr parallel cargo rustup podman qjackctl ly firefox yt-dlp grim slurp hyprland-git copyq mpv gnome-keyring fish wf-recorder \
-  luarocks xclip gdu cpufetch gpg-tui jq zellij swaylock-effects \
+yay -Syu wget imagemagick neofetch entr parallel cargo rustup podman qjackctl ly firefox yt-dlp grim slurp hyprland-git mpv gnome-keyring fish wf-recorder \
+  luarocks gdu cpufetch jq swaylock-effects \
   waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst fd fzf github-cli network-manager-applet \
-  networkmanager-dmenu-git nm-connection-editor npm picom \
-  ttf-jetbrains-mono ttf-meslo-nerd yazi ffmpegthumbnailer unarchiver jq poppler fd ripgrep fzf zoxide \
+  networkmanager-dmenu-git nm-connection-editor npm \
+  ttf-jetbrains-mono ttf-meslo-nerd yazi unarchiver jq poppler fd ripgrep fzf zoxide \
   wireplumber go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg \
-  alacritty lazygit ttf-hack-nerd pacman-contrib trash-cli zoxide eza bat starship nodejs rofi unzip \
-  polkit-kde-agent diskonaut dust base-devel tlrc-bin --noconfirm --needed
+  alacritty lazygit pacman-contrib trash-cli zoxide eza bat starship nodejs rofi unzip \
+  polkit-kde-agent diskonaut dust base-devel tldr --noconfirm --needed
 ```
 
 ### AMD Drivers | Optional
