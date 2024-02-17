@@ -43,25 +43,6 @@ yay -Syu wget imagemagick neofetch entr parallel cargo rustup wezterm podman qja
   alacritty lazygit ttf-hack-nerd pacman-contrib trash-cli zoxide eza bat starship nodejs rofi unzip \
   polkit-kde-agent diskonaut dust base-devel tlrc-bin --noconfirm --needed
 ```
-### Install rofi themes
-
-Clone the repo of:
-
-```bash
-git clone https://github.com/lr-tech/rofi-themes-collection.git &&
-cd rofi-themes-collection
-```
-
-Create the directory for the themes:
-
-```bash
-mkdir -p ~/.local/share/rofi/themes/
-```
-Copy all the themes in `~/.local/share/rofi/themes/`:
-
-```bash
-cp -r themes/* ~/.local/share/rofi/themes/
-```
 
 ### AMD Drivers | Optional
 
