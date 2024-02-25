@@ -26,7 +26,7 @@ history = 10000
 [window]
 dynamic_padding = true
 dynamic_title = true
-opacity = 0.7
+opacity = 0.3
 
 [window.class]
 general = "Alacritty"
