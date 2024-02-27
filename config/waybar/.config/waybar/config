@@ -31,12 +31,12 @@
     "format": "{: %R    %d/%m}"
   },
   "cpu": {
-    "on-click": "alacritty -e btop",
+    "on-click": "foot -e btop",
     "format": "{usage}% ",
     "tooltip": false
   },
   "memory": {
-    "on-click": "alacritty -e btop",
+    "on-click": "foot -e btop",
     "format": "{}% "
   },
 
@@ -44,7 +44,7 @@
     "exec": "(checkupdates ; yay -Qua) | wc -l",
     "interval": 12000,
     "format": "󰇚 {}",
-    "on-click": "alacritty -e yay -Syu --noconfirm",
+    "on-click": "foot -e yay -Syu --noconfirm",
     "tooltip": false
   },
 
