@@ -18,6 +18,9 @@ set -gx PATH /home/hamza/.local/bin $PATH
 set -gx PATH /home/hamza/.local/share/pnpm $PATH
 set -gx PNPM_HOME /home/hamza/.local/share/pnpm
 
+# Ocaml
+source /home/hamza/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
 # Golang Bin Directory
 set -gx PATH /home/hamza/go/bin $PATH
 
