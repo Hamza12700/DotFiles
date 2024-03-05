@@ -12,7 +12,7 @@ My Hyprland dotfiles.
 
 - **App Launcher:** [Rofi](https://github.com/davatorium/rofi)
 
-- **Terminal:** [Alacritty](https://github.com/alacritty/alacritty)
+- **Terminal:** [Foot](https://codeberg.org/dnkl/foot)
 
 ## Installation
 
