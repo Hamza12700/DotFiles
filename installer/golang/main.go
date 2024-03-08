@@ -2,70 +2,89 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"strings"
-
-	"github.com/fatih/color"
 )
 
 func main() {
+	fmt.Println("Starting the intaller")
 
-	clear := exec.Command("clear")
-	clear.Stdout = os.Stdout
-	clear.Run()
+	_, err := exec.LookPath("stow")
+	if err != nil {
+		fmt.Println("Installing stow")
+		cmd := exec.Command("sudo", "pacman", "-S", "stow")
+		cmd.Stdout = os.Stdout
+		cmd.Stdin = os.Stdin
 
-	color.Cyan("Golang installer!\n\n")
+		err = cmd.Run()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
 
-	color.Green("Checking the AUR Helper")
-	isCommandAvailable("yay")
+	// stow := exec.Command("stow", "*/", "-t", "~/")
+	// stow.Dir = "../../config/"
+	// stow.Stdout = os.Stdout
+	// if err := stow.Run(); err != nil {
+	//   log.Fatal(err)
+	// }
+	//
+	// fmt.Println("\nSuccessfully linked the config directories")
 
-	isCommandAvailable("stow")
-	linkConfigDirs()
-
-	// Updating the system
-	successPrint("Updating the system")
-	sysCommand("yay", "-Syu")
-
-	// Installing packages
-	file, fileErr := os.Open("../../README.md")
-	if fileErr != nil {
-		log.Fatal(fileErr)
+	file, err := os.Open("../../README.md")
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	scanner := bufio.NewScanner(file)
-	pkgsFound := false
-
+	pkgs := ""
+	isFound := false
 	for scanner.Scan() {
-		line := scanner.Text()
-
-		if strings.Contains(line, "yay") {
-			pkgsFound = true
+		defer file.Close()
+		if strings.Contains(scanner.Text(), "-Syu") {
+			isFound = true
 		}
-
-		if pkgsFound {
-			sysCommand(line)
+		if isFound {
+			pkgs += "\n" + scanner.Text()
 		}
-
-		if strings.Contains(line, "--needed") {
-			pkgsFound = false
+		if strings.Contains(scanner.Text(), "--needed") {
+			isFound = false
 			break
 		}
 	}
-
-	if readErr := scanner.Err(); readErr != nil {
-		log.Fatalln(readErr)
-	}
-	file.Close()
-	
-	// Enabling systemD services
-	services := []string{ "bluetooth", "ly" }	
-	for _, service := range services {
-		systemDServiceActivate(service)
+	if err = scanner.Err(); err != nil {
+		log.Fatal(err)
 	}
 
-	// Cloning: https://github.com/hamza12700/neovim
-	sysCommand("git clone https://github.com/hamza12700/neovim.git ~/.config/nvim")
+	_, err = exec.LookPath("yay")
+	if err != nil {
+		fmt.Println("Installing yay")
 
+		cmd := exec.Command("git", "clone", "https://aur.archlinux.org/yay.git")
+		cmd.Stdout = os.Stdout
+
+		if err := cmd.Run(); err != nil {
+			log.Fatal(err)
+		}
+
+		makepkg := exec.Command("makepkg", "-si")
+		makepkg.Dir = "yay"
+		makepkg.Stdout = os.Stdout
+		makepkg.Stdin = os.Stdin
+
+		if err := makepkg.Run(); err != nil {
+			log.Fatal(err)
+		}
+
+	}
+
+	cmd := exec.Command(pkgs)
+	cmd.Stdout = os.Stdout
+	cmd.Stdin = os.Stdin
+	if err := cmd.Run(); err != nil {
+		log.Fatal(err)
+	}
 }
