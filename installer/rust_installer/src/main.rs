@@ -22,11 +22,11 @@ fn main() {
       .spawn()
       .expect("failed to install stow");
 
-    let output = stow_install
+    let stow_install = stow_install
       .wait_with_output()
       .expect("failed to install stow");
 
-    println!("{}", String::from_utf8_lossy(&output.stdout));
+    println!("{}", String::from_utf8_lossy(&stow_install.stdout));
   }
 
   // let _ = Command::new("stow")
