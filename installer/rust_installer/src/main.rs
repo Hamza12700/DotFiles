@@ -93,12 +93,25 @@ fn main() {
   let pkgs = pkgs.replace("\\", "");
   println!("{}", pkgs);
 
-  let pkgs = pkgs.split_whitespace().collect::<Rc<_>>();
-  pkgs.into_iter().skip(2).for_each(|pkg| {
-    let _ = Command::new("yay")
-      .args(&["-Syu", pkg])
-      .stdin(Stdio::piped())
-      .output()
-      .expect("failed to install packages");
-  });
+  let pkgs = pkgs.split_whitespace().skip(2).collect::<Rc<_>>();
+  let install_pkgs = Command::new("yay")
+    .arg("-Syu")
+    .args(pkgs.iter())
+    .stdin(Stdio::piped())
+    .spawn()
+    .expect("failed to install packages");
+
+  let output = install_pkgs
+    .wait_with_output()
+    .expect("failed to install packages");
+
+  println!("{}", String::from_utf8_lossy(&output.stdout));
+
+  let clear = Command::new("clear")
+    .output()
+    .expect("failed to clear the screen");
+
+  println!("{}", String::from_utf8_lossy(&clear.stdout));
+
+  println!("Finished the installer");
 }
