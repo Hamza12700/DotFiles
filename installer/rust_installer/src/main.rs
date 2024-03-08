@@ -43,7 +43,9 @@ fn main() {
   let reader = BufReader::new(file_descriptor);
 
   let mut find_pkgs = false;
+  let mut find_audio_pkgs = false;
   let mut pkgs = String::new();
+  let mut audio_pkgs = String::new();
   for line in reader.lines() {
     if let Ok(text) = line {
       if text.contains("yay -Syu") {
@@ -53,7 +55,14 @@ fn main() {
         pkgs.push_str(&text);
       }
       if text.contains("--needed") {
-        break;
+        find_pkgs = false;
+      }
+
+      if text.contains("Audio") {
+        find_audio_pkgs = true;
+      }
+      if find_audio_pkgs {
+        audio_pkgs.push_str(&text);
       }
     } else {
       eprintln!("failed to read line");
@@ -90,6 +99,10 @@ fn main() {
     println!("{}", String::from_utf8_lossy(&yay_install.stdout));
   }
 
+  let audio_pkgs = audio_pkgs.replace("```", "");
+  let audio_pkgs = audio_pkgs.replace("\\", "");
+  let audio_pkgs = audio_pkgs.replace("### Audio Packages | Optionalbash", "");
+
   let pkgs = pkgs.replace("\\", "");
   println!("{}", pkgs);
 
@@ -113,5 +126,21 @@ fn main() {
 
   println!("{}", String::from_utf8_lossy(&clear.stdout));
 
-  println!("Finished the installer");
+  println!("Finished installing packages");
+
+  println!("Installing audio packages");
+
+  let audio_pkgs = audio_pkgs.split_whitespace().skip(2).collect::<Rc<_>>();
+  let install_audio_pkgs = Command::new("yay")
+    .arg("-S")
+    .args(audio_pkgs.iter())
+    .stdin(Stdio::piped())
+    .spawn()
+    .expect("failed to install audio packages");
+
+  let install_audio_pkgs = install_audio_pkgs
+    .wait_with_output()
+    .expect("failed to install audio packages");
+
+  println!("{}", String::from_utf8_lossy(&install_audio_pkgs.stdout));
 }
