@@ -66,8 +66,11 @@ fn main() {
 
     let git_clone_yay = Command::new("git")
       .args(&["clone", "https://aur.archlinux.org/yay.git"])
-      .output()
+      .spawn()
       .expect("failed to clone yay");
+
+    let git_clone_yay = git_clone_yay
+      .wait_with_output()
       .expect("failed to clone yay");
 
     println!("{}", String::from_utf8_lossy(&git_clone_yay.stdout));
@@ -77,8 +80,11 @@ fn main() {
       .arg("-si")
       .current_dir("yay")
       .stdin(Stdio::piped())
-      .output()
+      .spawn()
       .expect("failed to install yay");
+
+    let yay_install = yay_install
+      .wait_with_output()
       .expect("failed to install yay");
 
     println!("{}", String::from_utf8_lossy(&yay_install.stdout));
