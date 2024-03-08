@@ -81,10 +81,10 @@ func main() {
 
 	}
 
-	cmd := exec.Command(pkgs)
-	cmd.Stdout = os.Stdout
-	cmd.Stdin = os.Stdin
-	if err := cmd.Run(); err != nil {
+	yay := exec.Command(pkgs)
+	yay.Stdout = os.Stdout
+	yay.Stdin = os.Stdin
+	if err := yay.Run(); err != nil {
 		log.Fatal(err)
 	}
 }
