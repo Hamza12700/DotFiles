@@ -20,11 +20,11 @@ fn main() {
       .stdout(Stdio::piped())
       .stdin(Stdio::piped())
       .spawn()
-      .expect("Failed to install stow");
+      .expect("failed to install stow");
 
     let output = stow_install
       .wait_with_output()
-      .expect("Failed to install stow");
+      .expect("failed to install stow");
 
     println!("{}", String::from_utf8_lossy(&output.stdout));
   }
@@ -56,7 +56,7 @@ fn main() {
         break;
       }
     } else {
-      eprintln!("Failed to read line");
+      eprintln!("failed to read line");
     }
   }
 
@@ -67,7 +67,8 @@ fn main() {
     let git_clone_yay = Command::new("git")
       .args(&["clone", "https://aur.archlinux.org/yay.git"])
       .output()
-      .expect("Failed to clone yay");
+      .expect("failed to clone yay");
+      .expect("failed to clone yay");
 
     println!("{}", String::from_utf8_lossy(&git_clone_yay.stdout));
 
@@ -77,7 +78,8 @@ fn main() {
       .current_dir("yay")
       .stdin(Stdio::piped())
       .output()
-      .expect("Failed to install yay");
+      .expect("failed to install yay");
+      .expect("failed to install yay");
 
     println!("{}", String::from_utf8_lossy(&yay_install.stdout));
   }
