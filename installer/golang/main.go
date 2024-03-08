@@ -25,14 +25,14 @@ func main() {
 		}
 	}
 
-	// stow := exec.Command("stow", "*/", "-t", "~/")
-	// stow.Dir = "../../config/"
-	// stow.Stdout = os.Stdout
-	// if err := stow.Run(); err != nil {
-	//   log.Fatal(err)
-	// }
-	//
-	// fmt.Println("\nSuccessfully linked the config directories")
+	stow := exec.Command("stow", "*/", "-t", "~/")
+	stow.Dir = "../../config/"
+	stow.Stdout = os.Stdout
+	if err := stow.Run(); err != nil {
+	  log.Fatal(err)
+	}
+
+	fmt.Println("\nSuccessfully linked the config directories")
 
 	file, err := os.Open("../../README.md")
 	if err != nil {
