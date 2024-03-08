@@ -101,11 +101,11 @@ fn main() {
     .spawn()
     .expect("failed to install packages");
 
-  let output = install_pkgs
+  let install_pkgs = install_pkgs
     .wait_with_output()
     .expect("failed to install packages");
 
-  println!("{}", String::from_utf8_lossy(&output.stdout));
+  println!("{}", String::from_utf8_lossy(&install_pkgs.stdout));
 
   let clear = Command::new("clear")
     .output()
