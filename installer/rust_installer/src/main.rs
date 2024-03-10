@@ -38,8 +38,8 @@ fn main() {
   println!("Successfully link the config dirs");
 
   let current_dir = env::current_dir().expect("Failed to get current dir");
-  let file_path = current_dir.join("../../README.md");
-  let file_descriptor = File::open(file_path).expect("Failed to open README.md");
+  let readme_file = current_dir.join("../../README.md");
+  let file_descriptor = File::open(readme_file).expect("Failed to open README.md");
   let reader = BufReader::new(file_descriptor);
 
   let mut find_pkgs = false;
