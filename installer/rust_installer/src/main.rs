@@ -106,7 +106,7 @@ fn main() {
   let pkgs = pkgs.replace("\\", "");
   println!("{}", pkgs);
 
-  let pkgs = pkgs.split_whitespace().skip(2).collect::<Rc<_>>();
+  let pkgs: Rc<_> = pkgs.split_whitespace().skip(2).collect();
   let install_pkgs = Command::new("yay")
     .arg("-Syu")
     .args(pkgs.iter())
