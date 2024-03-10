@@ -26,7 +26,7 @@ fn main() {
       .wait_with_output()
       .expect("failed to install stow");
 
-    println!("{}", String::from_utf8_lossy(&stow_install.stdout));
+    unsafe { println!("{}", String::from_utf8_unchecked(stow_install.stdout)) };
   }
 
   // let _ = Command::new("stow")
@@ -82,7 +82,7 @@ fn main() {
       .wait_with_output()
       .expect("failed to clone yay");
 
-    println!("{}", String::from_utf8_lossy(&git_clone_yay.stdout));
+    unsafe { println!("{}", String::from_utf8_unchecked(git_clone_yay.stdout)) };
 
     println!("Installing yay");
     let yay_install = Command::new("makepkg")
@@ -96,7 +96,7 @@ fn main() {
       .wait_with_output()
       .expect("failed to install yay");
 
-    println!("{}", String::from_utf8_lossy(&yay_install.stdout));
+    unsafe { println!("{}", String::from_utf8_unchecked(yay_install.stdout)) };
   }
 
   let audio_pkgs = audio_pkgs.replace("```", "");
@@ -118,13 +118,13 @@ fn main() {
     .wait_with_output()
     .expect("failed to install packages");
 
-  println!("{}", String::from_utf8_lossy(&install_pkgs.stdout));
+  unsafe { println!("{}", String::from_utf8_unchecked(install_pkgs.stdout)) };
 
   let clear = Command::new("clear")
     .output()
     .expect("failed to clear the screen");
 
-  println!("{}", String::from_utf8_lossy(&clear.stdout));
+  unsafe { println!("{}", String::from_utf8_unchecked(clear.stdout)) };
 
   println!("Finished installing packages");
 
@@ -142,5 +142,5 @@ fn main() {
     .wait_with_output()
     .expect("failed to install audio packages");
 
-  println!("{}", String::from_utf8_lossy(&install_audio_pkgs.stdout));
+  unsafe { println!("{}", String::from_utf8_unchecked(install_audio_pkgs.stdout)) };
 }
