@@ -48,22 +48,19 @@ fn main() {
   let mut audio_pkgs = String::new();
   for line in reader.lines() {
     if let Ok(text) = line {
-      if text.contains("yay -Syu") {
-        find_pkgs = true;
-      }
+      find_pkgs |= text.contains("yay -Syu");
+      find_audio_pkgs |= text.contains("Audio");
+
       if find_pkgs {
         pkgs.push_str(&text);
+      }
+      if find_audio_pkgs {
+        audio_pkgs.push_str(&text);
       }
       if text.contains("--needed") {
         find_pkgs = false;
       }
 
-      if text.contains("Audio") {
-        find_audio_pkgs = true;
-      }
-      if find_audio_pkgs {
-        audio_pkgs.push_str(&text);
-      }
     } else {
       eprintln!("failed to read line");
     }
