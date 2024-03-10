@@ -128,7 +128,7 @@ fn main() {
 
   println!("Finished installing packages");
 
-  println!("Installing audio packages");
+  println!("\nInstalling audio packages");
 
   let audio_pkgs = audio_pkgs.split_whitespace().skip(2).collect::<Rc<_>>();
   let install_audio_pkgs = Command::new("yay")
