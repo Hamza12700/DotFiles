@@ -101,7 +101,6 @@ fn main() {
   let audio_pkgs = audio_pkgs.replace("### Audio Packages | Optionalbash", "");
 
   let pkgs = pkgs.replace("\\", "");
-  println!("{}", pkgs);
 
   let pkgs: Rc<_> = pkgs.split_whitespace().skip(2).collect();
   let install_pkgs = Command::new("yay")
