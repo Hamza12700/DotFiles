@@ -29,18 +29,33 @@ fn main() {
     unsafe { println!("{}", String::from_utf8_unchecked(stow_install.stdout)) };
   }
 
-  // let _ = Command::new("stow")
-  //   .args(&["*/", "-t", "~/"])
-  //   .current_dir("../../../config/")
-  //   .output()
-  //   .expect("failed to link the config dirs");
-
-  println!("Successfully link the config dirs");
-
   let current_dir = env::current_dir().expect("Failed to get current dir");
   let readme_file = current_dir.join("../../README.md");
   let file_descriptor = File::open(readme_file).expect("Failed to open README.md");
   let reader = BufReader::new(file_descriptor);
+
+  let home_dir = env::var_os("HOME").unwrap();
+  let symlink_path = Path::new(&home_dir.to_str().unwrap())
+    .join(".config/fish")
+    .is_dir();
+
+  match symlink_path {
+    true => {
+      println!("Symlink already exists");
+      println!("Skipping....");
+      thread::sleep(Duration::from_secs(1));
+    }
+    false => {
+      let _ = Command::new("stow")
+        .args(&["*/", "-t", "~/"])
+        .current_dir("../../../config/")
+        .output()
+        .unwrap();
+
+      println!("Successfully link the config dirs");
+    }
+  };
+  drop(home_dir);
 
   let mut find_pkgs = false;
   let mut find_audio_pkgs = false;
