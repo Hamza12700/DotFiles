@@ -51,7 +51,7 @@ if status --is-interactive
     abbr -a reload source ~/.config/fish/config.fish
 
     # Alias
-    alias ls="eza -la --icons --group-directories-first"
+    alias ls="eza -la --group-directories-first"
     alias vim="nvim"
 
 end
