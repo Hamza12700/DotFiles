@@ -75,7 +75,6 @@ fn main() {
       if text.contains("--needed") {
         find_pkgs = false;
       }
-
     } else {
       eprintln!("failed to read line");
     }
@@ -104,9 +103,7 @@ fn main() {
       .spawn()
       .unwrap();
 
-    let yay_install = yay_install
-      .wait_with_output()
-      .unwrap();
+    let yay_install = yay_install.wait_with_output().unwrap();
 
     unsafe { println!("{}", String::from_utf8_unchecked(yay_install.stdout)) };
   }
