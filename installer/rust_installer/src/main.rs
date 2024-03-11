@@ -66,10 +66,8 @@ fn main() {
       find_pkgs |= text.contains("yay -Syu");
       find_audio_pkgs |= text.contains("Audio");
 
-      if find_pkgs {
+      if find_pkgs && find_audio_pkgs {
         pkgs.push_str(&text);
-      }
-      if find_audio_pkgs {
         audio_pkgs.push_str(&text);
       }
       if text.contains("--needed") {
