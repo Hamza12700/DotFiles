@@ -5,13 +5,16 @@ use std::{
   path::Path,
   process::{Command, Stdio},
   rc::Rc,
-  thread,
-  time::Duration,
 };
 
 use which::which;
 
 fn main() {
+  let claer = Command::new("clear")
+    .output()
+    .unwrap();
+  unsafe { println!("{}", String::from_utf8_unchecked(claer.stdout)) };
+
   println!("Starting the installer");
 
   let find_stow = which("stow");
@@ -44,9 +47,8 @@ fn main() {
 
   match symlink_path {
     true => {
-      println!("Symlink already exists");
-      println!("Skipping....");
-      thread::sleep(Duration::from_secs(1));
+      println!("\nSymlink already exists");
+      println!("Skipping....\n");
     }
     false => {
       let _ = Command::new("stow")
@@ -61,21 +63,16 @@ fn main() {
   drop(home_dir);
 
   let mut find_pkgs = false;
-  let mut find_audio_pkgs = false;
   let mut pkgs = String::new();
-  let mut audio_pkgs = String::new();
   for line in reader.lines() {
     match line {
       Ok(text) => {
         find_pkgs |= text.contains("yay -Syu");
-        find_audio_pkgs |= text.contains("Audio");
 
         if find_pkgs {
           pkgs.push_str(&text);
         }
-        if find_audio_pkgs {
-          audio_pkgs.push_str(&text);
-        }
+
         if text.contains("--needed") {
           find_pkgs = false;
         }
@@ -112,10 +109,6 @@ fn main() {
     unsafe { println!("{}", String::from_utf8_unchecked(yay_install.stdout)) };
   }
 
-  let audio_pkgs = audio_pkgs.replace("```", "");
-  let audio_pkgs = audio_pkgs.replace("\\", "");
-  let audio_pkgs = audio_pkgs.replace("### Audio Packages | Optionalbash", "");
-
   let pkgs = pkgs.replace("\\", "");
 
   let pkgs: Rc<_> = pkgs.split_whitespace().skip(2).collect();
@@ -134,25 +127,9 @@ fn main() {
 
   let clear = Command::new("clear")
     .output()
-    .expect("failed to clear the screen");
+    .unwrap();
 
   unsafe { println!("{}", String::from_utf8_unchecked(clear.stdout)) };
 
   println!("Finished installing packages");
-
-  println!("\nInstalling audio packages");
-
-  let audio_pkgs = audio_pkgs.split_whitespace().skip(2).collect::<Rc<_>>();
-  let install_audio_pkgs = Command::new("yay")
-    .arg("-S")
-    .args(audio_pkgs.iter())
-    .stdin(Stdio::piped())
-    .spawn()
-    .expect("failed to install audio packages");
-
-  let install_audio_pkgs = install_audio_pkgs
-    .wait_with_output()
-    .expect("failed to install audio packages");
-
-  unsafe { println!("{}", String::from_utf8_unchecked(install_audio_pkgs.stdout)) };
 }
