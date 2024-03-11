@@ -87,11 +87,11 @@ fn main() {
       .current_dir("yay")
       .stdin(Stdio::piped())
       .spawn()
-      .expect("failed to install yay");
+      .unwrap();
 
     let yay_install = yay_install
       .wait_with_output()
-      .expect("failed to install yay");
+      .unwrap();
 
     unsafe { println!("{}", String::from_utf8_unchecked(yay_install.stdout)) };
   }
