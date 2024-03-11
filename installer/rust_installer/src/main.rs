@@ -124,6 +124,7 @@ fn main() {
     .expect("failed to install packages");
 
   unsafe { println!("{}", String::from_utf8_unchecked(install_pkgs.stdout)) };
+  drop(pkgs);
 
   let clear = Command::new("clear")
     .output()
