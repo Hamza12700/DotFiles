@@ -65,22 +65,23 @@ fn main() {
   let mut pkgs = String::new();
   let mut audio_pkgs = String::new();
   for line in reader.lines() {
-    if let Ok(text) = line {
-      find_pkgs |= text.contains("yay -Syu");
-      find_audio_pkgs |= text.contains("Audio");
+    match line {
+      Ok(text) => {
+        find_pkgs |= text.contains("yay -Syu");
+        find_audio_pkgs |= text.contains("Audio");
 
-      if find_pkgs {
-        pkgs.push_str(&text);
+        if find_pkgs {
+          pkgs.push_str(&text);
+        }
+        if find_audio_pkgs {
+          audio_pkgs.push_str(&text);
+        }
+        if text.contains("--needed") {
+          find_pkgs = false;
+        }
       }
-      if find_audio_pkgs {
-        audio_pkgs.push_str(&text);
-      }
-      if text.contains("--needed") {
-        find_pkgs = false;
-      }
-    } else {
-      eprintln!("failed to read line");
-    }
+      Err(err) => eprintln!("Failed to read line: {}", err),
+    };
   }
 
   let find_yay = which("yay");
