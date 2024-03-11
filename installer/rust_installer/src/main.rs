@@ -10,9 +10,7 @@ use std::{
 use which::which;
 
 fn main() {
-  let claer = Command::new("clear")
-    .output()
-    .unwrap();
+  let claer = Command::new("clear").output().unwrap();
   unsafe { println!("{}", String::from_utf8_unchecked(claer.stdout)) };
 
   println!("Starting the installer");
@@ -138,9 +136,7 @@ fn main() {
   unsafe { println!("{}", String::from_utf8_unchecked(install_pkgs.stdout)) };
   drop(pkgs);
 
-  let clear = Command::new("clear")
-    .output()
-    .unwrap();
+  let clear = Command::new("clear").output().unwrap();
 
   unsafe { println!("{}", String::from_utf8_unchecked(clear.stdout)) };
 
