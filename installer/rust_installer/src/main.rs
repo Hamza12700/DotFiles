@@ -1,6 +1,6 @@
 use std::{
   env,
-  fs::File,
+  fs::{self, File},
   io::{BufRead, BufReader},
   path::Path,
   process::{Command, Stdio},
@@ -114,6 +114,11 @@ fn main() {
     let yay_install = yay_install.wait_with_output().unwrap();
 
     unsafe { println!("{}", String::from_utf8_unchecked(yay_install.stdout)) };
+
+    println!("\nRemoving yay directory");
+    if let Err(err) = fs::remove_dir_all("yay") {
+      eprintln!("Failed to remove yay directory: {}", err);
+    }
   }
 
   let pkgs = pkgs.replace("\\", "");
