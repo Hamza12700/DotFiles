@@ -134,4 +134,18 @@ fn main() {
   unsafe { println!("{}", String::from_utf8_unchecked(clear.stdout)) };
 
   println!("Finished installing packages");
+
+  let sys_services = ["bluetooth", "ly"];
+
+  println!("\nEnabling services\n");
+  for service in sys_services {
+    let status = Command::new("sudo")
+      .args(&["systemctl", "enable", service])
+      .spawn()
+      .unwrap();
+
+    let status = status.wait_with_output().unwrap();
+
+    unsafe { println!("{}", String::from_utf8_unchecked(status.stdout)) };
+  }
 }
