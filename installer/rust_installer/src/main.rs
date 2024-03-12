@@ -1,7 +1,7 @@
 use std::{
   env,
   fs::{self, File},
-  io::{BufRead, BufReader},
+  io::{stdin, BufRead, BufReader},
   path::Path,
   process::{Command, Stdio},
   rc::Rc,
@@ -61,14 +61,20 @@ fn main() {
   drop(home_dir);
 
   let mut find_pkgs = false;
+  let mut find_amd_drivers = false;
   let mut pkgs = String::new();
+  let mut amd_drivers = String::new();
   for line in reader.lines() {
     match line {
       Ok(text) => {
         find_pkgs |= text.contains("yay -Syu");
+        find_amd_drivers |= text.contains("AMD");
 
         if find_pkgs {
           pkgs.push_str(&text);
+        }
+        if find_amd_drivers {
+          amd_drivers.push_str(&text);
         }
 
         if text.contains("--needed") {
@@ -148,4 +154,30 @@ fn main() {
 
     unsafe { println!("{}", String::from_utf8_unchecked(status.stdout)) };
   }
+
+  println!("\nInstall AMD Drivers?");
+  println!("[y/n]\n");
+  let mut user_option = String::new();
+  match stdin().read_line(&mut user_option) {
+    Ok(input) => input,
+    Err(err) => {
+      eprintln!("failed to read from stdin: {}", err);
+      return;
+    }
+  };
+
+  if user_option.trim() == "y" {
+    let amd_drivers: Rc<_> = amd_drivers.split_whitespace().skip(2).collect();
+    let output = Command::new("yay")
+      .arg("-S")
+      .args(amd_drivers.iter())
+      .spawn()
+      .unwrap();
+
+    let output = output.wait_with_output().unwrap();
+    unsafe { println!("{}", String::from_utf8_unchecked(output.stdout)) };
+    drop(amd_drivers);
+  }
+
+  println!("\nDone!");
 }
