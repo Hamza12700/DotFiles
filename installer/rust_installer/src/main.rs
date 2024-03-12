@@ -34,13 +34,6 @@ fn main() {
   }
 
   let current_dir = env::current_dir().unwrap();
-  let parrent_dir = current_dir.parent().unwrap();
-  if parrent_dir.file_name().unwrap() == "bin" {
-    if let Err(err) = env::set_current_dir(parrent_dir.join("..")) {
-      eprintln!("Failed to change directory: {}", err);
-      std::process::exit(1);
-    }
-  }
   let readme_file = current_dir.join("../../README.md");
   let file_descriptor = File::open(readme_file).expect("Failed to open README.md");
   let reader = BufReader::new(file_descriptor);
