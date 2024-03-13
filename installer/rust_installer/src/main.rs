@@ -38,18 +38,19 @@ fn main() {
     Err(err) => {
       eprintln!("Failed to get current directory: {}", err);
       return;
-    },
-};
+    }
+  };
+
   let readme_file = current_dir.join("../../README.md");
   let file_descriptor = match File::open(readme_file) {
     Ok(file) => file,
     Err(err) => {
       eprintln!("Failed to open file: {}", err);
       return;
-    },
-};
-  let reader = BufReader::new(file_descriptor);
+    }
+  };
 
+  let reader = BufReader::new(file_descriptor);
   let home_dir = env::var_os("HOME").expect("couldn't load HOME environment variable");
   let fish_shell = Path::new(&home_dir.to_str().unwrap())
     .join(".config/fish")
