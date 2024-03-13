@@ -35,7 +35,13 @@ fn main() {
 
   let current_dir = env::current_dir().unwrap();
   let readme_file = current_dir.join("../../README.md");
-  let file_descriptor = File::open(readme_file).expect("Failed to open README.md");
+  let file_descriptor = match File::open(readme_file) {
+    Ok(file) => file,
+    Err(err) => {
+      eprintln!("Failed to open file: {}", err);
+      return;
+    },
+};
   let reader = BufReader::new(file_descriptor);
 
   let home_dir = env::var_os("HOME").expect("couldn't load HOME environment variable");
