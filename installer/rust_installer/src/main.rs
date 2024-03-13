@@ -10,8 +10,8 @@ use std::{
 use which::which;
 
 fn main() {
-  let claer = Command::new("clear").output().unwrap();
-  unsafe { println!("{}", String::from_utf8_unchecked(claer.stdout)) };
+  let clear = Command::new("clear").output().unwrap();
+  unsafe { println!("{}", String::from_utf8_unchecked(clear.stdout)) };
 
   println!("Starting the installer");
 
