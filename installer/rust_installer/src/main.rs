@@ -33,7 +33,13 @@ fn main() {
     unsafe { println!("{}", String::from_utf8_unchecked(stow_install.stdout)) };
   }
 
-  let current_dir = env::current_dir().unwrap();
+  let current_dir = match env::current_dir() {
+    Ok(path) => path,
+    Err(err) => {
+      eprintln!("Failed to get current directory: {}", err);
+      return;
+    },
+};
   let readme_file = current_dir.join("../../README.md");
   let file_descriptor = match File::open(readme_file) {
     Ok(file) => file,
