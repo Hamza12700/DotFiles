@@ -28,10 +28,10 @@ if status --is-interactive
 
     # Zoxide
     zoxide init fish | source
-
     # Starship Prompt
     starship init fish | source
-
+    # Atuin
+    atuin init fish | source
 
     # KeyBinds
     bind \cz "zi; commandline -f repaint" # [Ctrl + z] - zoxide fizzy finder
