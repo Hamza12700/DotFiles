@@ -33,14 +33,7 @@ fn main() {
     unsafe { println!("{}", String::from_utf8_unchecked(stow_install.stdout)) };
   }
 
-  let current_dir = match env::current_dir() {
-    Ok(path) => path,
-    Err(err) => {
-      eprintln!("Failed to get current directory: {}", err);
-      return;
-    }
-  };
-
+  let current_dir = env::current_dir().expect("Failed to get current directory");
   let current_exe_path = env::current_exe().expect("Failed to get current executable path");
   let readme_path: &str;
   let parent_dir = current_exe_path
