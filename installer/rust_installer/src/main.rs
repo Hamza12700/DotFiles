@@ -48,11 +48,10 @@ fn main() {
     in_bin_dir = true
   }
 
-  if in_bin_dir {
-    readme_path = "../../../README.md";
-  } else {
-    readme_path = "../../README.md";
-  }
+  match in_bin_dir {
+    true => readme_path = "../../../README.md",
+    false => readme_path = "../../README.md",
+  };
 
   let readme_file = current_dir.join(readme_path);
   let file_descriptor = match File::open(readme_file) {
