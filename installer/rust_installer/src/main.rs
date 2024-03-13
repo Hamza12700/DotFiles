@@ -24,11 +24,11 @@ fn main() {
       .stdout(Stdio::piped())
       .stdin(Stdio::piped())
       .spawn()
-      .expect("failed to install stow");
+      .expect("Failed to install stow");
 
     let stow_install = stow_install
       .wait_with_output()
-      .expect("failed to install stow");
+      .expect("Failed to install stow");
 
     unsafe { println!("{}", String::from_utf8_unchecked(stow_install.stdout)) };
   }
@@ -125,11 +125,11 @@ fn main() {
     let git_clone_yay = Command::new("git")
       .args(&["clone", "https://aur.archlinux.org/yay.git"])
       .spawn()
-      .expect("failed to clone yay");
+      .expect("Failed to clone yay");
 
     let git_clone_yay = git_clone_yay
       .wait_with_output()
-      .expect("failed to clone yay");
+      .expect("Failed to clone yay");
 
     unsafe { println!("{}", String::from_utf8_unchecked(git_clone_yay.stdout)) };
 
@@ -159,11 +159,11 @@ fn main() {
     .args(pkgs.iter())
     .stdin(Stdio::piped())
     .spawn()
-    .expect("failed to install packages");
+    .expect("Failed to install packages");
 
   let install_pkgs = install_pkgs
     .wait_with_output()
-    .expect("failed to install packages");
+    .expect("Failed to install packages");
 
   unsafe { println!("{}", String::from_utf8_unchecked(install_pkgs.stdout)) };
   drop(pkgs);
@@ -194,7 +194,7 @@ fn main() {
   match stdin().read_line(&mut user_option) {
     Ok(input) => input,
     Err(err) => {
-      eprintln!("failed to read from stdin: {}", err);
+      eprintln!("Failed to read from stdin: {}", err);
       return;
     }
   };
