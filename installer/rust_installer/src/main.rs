@@ -175,13 +175,7 @@ fn main() {
   println!("\nInstall AMD Drivers?");
   println!("[y/n]\n");
   let mut user_option = String::new();
-  match stdin().read_line(&mut user_option) {
-    Ok(input) => input,
-    Err(err) => {
-      eprintln!("Failed to read from stdin: {}", err);
-      return;
-    }
-  };
+  stdin().read_line(&mut user_option).expect("Failed to read line");
 
   if user_option.trim() == "y" {
     let amd_drivers = amd_drivers.split_whitespace().skip(2);
