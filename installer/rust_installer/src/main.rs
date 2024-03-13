@@ -38,12 +38,12 @@ fn main() {
   let file_descriptor = File::open(readme_file).expect("Failed to open README.md");
   let reader = BufReader::new(file_descriptor);
 
-  let home_dir = env::var_os("HOME").unwrap();
-  let symlink_path = Path::new(&home_dir.to_str().unwrap())
+  let home_dir = env::var_os("HOME").expect("couldn't load HOME environment variable");
+  let fish_shell = Path::new(&home_dir.to_str().unwrap())
     .join(".config/fish")
     .is_dir();
 
-  match symlink_path {
+  match fish_shell {
     true => {
       println!("\nSymlink already exists");
       println!("Skipping....\n");
