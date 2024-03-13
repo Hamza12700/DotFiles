@@ -4,7 +4,6 @@ use std::{
   io::{stdin, BufRead, BufReader},
   path::Path,
   process::{Command, Stdio},
-  rc::Rc,
 };
 
 use which::which;
@@ -139,10 +138,10 @@ fn main() {
 
   let pkgs = pkgs.replace("\\", "");
 
-  let pkgs: Rc<_> = pkgs.split_whitespace().skip(2).collect();
+  let pkgs = pkgs.split_whitespace().skip(2);
   let install_pkgs = Command::new("yay")
     .arg("-Syu")
-    .args(pkgs.iter())
+    .args(pkgs)
     .stdin(Stdio::piped())
     .spawn()
     .expect("Failed to install packages");
@@ -152,7 +151,6 @@ fn main() {
     .expect("Failed to install packages");
 
   unsafe { println!("{}", String::from_utf8_unchecked(install_pkgs.stdout)) };
-  drop(pkgs);
 
   let clear = Command::new("clear").output().unwrap();
 
@@ -186,16 +184,15 @@ fn main() {
   };
 
   if user_option.trim() == "y" {
-    let amd_drivers: Rc<_> = amd_drivers.split_whitespace().skip(2).collect();
+    let amd_drivers = amd_drivers.split_whitespace().skip(2);
     let output = Command::new("yay")
       .arg("-S")
-      .args(amd_drivers.iter())
+      .args(amd_drivers)
       .spawn()
       .unwrap();
 
     let output = output.wait_with_output().unwrap();
     unsafe { println!("{}", String::from_utf8_unchecked(output.stdout)) };
-    drop(amd_drivers);
   }
 
   println!("\nDone!");
