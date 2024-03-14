@@ -49,8 +49,7 @@ tooltip {
 #tray,
 #mode,
 #custom-updates {
-  padding: 0px 10px;
-  margin: 3px 0px;
+  padding: 0px 7px;
   border-radius: 4px;
   color: white;
   background-color: #3C4048;
@@ -66,7 +65,6 @@ tooltip {
 #workspaces {
   background-color: #3C4048;
   border-radius: 5px;
-  margin: 3px 0;
   margin-left: 4px;
 }
 
