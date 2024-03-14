@@ -33,24 +33,7 @@ fn main() {
   }
 
   let current_dir = env::current_dir().expect("Failed to get current directory");
-  let current_exe_path = env::current_exe().expect("Failed to get current executable path");
-  let readme_path: &str;
-  let parent_dir = current_exe_path
-    .parent()
-    .expect("Failed to get parent directory");
-
-  let mut in_bin_dir = false;
-  let parent_dir_name = parent_dir
-    .file_name()
-    .expect("Failed to get parent directory name");
-  if parent_dir_name == "bin" {
-    in_bin_dir = true
-  }
-
-  match in_bin_dir {
-    true => readme_path = "../../../README.md",
-    false => readme_path = "../../README.md",
-  };
+  let readme_path = "../../README.md";
 
   let readme_file = current_dir.join(readme_path);
   let file_descriptor = File::open(readme_file).expect("Failed to open README.md");
