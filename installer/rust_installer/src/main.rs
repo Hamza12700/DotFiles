@@ -31,10 +31,10 @@ fn main() {
     unsafe { println!("{}", String::from_utf8_unchecked(stow_install.stdout)) };
   }
 
-  let current_dir = env::current_dir().expect("Failed to get current directory");
+  let current_path = env::current_dir().expect("Failed to get current directory");
   let readme_path = "../../README.md";
 
-  let readme_file = current_dir.join(readme_path);
+  let readme_file = current_path.join(readme_path);
   let file_descriptor = File::open(readme_file).expect("Failed to open README.md");
 
   let reader = BufReader::new(file_descriptor);
