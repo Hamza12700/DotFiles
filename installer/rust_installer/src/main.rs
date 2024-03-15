@@ -35,7 +35,7 @@ fn main() {
   let mut readme_path = "../../README.md";
   let mut config_dir = "../../config";
   if current_path.to_str().unwrap().contains("bin") {
-    readme_path = "../../../README.md"; 
+    readme_path = "../../../README.md";
     config_dir = "../../../config";
   }
 
@@ -160,7 +160,9 @@ fn main() {
   println!("\nInstall AMD Drivers?");
   println!("[y/n]\n");
   let mut user_option = String::new();
-  stdin().read_line(&mut user_option).expect("Failed to read line");
+  stdin()
+    .read_line(&mut user_option)
+    .expect("Failed to read line");
 
   if user_option.trim() == "y" {
     let amd_drivers = amd_drivers.split_whitespace().skip(2);
