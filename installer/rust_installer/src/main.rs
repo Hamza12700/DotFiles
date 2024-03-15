@@ -9,8 +9,7 @@ use std::{
 use which::which;
 
 fn main() {
-  let clear = Command::new("clear").output().unwrap();
-  unsafe { println!("{}", String::from_utf8_unchecked(clear.stdout)) };
+  print!("\x1B[2J\x1B[1;1H");
 
   println!("Starting the installer");
 
@@ -135,9 +134,7 @@ fn main() {
 
   unsafe { println!("{}", String::from_utf8_unchecked(install_pkgs.stdout)) };
 
-  let clear = Command::new("clear").output().unwrap();
-
-  unsafe { println!("{}", String::from_utf8_unchecked(clear.stdout)) };
+  print!("\x1B[2J\x1B[1;1H");
 
   println!("Finished installing packages");
 
