@@ -32,7 +32,12 @@ fn main() {
   }
 
   let current_path = env::current_dir().expect("Failed to get current directory");
-  let readme_path = "../../README.md";
+  let mut readme_path = "../../README.md";
+  let mut config_dir = "../../config";
+  if current_path.to_str().unwrap().contains("bin") {
+    readme_path = "../../../README.md"; 
+    config_dir = "../../../config";
+  }
 
   let readme_file = current_path.join(readme_path);
   let file_descriptor = File::open(readme_file).expect("Failed to open README.md");
@@ -51,7 +56,7 @@ fn main() {
     false => {
       let _ = Command::new("stow")
         .args(&["*/", "-t", "~/"])
-        .current_dir("../../../config/")
+        .current_dir(config_dir)
         .output()
         .unwrap();
 
