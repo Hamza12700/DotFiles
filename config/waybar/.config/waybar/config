@@ -13,7 +13,6 @@
     "network",
     "cpu",
     "memory",
-    "clock",
     "tray"
   ],
 
@@ -26,9 +25,6 @@
 
   "tray": {
     "spacing": 8
-  },
-  "clock": {
-    "format": "{: %R    %d/%m}"
   },
   "cpu": {
     "on-click": "foot -e btop",
