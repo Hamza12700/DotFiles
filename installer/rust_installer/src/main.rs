@@ -47,23 +47,20 @@ fn main() {
   let fish_shell = Path::new(&home_dir.to_str().unwrap())
     .join(".config/fish")
     .is_dir();
-
-  match fish_shell {
-    true => {
-      println!("\nSymlink already exists");
-      println!("Skipping....\n");
-    }
-    false => {
-      let _ = Command::new("stow")
-        .args(&["*/", "-t", "~/"])
-        .current_dir(config_dir)
-        .output()
-        .unwrap();
-
-      println!("Successfully link the config dirs");
-    }
-  };
   drop(home_dir);
+
+  if fish_shell {
+    println!("\nSymlink already exists");
+    println!("Skipping....\n");
+  } else {
+    let _ = Command::new("stow")
+      .args(&["*/", "-t", "~/"])
+      .current_dir(config_dir)
+      .output()
+      .unwrap();
+
+    println!("Successfully link the config dirs");
+  }
 
   let mut find_pkgs = false;
   let mut find_amd_drivers = false;
