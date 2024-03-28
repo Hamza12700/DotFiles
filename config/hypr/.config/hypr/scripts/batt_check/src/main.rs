@@ -22,7 +22,7 @@ fn main() {
       .expect("Failed to parse battery capacity to u8");
 
     match battery_level {
-      40..=50 => get_notified("Battery is almost full", battery_level),
+      40..=50 => get_notified("Battery is half full", battery_level),
       21..=30 => get_notified("Battery is low", battery_level),
       10..=20 => get_notified("Battery is almost empty", battery_level),
       100 => get_notified("Battery is fully charged", battery_level),
