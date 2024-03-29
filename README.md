@@ -10,8 +10,6 @@ My Hyprland dotfiles.
 
 - **Shell:** [Fish](https://github.com/fish-shell/fish-shell)
 
-- **App Launcher:** [Rofi](https://github.com/davatorium/rofi)
-
 - **Terminal:** [Foot](https://codeberg.org/dnkl/foot)
 
 ## Installation
@@ -41,7 +39,7 @@ yay -Syu wget atuin foot pavucontrol wireplumber pipewire pipewire-jack imagemag
   networkmanager-dmenu-git nm-connection-editor npm \
   ttf-jetbrains-mono ttf-meslo-nerd yazi unarchiver jq poppler fd ripgrep fzf \
   go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg \
-  lazygit pacman-contrib trash-cli zoxide eza bat starship nodejs rofi unzip \
+  lazygit pacman-contrib trash-cli zoxide eza bat starship nodejs unzip \
   polkit-kde-agent diskonaut dust base-devel tldr --noconfirm --needed
 ```
 
