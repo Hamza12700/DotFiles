@@ -7,8 +7,9 @@ use std::{
 #[derive(PartialEq)]
 enum BatteryLevels {
   None,
-  Low,
+  Full,
   HalfFull,
+  Low,
   AlmostEmpty,
 }
 
@@ -43,7 +44,10 @@ fn main() {
         get_notified("Battery is almost empty", battery_level);
         battery_level_check = BatteryLevels::AlmostEmpty
       }
-      100 => get_notified("Battery is fully charged", battery_level),
+      100 if battery_level_check != BatteryLevels::Full => {
+        get_notified("Battery is fully charged", battery_level);
+        battery_level_check = BatteryLevels::Full
+      }
       _ => (),
     };
 
