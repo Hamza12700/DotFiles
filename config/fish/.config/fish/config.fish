@@ -34,7 +34,7 @@ if status --is-interactive
 
     # KeyBinds
     bind \cz "zi; commandline -f repaint"
-    bind \ev "cliphist list | fzf | cliphist decode | wl-copy"
+    bind \eq "cliphist list | fzf | cliphist decode | wl-copy"
     bind -k nul "commandline -f accept-autosuggestion"
     bind \cf "fd -t file -E '.git|node_modules' . | fzf --preview 'bat --color always {}' --bind 'enter:become(nvim {})'"
     bind \eh "cd -; commandline -f repaint"
