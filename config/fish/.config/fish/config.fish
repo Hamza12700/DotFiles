@@ -25,7 +25,6 @@ source /home/hamza/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 set -gx PATH /home/hamza/go/bin $PATH
 
 if status --is-interactive
-
     # Zoxide
     zoxide init fish | source
     # Starship Prompt
@@ -34,10 +33,10 @@ if status --is-interactive
     atuin init fish | source
 
     # KeyBinds
-    bind \cz "zi; commandline -f repaint" # [Ctrl + z] - zoxide fizzy finder
-    bind -k nul "commandline -f accept-autosuggestion" # [Ctrl + space] - accept-autosuggestion
-    bind \cf "fd -t file -E '.git|node_modules' . | fzf --preview 'bat --color always {}' --header 'Open a file in nvim' --bind 'enter:become(nvim {})'" # [Ctrl + f] - Fizzy find a file/dir and open it in noevim
+    bind \cz "zi; commandline -f repaint"
     bind \ev "cliphist list | fzf | cliphist decode | wl-copy"
+    bind -k nul "commandline -f accept-autosuggestion"
+    bind \cf "fd -t file -E '.git|node_modules' . | fzf --preview 'bat --color always {}' --bind 'enter:become(nvim {})'"
     bind \eh "cd -; commandline -f repaint"
 
     # Abbreviations
