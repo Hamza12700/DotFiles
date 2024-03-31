@@ -31,7 +31,7 @@ fn main() {
       .expect("Failed to parse battery capacity to u8");
 
     match battery_level {
-      95..=100 if battery_level_check != BatteryLevels::Full => {
+      98..=100 if battery_level_check != BatteryLevels::Full => {
         get_notified("Battery is full", battery_level);
         battery_level_check = BatteryLevels::Full
       }
