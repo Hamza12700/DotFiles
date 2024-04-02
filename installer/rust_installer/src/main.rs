@@ -13,8 +13,7 @@ fn main() {
 
   println!("Starting the installer");
 
-  let find_stow = which("stow");
-  if let Err(_) = find_stow {
+  if let Err(_) = which("stow") {
     println!("Installing stow");
 
     let stow_install = Command::new("sudo")
@@ -87,8 +86,7 @@ fn main() {
     };
   }
 
-  let find_yay = which("yay");
-  if let Err(_) = find_yay {
+  if let Err(_) = which("yay") {
     println!("Cloning yay");
 
     let git_clone_yay = Command::new("git")
