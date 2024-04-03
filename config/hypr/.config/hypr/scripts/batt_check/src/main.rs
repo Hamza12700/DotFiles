@@ -5,7 +5,7 @@ use std::{
 };
 
 #[derive(PartialEq)]
-enum BatteryLevels {
+enum BatteryLevel {
   None,
   Full,
   HalfFull,
@@ -13,7 +13,7 @@ enum BatteryLevels {
 }
 
 fn main() {
-  let mut battery_level_check = BatteryLevels::None;
+  let mut battery_level_check = BatteryLevel::None;
   loop {
     let battery_cap_file = File::open("/sys/class/power_supply/BAT0/capacity")
       .expect("Failed to open battery capacity file");
@@ -31,17 +31,17 @@ fn main() {
       .expect("Failed to parse battery capacity to u8");
 
     match battery_level {
-      98..=100 if battery_level_check != BatteryLevels::Full => {
+      98..=100 if battery_level_check != BatteryLevel::Full => {
         get_notified("Battery is full", battery_level);
-        battery_level_check = BatteryLevels::Full
+        battery_level_check = BatteryLevel::Full
       }
-      40..=50 if battery_level_check != BatteryLevels::HalfFull => {
+      40..=50 if battery_level_check != BatteryLevel::HalfFull => {
         get_notified("Battery is half full", battery_level);
-        battery_level_check = BatteryLevels::HalfFull
+        battery_level_check = BatteryLevel::HalfFull
       }
-      21..=30 if battery_level_check != BatteryLevels::Low => {
+      21..=30 if battery_level_check != BatteryLevel::Low => {
         get_notified("Battery is low", battery_level);
-        battery_level_check = BatteryLevels::Low
+        battery_level_check = BatteryLevel::Low
       }
       10..=20 => get_notified("Battery is almost empty", battery_level),
       _ => (),
