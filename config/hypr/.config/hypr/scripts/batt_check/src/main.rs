@@ -15,8 +15,16 @@ enum BatteryLevel {
 fn main() {
   let mut battery_level_check = BatteryLevel::None;
   loop {
-    let battery_cap_file = File::open("/sys/class/power_supply/BAT0/capacity")
-      .expect("Failed to open battery capacity file");
+    let battery_cap_file = match File::open("/sys/class/power_supply/BAT0/capacity") {
+      Ok(file) => file,
+      Err(err) => {
+        let _ = Command::new("notify-send")
+          .args(&["Failed to open battery capacity file", &err.to_string()])
+          .output()
+          .expect("Failed to send notification");
+        return;
+      }
+    };
 
     let mut battery_cap_buf_reader = BufReader::new(battery_cap_file);
     let mut battery_level = String::new();
