@@ -33,7 +33,6 @@ fn main() {
       eprintln!("Failed to read battery capacity: {}", err);
       process::exit(1);
     };
-    drop(battery_cap_buf_reader);
 
     match check_arg.nth(1) {
       Some(check) => {
