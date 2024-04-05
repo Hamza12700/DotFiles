@@ -32,6 +32,7 @@ fn main() {
       eprintln!("Failed to read battery capacity: {}", err);
       process::exit(1);
     };
+    drop(battery_cap_buf_reader);
 
     let battery_level: u8 = battery_level
       .trim()
