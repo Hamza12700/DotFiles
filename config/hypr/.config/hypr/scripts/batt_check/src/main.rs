@@ -14,6 +14,7 @@ enum BatteryLevel {
 
 fn main() {
   let mut battery_level_check = BatteryLevel::None;
+  let mut check_arg = std::env::args();
   loop {
     let battery_cap_file = match File::open("/sys/class/power_supply/BAT0/capacity") {
       Ok(file) => file,
@@ -33,6 +34,16 @@ fn main() {
       process::exit(1);
     };
     drop(battery_cap_buf_reader);
+
+    match check_arg.nth(1) {
+      Some(check) => {
+        if check.contains("-s") {
+          println!("Battery status: {}", battery_level);
+        }
+        std::process::exit(0);
+      }
+      None => (),
+    };
 
     let battery_level: u8 = battery_level
       .trim()
