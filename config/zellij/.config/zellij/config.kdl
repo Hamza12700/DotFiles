@@ -11,6 +11,7 @@ keybinds {
     bind "Ctrl x" { SwitchToMode "Resize"; }
     bind "Ctrl w" { SwitchToMode "Move";}
     bind "Alt p" { SwitchToMode "Pane"; }
+    bind "Alt t" { NewTab; }
   }
   resize {
     bind "Ctrl x" { SwitchToMode "Normal"; }
