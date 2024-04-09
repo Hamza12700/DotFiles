@@ -3,3 +3,22 @@ copy_command "wl-copy"
 scrollback_editor "/usr/bin/nvim"
 pane_frames false
 default_layout "compact"
+
+keybinds {
+  unbind "Ctrl n" "Ctrl h" "Ctrl p"
+  normal {
+    bind "Alt q" { CloseFocus; }
+    bind "Ctrl x" { SwitchToMode "Resize"; }
+    bind "Ctrl w" { SwitchToMode "Move";}
+    bind "Alt p" { SwitchToMode "Pane"; }
+  }
+  resize {
+    bind "Ctrl x" { SwitchToMode "Normal"; }
+  }
+  move {
+    bind "Ctrl w" { SwitchToMode "Normal"; }
+  }
+  pane {
+    bind "Alt p" { SwitchToMode "Normal"; }
+  }
+}
