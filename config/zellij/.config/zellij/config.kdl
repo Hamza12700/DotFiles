@@ -9,15 +9,11 @@ keybinds {
   normal {
     bind "Alt q" { CloseFocus; }
     bind "Ctrl x" { SwitchToMode "Resize"; }
-    bind "Ctrl w" { SwitchToMode "Move";}
     bind "Alt p" { SwitchToMode "Pane"; }
     bind "Alt t" { NewTab; }
   }
   resize {
     bind "Ctrl x" { SwitchToMode "Normal"; }
-  }
-  move {
-    bind "Ctrl w" { SwitchToMode "Normal"; }
   }
   pane {
     bind "Alt p" { SwitchToMode "Normal"; }
