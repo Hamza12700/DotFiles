@@ -8,11 +8,11 @@ keybinds {
   unbind "Ctrl n" "Ctrl h" "Ctrl p"
   normal {
     bind "Alt q" { CloseFocus; }
-    bind "Ctrl x" { SwitchToMode "Resize"; }
+    bind "Ctrl x" { SwitchToMode "Move";}
     bind "Alt p" { SwitchToMode "Pane"; }
     bind "Alt t" { NewTab; }
   }
-  resize {
+  move {
     bind "Ctrl x" { SwitchToMode "Normal"; }
   }
   pane {
