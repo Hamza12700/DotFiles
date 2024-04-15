@@ -11,11 +11,15 @@ keybinds {
     bind "Ctrl x" { SwitchToMode "Move";}
     bind "Alt p" { SwitchToMode "Pane"; }
     bind "Alt t" { NewTab; }
+    bind "Alt r" { SwitchToMode "RenameTab"; TabNameInput 0; }
   }
   move {
     bind "Ctrl x" { SwitchToMode "Normal"; }
   }
   pane {
     bind "Alt p" { SwitchToMode "Normal"; }
+  }
+  renametab {
+    bind "Alt r" { SwitchToMode "Normal"; }
   }
 }
