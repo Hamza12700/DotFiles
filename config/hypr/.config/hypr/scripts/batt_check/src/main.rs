@@ -1,8 +1,4 @@
-use std::{
-  fs::File,
-  io::{BufRead, BufReader},
-  process::{self, Command},
-};
+use std::{fs, process::Command};
 
 #[derive(PartialEq)]
 enum BatteryLevel {
@@ -16,7 +12,7 @@ fn main() {
   let mut battery_level_check = BatteryLevel::None;
   let mut check_arg = std::env::args();
   loop {
-    let battery_cap_file = match File::open("/sys/class/power_supply/BAT0/capacity") {
+    let battery_cap_file = match fs::read_to_string("/sys/class/power_supply/BAT0/capacity") {
       Ok(file) => file,
       Err(err) => {
         let _ = Command::new("notify-send")
@@ -27,12 +23,22 @@ fn main() {
       }
     };
 
-    let mut battery_cap_buf_reader = BufReader::new(battery_cap_file);
-    let mut battery_level = String::new();
-    if let Err(err) = battery_cap_buf_reader.read_line(&mut battery_level) {
-      eprintln!("Failed to read battery capacity: {}", err);
-      process::exit(1);
+    let battery_status = match fs::read_to_string("/sys/class/power_supply/BAT0/status") {
+      Ok(file) => file,
+      Err(err) => {
+        let _ = Command::new("notify-send")
+          .args(&["Failed to open battery status file", &err.to_string()])
+          .output()
+          .expect("Failed to send notification");
+        return;
+      }
     };
+    let battery_status = battery_status.trim();
+
+    let battery_level: u8 = battery_cap_file
+      .trim()
+      .parse()
+      .expect("Failed to parse battery capacity to u8");
 
     match check_arg.nth(1) {
       Some(check) => {
@@ -43,11 +49,6 @@ fn main() {
       }
       None => (),
     };
-
-    let battery_level: u8 = battery_level
-      .trim()
-      .parse()
-      .expect("Failed to parse battery capacity to u8");
 
     match battery_level {
       98..=100 if battery_level_check != BatteryLevel::Full => {
@@ -63,6 +64,11 @@ fn main() {
         battery_level_check = BatteryLevel::Low
       }
       10..=20 => get_notified("Battery is almost empty", battery_level),
+      _ => (),
+    };
+
+    match battery_status {
+      "Charging" => battery_level_check = BatteryLevel::None,
       _ => (),
     };
 
