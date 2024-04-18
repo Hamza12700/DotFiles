@@ -5,13 +5,14 @@ pane_frames false
 default_layout "compact"
 
 keybinds {
-  unbind "Ctrl n" "Ctrl h" "Ctrl p"
+  unbind "Ctrl n" "Ctrl h" "Ctrl p" "Ctrl o"
   normal {
     bind "Alt q" { CloseFocus; }
     bind "Ctrl x" { SwitchToMode "Move";}
     bind "Alt p" { SwitchToMode "Pane"; }
     bind "Alt t" { NewTab; }
     bind "Alt r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+    bind "Alt o" { SwitchToMode "Session"; }
   }
   move {
     bind "Ctrl x" { SwitchToMode "Normal"; }
@@ -21,5 +22,8 @@ keybinds {
   }
   renametab {
     bind "Alt r" { SwitchToMode "Normal"; }
+  }
+  session {
+    bind "Alt o" { SwitchToMode "Normal"; }
   }
 }
