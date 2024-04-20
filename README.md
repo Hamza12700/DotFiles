@@ -36,7 +36,7 @@ yay -Syu wget atuin foot pavucontrol wireplumber pipewire pipewire-jack imagemag
   grim slurp pipewire-alsa pipewire-pulse alsa-utils hyprland mpv gnome-keyring fish wf-recorder \
   luarocks alsa-firmware pipewire-audio cpufetch jq swaylock-effects \
   waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst github-cli network-manager-applet \
-  networkmanager-dmenu-git nm-connection-editor npm \
+  nm-connection-editor npm \
   ttf-jetbrains-mono ttf-meslo-nerd yazi unarchiver jq poppler fd ripgrep fzf \
   go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg \
   lazygit pacman-contrib trash-cli zoxide eza bat starship nodejs unzip \
