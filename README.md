@@ -32,15 +32,15 @@ stow */ -t ~/
 ## Packages
 
 ```bash
-yay -Syu wget atuin foot pavucontrol wireplumber pipewire pipewire-jack imagemagick neofetch entr parallel cargo rustup ly firefox yt-dlp \
-  grim slurp pipewire-alsa pipewire-pulse alsa-utils hyprland mpv gnome-keyring fish wf-recorder \
+yay -Syu wget atuin foot pavucontrol wireplumber pipewire pipewire-jack imagemagick neofetch entr parallel rustup ly firefox yt-dlp \
+  grim slurp pipewire-alsa pipewire-pulse alsa-utils hyprland mpv fish wf-recorder \
   luarocks alsa-firmware pipewire-audio cpufetch jq swaylock-effects \
-  waybar xdg-desktop-portal-hyprland unclutter brightnessctl btop dunst github-cli network-manager-applet \
+  waybar xdg-desktop-portal-hyprland brightnessctl btop dunst github-cli network-manager-applet \
   nm-connection-editor npm \
-  ttf-jetbrains-mono ttf-meslo-nerd yazi unarchiver jq poppler fd ripgrep fzf \
-  go arc-gtk-theme git papirus-icon-theme thunar bluez bluez-utils ripgrep cliphist feh swaybg \
+  ttf-jetbrains-mono ttf-meslo-nerd unarchiver fd ripgrep fzf \
+  go git papirus-icon-theme thunar bluez bluez-utils feh swaybg \
   lazygit pacman-contrib trash-cli zoxide eza bat starship nodejs unzip \
-  polkit-kde-agent diskonaut dust base-devel tldr --noconfirm --needed
+  polkit-kde-agent diskonaut dust base-devel tldr --needed
 ```
 
 ### AMD Drivers | Optional
