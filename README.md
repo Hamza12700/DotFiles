@@ -32,7 +32,7 @@ stow */ -t ~/
 ## Packages
 
 ```bash
-yay -Syu wget atuin foot pavucontrol wireplumber pipewire pipewire-jack imagemagick neofetch entr parallel rustup ly firefox yt-dlp \
+yay -Syu wget atuin foot pavucontrol wireplumber pipewire pipewire-jack imagemagick entr parallel rustup ly firefox yt-dlp \
   grim slurp pipewire-alsa pipewire-pulse alsa-utils hyprland mpv fish wf-recorder \
   luarocks alsa-firmware pipewire-audio cpufetch jq swaylock-effects \
   waybar xdg-desktop-portal-hyprland brightnessctl btop dunst github-cli network-manager-applet \
