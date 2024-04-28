@@ -37,7 +37,7 @@ yay -Syu wget atuin foot pavucontrol wireplumber pipewire pipewire-jack imagemag
   luarocks alsa-firmware pipewire-audio cpufetch jq swaylock-effects \
   waybar xdg-desktop-portal-hyprland brightnessctl btop dunst github-cli network-manager-applet \
   nm-connection-editor noto-fonts-emoji npm \
-  ttf-jetbrains-mono ttf-meslo-nerd unarchiver fd ripgrep fzf \
+  ttf-jetbrains-mono ttf-meslo-nerd fd ripgrep fzf \
   go git papirus-icon-theme thunar bluez bluez-utils feh imv swaybg \
   lazygit pacman-contrib trash-cli zoxide eza bat starship nodejs unzip \
   polkit-kde-agent diskonaut dust base-devel tldr --needed
