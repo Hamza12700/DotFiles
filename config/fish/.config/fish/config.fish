@@ -47,7 +47,6 @@ if status --is-interactive
     abbr -a rm trash
     abbr -a ip ip --color=auto
     abbr -a cat bat
-    abbr -a gprod "go build -ldflags '-w -s'"
     abbr -a reload source ~/.config/fish/config.fish
 
     # Alias
