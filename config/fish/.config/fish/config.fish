@@ -40,10 +40,10 @@ if status --is-interactive
 
     # Abbreviations
     abbr -a gg lazygit
-    abbr -a yi yay -S
-    abbr -a yq yay -Q
-    abbr -a yr yay -R
-    abbr -a ys yay -Ss
+    abbr -a pi paru -S
+    abbr -a pq paru -Q
+    abbr -a pr paru -R
+    abbr -a ps paru -Ss
     abbr -a rm trash
     abbr -a ip ip --color=auto
     abbr -a cat bat
