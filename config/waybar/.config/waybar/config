@@ -37,10 +37,10 @@
   },
 
   "custom/updates": {
-    "exec": "(checkupdates ; yay -Qua) | wc -l",
+    "exec": "(checkupdates ; paru -Qua) | wc -l",
     "interval": 12000,
     "format": "󰇚 {}",
-    "on-click": "foot -e yay -Syu --noconfirm",
+    "on-click": "foot -e paru",
     "tooltip": false
   },
 
