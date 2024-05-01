@@ -52,6 +52,11 @@ fn main() {
 
     match battery_status {
       "Charging" => {
+        if battery_level == 100 {
+          get_notified("Battery is fully charged", battery_level);
+          battery_level_check = BatteryLevel::Full;
+          continue;
+        }
         battery_level_check = BatteryLevel::None;
         std::thread::sleep(std::time::Duration::from_secs(60));
         continue;
