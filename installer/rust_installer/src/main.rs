@@ -1,6 +1,5 @@
 use std::{
   fs,
-  io::stdin,
   process::{Command, Stdio},
 };
 
@@ -39,11 +38,11 @@ fn main() {
       .spawn()
       .expect("Failed to clone paru");
 
-    let git_clone_yay = git_clone_paru
+    let git_clone_paru = git_clone_paru
       .wait_with_output()
       .expect("Failed to clone paru");
 
-    unsafe { println!("{}", String::from_utf8_unchecked(git_clone_yay.stdout)) };
+    unsafe { println!("{}", String::from_utf8_unchecked(git_clone_paru.stdout)) };
 
     println!("Installing paru");
     let paru_install = Command::new("makepkg")
