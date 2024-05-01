@@ -1,8 +1,6 @@
 use std::{
-  env,
-  fs::{self, File},
-  io::{stdin, BufRead, BufReader},
-  path::Path,
+  fs,
+  io::stdin,
   process::{Command, Stdio},
 };
 
@@ -30,101 +28,46 @@ fn main() {
     unsafe { println!("{}", String::from_utf8_unchecked(stow_install.stdout)) };
   }
 
-  let current_path = env::current_dir().expect("Failed to get current directory");
-  let mut readme_path = "../../README.md";
-  let mut config_dir = "../../config";
-  if current_path.to_str().unwrap().contains("bin") {
-    readme_path = "../../../README.md";
-    config_dir = "../../../config";
-  }
+  let packages_list =
+    fs::read_to_string("packages/package.txt").expect("Failed to open packages file");
 
-  let readme_file = current_path.join(readme_path);
-  let file_descriptor = File::open(readme_file).expect("Failed to open README.md");
+  if let Err(_) = which("paru") {
+    println!("Cloning paru");
 
-  let reader = BufReader::new(file_descriptor);
-  let home_dir = env::var_os("HOME").expect("couldn't load HOME environment variable");
-  let fish_shell = Path::new(&home_dir.to_str().unwrap())
-    .join(".config/fish")
-    .is_dir();
-  drop(home_dir);
-
-  if fish_shell {
-    println!("\nSymlink already exists");
-    println!("Skipping....\n");
-  } else {
-    let _ = Command::new("stow")
-      .args(&["*/", "-t", "~/"])
-      .current_dir(config_dir)
-      .output()
-      .unwrap();
-
-    println!("Successfully link the config dirs");
-  }
-
-  let mut find_pkgs = false;
-  let mut find_amd_drivers = false;
-  let mut pkgs = String::new();
-  let mut amd_drivers = String::new();
-  for line in reader.lines() {
-    match line {
-      Ok(text) => {
-        find_pkgs |= text.contains("yay -Syu");
-        find_amd_drivers |= text.contains("AMD");
-
-        if find_pkgs {
-          pkgs.push_str(&text);
-        }
-        if find_amd_drivers {
-          amd_drivers.push_str(&text);
-        }
-
-        if text.contains("--needed") {
-          find_pkgs = false;
-        }
-      }
-      Err(err) => eprintln!("Failed to read line: {}", err),
-    };
-  }
-
-  if let Err(_) = which("yay") {
-    println!("Cloning yay");
-
-    let git_clone_yay = Command::new("git")
-      .args(&["clone", "https://aur.archlinux.org/yay.git"])
+    let git_clone_paru = Command::new("git")
+      .args(&["clone", "https://aur.archlinux.org/paru.git"])
       .spawn()
-      .expect("Failed to clone yay");
+      .expect("Failed to clone paru");
 
-    let git_clone_yay = git_clone_yay
+    let git_clone_yay = git_clone_paru
       .wait_with_output()
-      .expect("Failed to clone yay");
+      .expect("Failed to clone paru");
 
     unsafe { println!("{}", String::from_utf8_unchecked(git_clone_yay.stdout)) };
 
-    println!("Installing yay");
-    let yay_install = Command::new("makepkg")
+    println!("Installing paru");
+    let paru_install = Command::new("makepkg")
       .arg("-si")
-      .current_dir("yay")
+      .current_dir("paru")
       .stdin(Stdio::piped())
+      .stdout(Stdio::piped())
       .spawn()
       .unwrap();
-
-    let yay_install = yay_install.wait_with_output().unwrap();
-
+    let yay_install = paru_install.wait_with_output().unwrap();
     unsafe { println!("{}", String::from_utf8_unchecked(yay_install.stdout)) };
 
-    println!("\nRemoving yay directory");
-    if let Err(err) = fs::remove_dir_all("yay") {
-      eprintln!("Failed to remove yay directory: {}", err);
+    println!("\nRemoving paru git directory");
+    if let Err(err) = fs::remove_dir_all("paru") {
+      eprintln!("Failed to remove paru git directory: {}", err);
     }
   }
 
-  let pkgs = pkgs.replace("\\", "");
-
-  let pkgs = pkgs.split_whitespace().skip(2);
-  let install_pkgs = Command::new("yay")
-    .arg("-Syu")
-    .args(pkgs)
+  let pkgs = packages_list.replace("\\", "");
+  let install_pkgs = Command::new("paru")
+    .arg("-S")
+    .args(pkgs.split_whitespace())
     .stdin(Stdio::piped())
+    .stdout(Stdio::piped())
     .spawn()
     .expect("Failed to install packages");
 
@@ -135,41 +78,6 @@ fn main() {
   unsafe { println!("{}", String::from_utf8_unchecked(install_pkgs.stdout)) };
 
   print!("\x1B[2J\x1B[1;1H");
-
   println!("Finished installing packages");
-
-  let sys_services = ["bluetooth", "ly"];
-
-  println!("\nEnabling services\n");
-  for service in sys_services {
-    let status = Command::new("sudo")
-      .args(&["systemctl", "enable", service])
-      .spawn()
-      .unwrap();
-
-    let status = status.wait_with_output().unwrap();
-
-    unsafe { println!("{}", String::from_utf8_unchecked(status.stdout)) };
-  }
-
-  println!("\nInstall AMD Drivers?");
-  println!("[y/n]\n");
-  let mut user_option = String::new();
-  stdin()
-    .read_line(&mut user_option)
-    .expect("Failed to read line");
-
-  if user_option.trim() == "y" {
-    let amd_drivers = amd_drivers.split_whitespace().skip(2);
-    let output = Command::new("yay")
-      .arg("-S")
-      .args(amd_drivers)
-      .spawn()
-      .unwrap();
-
-    let output = output.wait_with_output().unwrap();
-    unsafe { println!("{}", String::from_utf8_unchecked(output.stdout)) };
-  }
-
   println!("\nDone!");
 }
