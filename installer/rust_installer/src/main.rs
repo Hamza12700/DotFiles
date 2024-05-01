@@ -78,5 +78,41 @@ fn main() {
 
   print!("\x1B[2J\x1B[1;1H");
   println!("Finished installing packages");
+
+  let motherboard = Command::new("lscpu")
+    .output()
+    .expect("Failed to get cpu info");
+  let motherboard_str = String::from_utf8(motherboard.stdout).expect("Failed to convert to string");
+
+  if motherboard_str.contains("Intel") {
+    let driver_list =
+      fs::read_to_string("packages/intel-drivers.txt").expect("Failed to open intel driver file");
+    let install = Command::new("sudo")
+      .args(["pacman", "-S"])
+      .args(driver_list.split_whitespace())
+      .stdin(Stdio::piped())
+      .stdout(Stdio::piped())
+      .spawn()
+      .expect("Failed to install intel drivers");
+    let install = install.wait_with_output().expect("Something went wrong");
+
+    unsafe { println!("{}", String::from_utf8_unchecked(install.stdout)) };
+  } else if motherboard_str.contains("AMD") {
+    let driver_list =
+      fs::read_to_string("packages/amd-drivers.txt").expect("Failed to open amd driver file");
+    let install = Command::new("sudo")
+      .args(["pacman", "-S"])
+      .args(driver_list.split_whitespace())
+      .stdin(Stdio::piped())
+      .stdout(Stdio::piped())
+      .spawn()
+      .expect("Failed to install amd drivers");
+    let install = install.wait_with_output().expect("Something went wrong");
+
+    unsafe { println!("{}", String::from_utf8_unchecked(install.stdout)) };
+  } else {
+    eprintln!("Couldn't get cpu info");
+  }
+
   println!("\nDone!");
 }
