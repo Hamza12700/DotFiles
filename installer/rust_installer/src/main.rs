@@ -7,7 +7,6 @@ use which::which;
 
 fn main() {
   print!("\x1B[2J\x1B[1;1H");
-
   println!("Starting the installer");
 
   if let Err(_) = which("stow") {
@@ -19,11 +18,9 @@ fn main() {
       .stdin(Stdio::piped())
       .spawn()
       .expect("Failed to install stow");
-
     let stow_install = stow_install
       .wait_with_output()
       .expect("Failed to install stow");
-
     unsafe { println!("{}", String::from_utf8_unchecked(stow_install.stdout)) };
   }
 
