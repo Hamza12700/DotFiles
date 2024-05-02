@@ -85,6 +85,7 @@ fn main() {
   }
 }
 
+#[inline]
 fn get_notified(title: &str, battery_cap: u8) {
   let _ = Command::new("notify-send")
     .arg(title)
