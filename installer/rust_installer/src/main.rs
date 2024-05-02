@@ -113,6 +113,34 @@ fn main() {
   } else {
     eprintln!("Couldn't get cpu info");
   }
+  println!("\x1B[2J\x1B[1;1H");
+
+  println!("Checking if the neovim config directory exists or not");
+  let home_dir = env!("HOME");
+  match fs::metadata(format!("{}/.config/nvim", home_dir)) {
+    Ok(nvim_dir) => {
+      if nvim_dir.is_dir() {
+        println!("Neocim config directory exists");
+      } else {
+        println!("Neocim config directory doesn't exist");
+        println!("Cloning the neovim config repo at ~/.config/neovim");
+        let git_clone = Command::new("git")
+          .args(&[
+            "clone",
+            "https://github.com/hamza12700/neovim",
+            "~/.config/nvim",
+          ])
+          .stdout(Stdio::piped())
+          .spawn()
+          .expect("Failed to clone neovim config repo");
+        let git_clone = git_clone
+          .wait_with_output()
+          .expect("Failed to clone neovim config repo");
+        unsafe { println!("{}", String::from_utf8_unchecked(git_clone.stdout)) };
+      }
+    }
+    Err(err) => eprintln!("Failed to get metadata: {}", err),
+  }
 
   println!("\nDone!");
 }
