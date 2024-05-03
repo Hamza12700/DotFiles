@@ -2,7 +2,7 @@
 TERM = "xterm-256color"
 
 [font]
-size = 8.6
+size = 11
 
 [font.bold]
 family = "JetBrains Mono"
@@ -26,7 +26,7 @@ history = 10000
 [window]
 dynamic_padding = true
 dynamic_title = true
-opacity = 0.8
+opacity = 1
 
 [window.class]
 general = "Alacritty"
