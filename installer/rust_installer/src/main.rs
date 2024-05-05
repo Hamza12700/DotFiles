@@ -3,13 +3,11 @@ use std::{
   process::{Command, Stdio},
 };
 
-use which::which;
-
 fn main() {
   print!("\x1B[2J\x1B[1;1H");
   println!("Starting the installer");
 
-  if let Err(_) = which("stow") {
+  if let Err(_) = Command::new("command").args(&["-v", "stow"]).output() {
     println!("Installing stow");
 
     let stow_install = Command::new("sudo")
@@ -27,7 +25,7 @@ fn main() {
   let packages_list =
     fs::read_to_string("packages/package.txt").expect("Failed to open packages file");
 
-  if let Err(_) = which("paru") {
+  if let Err(_) = Command::new("command").args(&["-v", "paru"]).output() {
     println!("Cloning paru");
 
     let git_clone_paru = Command::new("git")
