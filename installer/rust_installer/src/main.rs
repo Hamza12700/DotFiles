@@ -18,7 +18,7 @@ fn main() {
       .expect("Failed to install stow");
     let stow_install = stow_install
       .wait_with_output()
-      .expect("Failed to install stow");
+      .expect("Failed to get the output for the command");
     unsafe { println!("{}", String::from_utf8_unchecked(stow_install.stdout)) };
   }
 
@@ -35,7 +35,7 @@ fn main() {
 
     let git_clone_paru = git_clone_paru
       .wait_with_output()
-      .expect("Failed to clone paru");
+      .expect("Failed to get the output for the command");
 
     unsafe { println!("{}", String::from_utf8_unchecked(git_clone_paru.stdout)) };
 
@@ -47,7 +47,9 @@ fn main() {
       .stdout(Stdio::piped())
       .spawn()
       .unwrap();
-    let yay_install = paru_install.wait_with_output().unwrap();
+    let yay_install = paru_install
+      .wait_with_output()
+      .expect("Failed to get the output for the command");
     unsafe { println!("{}", String::from_utf8_unchecked(yay_install.stdout)) };
 
     println!("\nRemoving paru git directory");
@@ -67,7 +69,7 @@ fn main() {
 
   let install_pkgs = install_pkgs
     .wait_with_output()
-    .expect("Failed to install packages");
+    .expect("Failed to get the ouput for the command");
 
   unsafe { println!("{}", String::from_utf8_unchecked(install_pkgs.stdout)) };
 
@@ -89,7 +91,9 @@ fn main() {
       .stdout(Stdio::piped())
       .spawn()
       .expect("Failed to install intel drivers");
-    let install = install.wait_with_output().expect("Something went wrong");
+    let install = install
+      .wait_with_output()
+      .expect("Failed to get the output for the command");
 
     unsafe { println!("{}", String::from_utf8_unchecked(install.stdout)) };
   } else if motherboard_str.contains("AMD") {
@@ -102,7 +106,9 @@ fn main() {
       .stdout(Stdio::piped())
       .spawn()
       .expect("Failed to install amd drivers");
-    let install = install.wait_with_output().expect("Something went wrong");
+    let install = install
+      .wait_with_output()
+      .expect("Failed to get the output for the command");
 
     unsafe { println!("{}", String::from_utf8_unchecked(install.stdout)) };
   } else {
@@ -130,7 +136,7 @@ fn main() {
           .expect("Failed to clone neovim config repo");
         let git_clone = git_clone
           .wait_with_output()
-          .expect("Failed to clone neovim config repo");
+          .expect("Failed to get the output for the command");
         unsafe { println!("{}", String::from_utf8_unchecked(git_clone.stdout)) };
       }
     }
