@@ -1,0 +1,1 @@
+mesa intel-ucode xf86-video-intel vulkan-intel --needed
