@@ -12,27 +12,8 @@ fn main() {
   let mut battery_level_check = BatteryLevel::None;
   let mut check_arg = std::env::args();
   loop {
-    let battery_cap_file = match fs::read_to_string("/sys/class/power_supply/BAT0/capacity") {
-      Ok(file) => file,
-      Err(err) => {
-        let _ = Command::new("notify-send")
-          .args(&["Failed to open battery capacity file", &err.to_string()])
-          .output()
-          .expect("Failed to send notification");
-        return;
-      }
-    };
-
-    let battery_status = match fs::read_to_string("/sys/class/power_supply/BAT0/status") {
-      Ok(file) => file,
-      Err(err) => {
-        let _ = Command::new("notify-send")
-          .args(&["Failed to open battery status file", &err.to_string()])
-          .output()
-          .expect("Failed to send notification");
-        return;
-      }
-    };
+    let battery_cap_file = fs::read_to_string("/sys/class/power_supply/BAT0/capacity").unwrap();
+    let battery_status = fs::read_to_string("/sys/class/power_supply/BAT0/status").unwrap();
     let battery_status = battery_status.trim();
 
     let battery_level: u8 = battery_cap_file
@@ -40,28 +21,22 @@ fn main() {
       .parse()
       .expect("Failed to parse battery capacity to u8");
 
-    match check_arg.nth(1) {
-      Some(check) => {
-        if check.contains("-s") {
-          println!("Battery status: {}", battery_level);
-        }
-        std::process::exit(0);
+    if let Some(check) = check_arg.nth(1) {
+      if check.contains("-s") {
+        println!("Battery status: {}", battery_level);
       }
-      None => (),
+      std::process::exit(0);
     };
 
-    match battery_status {
-      "Charging" => {
-        if battery_level == 100 {
-          get_notified("Battery is fully charged", battery_level);
-          battery_level_check = BatteryLevel::Full;
-          continue;
-        }
-        battery_level_check = BatteryLevel::None;
-        std::thread::sleep(std::time::Duration::from_secs(60));
+    if battery_status == "Charging" {
+      if battery_level == 100 {
+        get_notified("Battery is fully charged", battery_level);
+        battery_level_check = BatteryLevel::Full;
         continue;
-      },
-      _ => (),
+      }
+      battery_level_check = BatteryLevel::None;
+      std::thread::sleep(std::time::Duration::from_secs(60));
+      continue;
     };
 
     match battery_level {
