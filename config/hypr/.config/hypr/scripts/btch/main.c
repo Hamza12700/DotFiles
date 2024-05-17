@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
         battery_level_check = None;
       }
     } else {
-      if (battery_level == 100 || battery_level <= 98) {
+      if (battery_level == 100 || battery_level == 99) {
         if (battery_level_check != Full) {
           get_notified("Battery is full", battery_level);
           battery_level_check = Full;
