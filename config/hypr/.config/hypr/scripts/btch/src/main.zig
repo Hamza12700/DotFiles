@@ -40,7 +40,7 @@ pub fn main() !void {
         const battery_cap_trim = std.mem.trim(u8, battery_cap_raw, "\n");
         const battery_level = try std.fmt.parseInt(u7, battery_cap_trim, 10);
 
-        if (std.mem.eql(u8, battery_state_str, "Charging") and battery_level == 10) {
+        if (std.mem.eql(u8, battery_state_str, "Full")) {
             try notify("Battery is fully charged", battery_level);
         } else {
             switch (battery_level) {
