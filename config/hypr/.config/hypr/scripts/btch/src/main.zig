@@ -12,6 +12,15 @@ inline fn notify(title: []const u8, battery_cap: u7) !void {
 }
 
 pub fn main() !void {
+    const args = std.os.argv;
+    if (args.len > 1) {
+        var battery_capacity = try fs.openFileAbsolute("/sys/class/power_supply/BAT0/capacity", .{ .mode = .read_only });
+        var buffer: [5]u8 = undefined;
+        const read_bytes = try battery_capacity.read(buffer[0..]);
+        battery_capacity.close();
+        std.debug.print("Battery: {s}", .{buffer[0..read_bytes]});
+        std.process.exit(0);
+    }
     while (true) {
         var battery_capacity = try fs.openFileAbsolute("/sys/class/power_supply/BAT0/capacity", .{ .mode = .read_only });
         var battery_state = try fs.openFileAbsolute("/sys/class/power_supply/BAT0/status", .{ .mode = .read_only });
