@@ -25,10 +25,20 @@ inline fn getFile(name: []const u8, buffSize: usize) ![]u8 {
 pub fn main() !void {
   const args = std.os.argv;
   if (args.len > 1) {
-    const contents = try getFile("/sys/class/power_supply/BAT0/capacity", 5);
-    std.debug.print("Battery: {s}", .{contents});
+    const stdout = std.io.getStdOut().writer();
+    const capacity = try getFile("/sys/class/power_supply/BAT0/capacity", 5);
+    const state = try getFile("/sys/class/power_supply/BAT0/status", 10);
+
+    if (std.mem.eql(u8, state, "Charging\n")) {
+      try stdout.print("State: Charging\n", .{});
+      try stdout.print("Battery: {s}", .{capacity});
+      std.process.exit(0);
+    }
+
+    try stdout.print("Battery: {s}", .{capacity});
     std.process.exit(0);
   }
+
   while (true) {
     const battery_capacity = try getFile("/sys/class/power_supply/BAT0/capacity", 5);
     const battery_state = try getFile("/sys/class/power_supply/BAT0/status", 8);
