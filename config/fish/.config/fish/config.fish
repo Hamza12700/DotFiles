@@ -29,8 +29,6 @@ if status --is-interactive
     zoxide init fish | source
     # Starship Prompt
     starship init fish | source
-    # Atuin
-    atuin init fish | source
 
     # KeyBinds
     bind \cz "zi; commandline -f repaint"
