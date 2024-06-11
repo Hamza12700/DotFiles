@@ -4,3 +4,4 @@ target/
 config/hypr/.config/hypr/scripts/btch/btch
 config/hypr/.config/hypr/scripts/btch/zig-cache
 config/hypr/.config/hypr/scripts/btch/zig-out
+bin
