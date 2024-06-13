@@ -41,7 +41,7 @@ if status --is-interactive
     abbr -a pi paru -S
     abbr -a pq paru -Q
     abbr -a pr paru -R
-    abbr -a ps paru -Ss
+    abbr -a pS paru -Ss
     abbr -a rm trash
     abbr -a ip ip --color=auto
     abbr -a cat bat
