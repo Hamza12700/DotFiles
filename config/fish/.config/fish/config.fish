@@ -35,6 +35,7 @@ if status --is-interactive
     bind -k nul "commandline -f accept-autosuggestion"
     bind \cf "fd -t file -E '.git|node_modules' . | fzf --preview 'bat --color always {}' --bind 'enter:become(nvim {})'"
     bind \eH "cd -; commandline -f repaint"
+    bind \cb "btop"
 
     # Abbreviations
     abbr -a gg lazygit
