@@ -9,3 +9,7 @@
 	name = Hamza
 [init]
 	defaultBranch = main
+[alias]
+	st = status -s
+	pr = pull --rebase
+	cl = clone
