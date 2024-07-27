@@ -64,11 +64,9 @@ int main(int argv, char* argc[]) {
       if (range(battery_level, 40, 50) && battery_status != Half && strcmp(status, "Charging\n") != 0) {
         notify("Battery is half", battery_level);
         battery_status = Half;
-      } else if (range(battery_level, 20, 30) && battery_status != Low && strcmp(status, "Charging\n") != 0) {
-        notify("Battery is low", battery_level);
-        battery_status = Low;
-      } else if (range(battery_level, 10, 20) && strcmp(status, "Charging\n") != 0) {
+      } else if (range(battery_level, 10, 20) && strcmp(status, "Charging\n") != 0 && battery_status != Low) {
         notify("Battery is almost empty", battery_level);
+        battery_status = Low;
       } else if (range(battery_level, 1, 9) && strcmp(status, "Charging\n") != 0) {
         notify("Battery is dead", battery_level);
       }
