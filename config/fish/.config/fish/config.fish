@@ -39,7 +39,6 @@ if status --is-interactive
 
     # Abbreviations
     abbr -a gg lazygit
-    abbr -a gc git clone
     abbr -a pi paru -S
     abbr -a pq paru -Q
     abbr -a pr paru -R
@@ -48,7 +47,6 @@ if status --is-interactive
     abbr -a ip ip --color=auto
     abbr -a cat bat
     abbr -a reload source ~/.config/fish/config.fish
-    abbr -a gp git pull
 
     # Alias
     alias ls="eza -la --group-directories-first"
