@@ -35,6 +35,10 @@ static inline bool range(uint8_t battery_level, uint8_t low, uint8_t high) {
 }
 
 int main(int argv, char* argc[]) {
+  if (access("/sys/class/power_supply", F_OK) != 0) {
+    fprintf(stderr, "computer isn't a laptop");
+    exit(1);
+  }
   if (argv > 1) {
     char capacity_buf[8];
     const char* capacity = read_file("/sys/class/power_supply/BAT0/capacity", capacity_buf, 8);
