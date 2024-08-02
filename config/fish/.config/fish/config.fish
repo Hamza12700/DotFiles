@@ -43,7 +43,7 @@ if status --is-interactive
     abbr -a pq paru -Q
     abbr -a pr paru -R
     abbr -a pS paru -Ss
-    abbr -a rm trash
+    abbr -a rm drash
     abbr -a ip ip --color=auto
     abbr -a cat bat
     abbr -a reload source ~/.config/fish/config.fish
