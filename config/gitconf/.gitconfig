@@ -13,3 +13,4 @@
 	st = status -s
 	pr = pull --rebase
 	cl = clone
+	ch = checkout
