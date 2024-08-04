@@ -5,5 +5,5 @@ waybar xdg-desktop-portal-hyprland brightnessctl btop dunst github-cli network-m
 nm-connection-editor noto-fonts-emoji npm \
 ttf-jetbrains-mono ttf-meslo-nerd fd ripgrep fzf \
 go git bluez bluez-utils feh imv swaybg \
-lazygit pacman-contrib trash-cli zoxide eza bat starship nodejs unzip \
-polkit-kde-agent diskonaut dust base-devel tldr --needed
+lazygit pacman-contrib zoxide eza bat starship nodejs unzip \
+polkit-kde-agent base-devel tldr --needed
