@@ -10,6 +10,7 @@
 [init]
 	defaultBranch = main
 [alias]
+	dog = log --oneline --parents --decorate --graph
 	st = status -s
 	pr = pull --rebase
 	cl = clone
