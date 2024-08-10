@@ -5,7 +5,7 @@ pane_frames false
 default_layout "compact"
 
 keybinds {
-  unbind "Ctrl n" "Ctrl h" "Ctrl p" "Ctrl o"
+  unbind "Ctrl n" "Ctrl h" "Ctrl p" "Ctrl o" "Ctrl q"
   normal {
     bind "Alt q" { CloseFocus; }
     bind "Ctrl x" { SwitchToMode "Move";}
