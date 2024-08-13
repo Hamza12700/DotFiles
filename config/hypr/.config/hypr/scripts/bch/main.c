@@ -62,7 +62,7 @@ int main(int argv, char* argc[]) {
     const char* status = read_file("/sys/class/power_supply/BAT0/status", status_buf, 10);
 
     uint8_t battery_level = atoi(capacity);
-    if(battery_level == 100) {
+    if(battery_level == 100 && strcmp(status, "Full\n") == 0) {
       notify("Battery is fully charged", battery_level);
     } else {
       if (range(battery_level, 40, 50) && battery_status != Half && strcmp(status, "Charging\n") != 0) {
