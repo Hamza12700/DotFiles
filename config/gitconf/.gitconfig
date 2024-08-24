@@ -15,6 +15,7 @@
 	pr = pull --rebase
 	cl = clone
 	ch = checkout
+	cm = commit -v
 [rerere]
 	enabled = true
 [fetch]
