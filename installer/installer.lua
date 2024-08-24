@@ -11,7 +11,7 @@ if not status then
 end
 
 print("Installing packages\n")
-local pkgs = io.open("./package", "rb")
+local pkgs = io.open("./packages", "rb")
 if pkgs == nil then
   print("package file not found")
   return
