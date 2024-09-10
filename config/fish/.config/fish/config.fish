@@ -18,6 +18,10 @@ set -gx PATH /home/hamza/.local/bin $PATH
 set -gx PATH /home/hamza/.local/share/pnpm $PATH
 set -gx PNPM_HOME /home/hamza/.local/share/pnpm
 
+# FlyCTL
+set -gx FLYCTL_INSTALL /home/hamza/.fly
+set -gx PATH $FLYCTL_INSTALL/bin $PATH
+
 # Ocaml
 source /home/hamza/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
