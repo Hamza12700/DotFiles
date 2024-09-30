@@ -1,7 +1,7 @@
 * {
   border: none;
   font-family: JetBrainsMono Nerd Font;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 window#waybar {
@@ -72,9 +72,7 @@ tooltip {
   margin-left: 1rem;
   background-color: #3C4048;
   /* background-color: transparent; */
-  padding: 0 8px;
   border-radius: 5px;
-  margin: 3px 0px;
 }
 
 #workspaces {
