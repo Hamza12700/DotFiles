@@ -17,7 +17,8 @@
 	pr = pull --rebase
 	cl = clone
 	ch = checkout
-	cm = commit -v
+	ci = commit -v
+	br = branch
 [rerere]
 	enabled = true
 [fetch]
