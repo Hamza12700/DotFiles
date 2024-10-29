@@ -25,3 +25,5 @@
 	writeCommitGraph = true
 [branch]
 	sort = -committerdate
+[push]
+	autoSetupRemote = true
