@@ -7,7 +7,7 @@
 
 enum BatteryLeve { None, Half, Low };
 
-static inline const char* read_file(const char* filename, char* buffer, size_t buf_size) {
+const char* read_file(const char* filename, char* buffer, size_t buf_size) {
   FILE *open_file = fopen(filename, "r");
   if (!open_file) {
     fprintf(stderr, "Failed to open file: %s", filename);
@@ -21,7 +21,7 @@ static inline const char* read_file(const char* filename, char* buffer, size_t b
   return buffer;
 }
 
-static inline void notify(const char* title, uint8_t battery_level) {
+void notify(const char* title, uint8_t battery_level) {
   char buffer[100];
   sprintf(buffer, "notify-send \"%s\" \"%d\"", title, battery_level);
   system(buffer);
@@ -35,10 +35,6 @@ static inline bool range(uint8_t battery_level, uint8_t low, uint8_t high) {
 }
 
 int main(int argv, char* argc[]) {
-  if (access("/sys/class/power_supply", F_OK) != 0) {
-    fprintf(stderr, "computer isn't a laptop");
-    exit(1);
-  }
   if (argv > 1) {
     char capacity_buf[8];
     const char* capacity = read_file("/sys/class/power_supply/BAT0/capacity", capacity_buf, 8);
@@ -76,6 +72,6 @@ int main(int argv, char* argc[]) {
       }
     }
     
-    sleep(60);
+    sleep(30);
   }
 }
