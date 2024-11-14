@@ -52,6 +52,8 @@ if status --is-interactive
     abbr -a ip ip --color=auto
     abbr -a cat bat
     abbr -a reload source ~/.config/fish/config.fish
+    abbr -a gs git st
+    abbr -a ga git add
 
     # Alias
     alias ls="eza -la --group-directories-first"
