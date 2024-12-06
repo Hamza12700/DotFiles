@@ -18,7 +18,10 @@
 	cl = clone
 	ch = checkout
 	ci = commit -v
-	br = branch
+
+	; Ignore whitespace and detect lines moved or copied in the same commit or
+	; the commit that created the file or any commit at all 
+	bl = blame -w -C -C -C
 [rerere]
 	enabled = true
 [fetch]
