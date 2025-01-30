@@ -13,6 +13,8 @@ set $term foot
 # Your preferred application launcher
 set $menu rofi -show drun -show-icons
 
+exec bch
+
 # Set title to none
 default_border pixel 1
 # Set border color to white
@@ -33,7 +35,7 @@ input "type:touchpad" {
 seat * hide_cursor when-typing enable
 
 ### Output configuration
-output * bg /home/hamza/personal/dotfiles/wallpapers/dark-forest.jpg fill
+output * bg /home/hamza/personal/dotfiles/wallpapers/twilight-city.jpg fill
 
 ### Idle configuration
 
