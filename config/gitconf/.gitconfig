@@ -11,7 +11,7 @@
 	defaultBranch = main
 [alias]
 	dog = log --oneline --decorate --graph --all
-	jog = log --oneline --decorate --graph
+	list = log --decorate --graph --abbrev-commit
 	st = status -s
 	sw = switch
 	pr = pull --rebase
