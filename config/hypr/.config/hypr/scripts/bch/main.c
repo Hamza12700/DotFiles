@@ -48,7 +48,7 @@ static inline bool range(uint8_t battery_level, uint8_t low, uint8_t high) {
   return false;
 }
 
-int main(int argv, char *argc[]) {
+void main(int argv, char *argc[]) {
   if (argv > 1) {
     char capacity_buf[8];
     const char *capacity = read_file(BATCAP, capacity_buf, 8);
@@ -58,11 +58,11 @@ int main(int argv, char *argc[]) {
     if (str_cmp(status, "Charging\n")) {
       puts("Status: Charging");
       printf("Battery: %s", capacity);
-      exit(0);
+      return;
     }
     puts("Status: Discharging");
     printf("Battery: %s", capacity);
-    exit(0);
+    return;
   }
 
   enum BatteryLevel battery_status = None;
@@ -79,6 +79,7 @@ int main(int argv, char *argc[]) {
       continue;
     }
 
+    // Should never fail because the file contains valid numerical value through 0-100
     uint8_t battery_level = atoi(capacity);
 
     if (range(battery_level, 40, 50) && battery_status != Half &&
