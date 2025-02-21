@@ -22,6 +22,8 @@ set -gx PNPM_HOME /home/hamza/.local/share/pnpm
 set -gx FLYCTL_INSTALL /home/hamza/.fly
 set -gx PATH $FLYCTL_INSTALL/bin $PATH
 
+set -gx TERM xterm-256color
+
 # Ocaml
 source /home/hamza/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
@@ -33,7 +35,6 @@ if status --is-interactive
     zoxide init fish | source
     # Starship Prompt
     starship init fish | source
-    atuin init fish | source
 
     # KeyBinds
     bind \cz "zi; commandline -f repaint"
