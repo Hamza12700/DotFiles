@@ -11,21 +11,13 @@ set -gx PATH /home/hamza/.cargo/bin $PATH
 set -gx BUN_INSTALL $HOME/.bun
 set -gx PATH $BUN_INSTALL/bin $PATH
 
-# LunarVim
 set -gx PATH /home/hamza/.local/bin $PATH
-
-# Pnpm
-set -gx PATH /home/hamza/.local/share/pnpm $PATH
-set -gx PNPM_HOME /home/hamza/.local/share/pnpm
 
 # FlyCTL
 set -gx FLYCTL_INSTALL /home/hamza/.fly
 set -gx PATH $FLYCTL_INSTALL/bin $PATH
 
 set -gx TERM xterm-256color
-
-# Ocaml
-source /home/hamza/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # Golang Bin Directory
 set -gx PATH /home/hamza/go/bin $PATH
@@ -38,10 +30,9 @@ if status --is-interactive
 
     # KeyBinds
     bind \cz "zi; commandline -f repaint"
-    bind -k nul "commandline -f accept-autosuggestion"
-    bind \cf "fd -t file -E '.git|node_modules' . | fzf --preview 'bat --color always {}' --bind 'enter:become(nvim {})'"
-    bind \eH "cd -; commandline -f repaint"
+    bind -k nul "accept-autosuggestion"
     bind \cb "btop"
+    bind \cs "tmux-sessionizer"
 
     # Abbreviations
     abbr -a gg lazygit
@@ -62,6 +53,3 @@ if status --is-interactive
     alias vi="nvim"
 
 end
-
-# opam configuration
-source /home/hamza/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
