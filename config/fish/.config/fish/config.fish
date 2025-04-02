@@ -31,6 +31,7 @@ if status --is-interactive
     # KeyBinds
     bind \cz "zi; commandline -f repaint"
     bind -k nul "accept-autosuggestion"
+    bind \cn "accept-autosuggestion"
     bind \cb "btop"
     bind \cs "tmux-sessionizer"
 
@@ -42,7 +43,6 @@ if status --is-interactive
     abbr -a pS yay -Ss
     abbr -a rm drash
     abbr -a ip ip --color=auto
-    abbr -a cat bat
     abbr -a reload source ~/.config/fish/config.fish
     abbr -a gs git st
     abbr -a ga git add
