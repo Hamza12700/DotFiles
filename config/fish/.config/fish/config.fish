@@ -13,14 +13,11 @@ set -gx PATH $BUN_INSTALL/bin $PATH
 
 set -gx PATH /home/hamza/.local/bin $PATH
 
-# FlyCTL
-set -gx FLYCTL_INSTALL /home/hamza/.fly
-set -gx PATH $FLYCTL_INSTALL/bin $PATH
-
 set -gx TERM xterm-256color
 
-# Golang Bin Directory
 set -gx PATH /home/hamza/go/bin $PATH
+
+set -gx MANPAGER "nvim +Man!"
 
 if status --is-interactive
     # Zoxide
