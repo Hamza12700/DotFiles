@@ -22,7 +22,7 @@ client.focused #ffffff #ffffff #ffffff #ffffff
 
 # Set scale factor
 output eDP-1 {
-    scale 1.1
+    scale 1.2
 }
 
 input "type:touchpad" {
@@ -37,23 +37,12 @@ seat * hide_cursor when-typing enable
 ### Output configuration
 output * bg /home/hamza/personal/dotfiles/wallpapers/twilight-city.jpg fill
 
-### Idle configuration
-
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
-
 input type:keyboard {
     xkb_options caps:escape
 }
 
 input * repeat_delay 250
-input * repeat_rate 30
+input * repeat_rate 25
 
 ### Input configuration
 #
@@ -80,7 +69,7 @@ input * repeat_rate 30
     bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
 
     # Launch Default Browser
-    bindsym $mod+w exec chromium
+    bindsym $mod+w exec firefox
 
     # Kill focused window
     bindsym $mod+Shift+q kill
