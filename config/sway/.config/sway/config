@@ -1,5 +1,7 @@
 # Read `man 5 sway` for a complete reference.
 
+exec /usr/lib/polkit-kde-authentication-agent-1
+
 ### Variables
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
@@ -35,14 +37,14 @@ input "type:touchpad" {
 seat * hide_cursor when-typing enable
 
 ### Output configuration
-output * bg /home/hamza/personal/dotfiles/wallpapers/twilight-city.jpg fill
+#output * bg /home/hamza/personal/dotfiles/wallpapers/twilight-city.jpg fill
 
 input type:keyboard {
     xkb_options caps:escape
 }
 
 input * repeat_delay 250
-input * repeat_rate 25
+input * repeat_rate 30
 
 ### Input configuration
 #
@@ -67,6 +69,8 @@ input * repeat_rate 25
 
     # Take screenshot and copy it into clipboard
     bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
+
+    bindsym $mod+Print exec grim -g "$(slurp)"
 
     # Launch Default Browser
     bindsym $mod+w exec firefox
