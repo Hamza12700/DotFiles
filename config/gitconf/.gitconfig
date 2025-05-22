@@ -16,6 +16,7 @@
 	cl = clone
 	ch = checkout
 	ci = commit -v
+   df = diff --color-moved
 
 	; Ignore whitespace and detect lines moved or copied in the same commit or
 	; the commit that created the file or any commit at all 
