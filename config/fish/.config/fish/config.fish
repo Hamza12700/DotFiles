@@ -49,5 +49,7 @@ if status --is-interactive
    alias ls="eza -la --group-directories-first"
    alias vim="nvim"
    alias vi="nvim"
+   alias x="helix"
+   alias hx="helix"
 
 end

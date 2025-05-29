@@ -1,0 +1,9 @@
+theme = "kanagawa-dragon"
+
+[editor]
+line-number = "relative"
+auto-format = false
+gutters = ["diagnostics", "diff"]
+scrolloff = 10
+auto-completion = false
+color-modes = true
