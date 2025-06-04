@@ -1,24 +1,41 @@
 [env]
 TERM = "xterm-256color"
+COLORTERM = "truecolor"
 
 [font]
 size = 11
 
 [font.bold]
-family = "JetBrains Mono"
+family = "Rec Mono Casual"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrains Mono"
+family = "Rec Mono Casual"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrains Mono"
+family = "Rec Mono Casual"
 style = "Italic"
 
 [font.normal]
-family = "JetBrains Mono"
+family = "Rec Mono Casual"
 style = "Regular"
+
+# [font.bold]
+# family = "Rec Mono Casual"
+# style = "Bold"
+#
+# [font.bold_italic]
+# family = "Rec Mono Casual"
+# style = "Bold Italic"
+#
+# [font.italic]
+# family = "Rec Mono Casual"
+# style = "Italic"
+#
+# [font.normal]
+# family = "Rec Mono Casual"
+# style = "Regular"
 
 [scrolling]
 history = 10000
