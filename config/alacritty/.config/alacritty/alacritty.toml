@@ -5,37 +5,13 @@ COLORTERM = "truecolor"
 [font]
 size = 11
 
-[font.bold]
-family = "Rec Mono Casual"
-style = "Bold"
-
-[font.bold_italic]
-family = "Rec Mono Casual"
-style = "Bold Italic"
-
-[font.italic]
-family = "Rec Mono Casual"
-style = "Italic"
+[font.offset]
+x = 1
+y = 1
 
 [font.normal]
 family = "Rec Mono Casual"
 style = "Regular"
-
-# [font.bold]
-# family = "Rec Mono Casual"
-# style = "Bold"
-#
-# [font.bold_italic]
-# family = "Rec Mono Casual"
-# style = "Bold Italic"
-#
-# [font.italic]
-# family = "Rec Mono Casual"
-# style = "Italic"
-#
-# [font.normal]
-# family = "Rec Mono Casual"
-# style = "Regular"
 
 [scrolling]
 history = 10000
@@ -45,10 +21,6 @@ dynamic_padding = true
 dynamic_title = true
 opacity = 1
 
-[window.class]
-general = "Alacritty"
-instance = "Alacritty"
-
 [window.padding]
-x = 3
-y = 3
+x = 2
+y = 1
