@@ -12,7 +12,7 @@
 enum BatteryLevel { None, Half, Low };
 
 // Compare null-terminated strings
-static inline bool str_cmp(const char *s1, const char *s2) {
+bool str_cmp(const char *s1, const char *s2) {
   if (strlen(s1) != strlen(s2)) return false;
 
   for (int i = 0; s1[i] != '\0'; i++) {
@@ -35,13 +35,13 @@ const char *read_file(const char *filename, char *buffer, size_t buf_size) {
   return buffer;
 }
 
-static inline void notify(const char *title, uint8_t battery_level) {
+inline void notify(const char *title, uint8_t battery_level) {
   char buffer[100];
   sprintf(buffer, "notify-send \"%s\" \"%d\"", title, battery_level);
   system(buffer);
 }
 
-static inline bool range(uint8_t battery_level, uint8_t low, uint8_t high) {
+inline bool range(uint8_t battery_level, uint8_t low, uint8_t high) {
   if (battery_level >= low && battery_level <= high) {
     return true;
   }
@@ -79,7 +79,7 @@ void main(int argv, char *argc[]) {
       continue;
     }
 
-    // Should never fail because the file contains valid numerical value through 0-100
+    // Should never fail because the file contains valid numerical value: 0-100
     uint8_t battery_level = atoi(capacity);
 
     if (range(battery_level, 40, 50) && battery_status != Half &&
