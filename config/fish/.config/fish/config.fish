@@ -20,10 +20,8 @@ set -gx PATH /home/hamza/go/bin $PATH
 set -gx MANPAGER "nvim +Man!"
 
 if status --is-interactive
-   # Zoxide
    zoxide init fish | source
-   # Starship Prompt
-   starship init fish | source
+   # starship init fish | source
 
    # KeyBinds
    bind \cz "zi; commandline -f repaint"
@@ -34,10 +32,7 @@ if status --is-interactive
 
    # Abbreviations
    abbr -a gg lazygit
-   abbr -a yi yay -S
-   abbr -a yq yay -Q
-   abbr -a yr yay -R
-   abbr -a pS yay -Ss
+   abbr -a in sudo pacman -S
    abbr -a rm drash
    abbr -a ip ip --color=auto
    abbr -a reload source ~/.config/fish/config.fish
@@ -46,10 +41,7 @@ if status --is-interactive
    abbr -a cloc "find src/ -type f -exec wc -l '{}' \; | sort -nr"
 
    # Alias
-   alias ls="eza -la --group-directories-first"
-   alias vim="nvim"
+   alias ls="ls -Al --group-directories-first -h --color=auto"
    alias vi="nvim"
-   alias x="helix"
-   alias hx="helix"
 
 end

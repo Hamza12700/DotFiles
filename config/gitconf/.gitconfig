@@ -9,7 +9,7 @@
 	name = Hamza
 [alias]
 	dog = log --oneline --decorate --graph --all
-	list = log --decorate --graph --abbrev-commit
+	list = log --decorate --graph --abbrev-commit --compact-summary
 	st = status -s
 	sw = switch
 	pr = pull --rebase
