@@ -21,14 +21,12 @@ set -gx MANPAGER "nvim +Man!"
 
 if status --is-interactive
    zoxide init fish | source
-   # starship init fish | source
 
    # KeyBinds
    bind \cz "zi; commandline -f repaint"
    bind -k nul "accept-autosuggestion"
    bind \cn "accept-autosuggestion"
    bind \cb "btop"
-   bind \cs "tmux-sessionizer"
 
    # Abbreviations
    abbr -a gg lazygit
