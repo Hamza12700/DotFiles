@@ -5,10 +5,6 @@ COLORTERM = "truecolor"
 [font]
 size = 11
 
-[font.offset]
-x = 1
-y = 1
-
 [font.normal]
 family = "Rec Mono Casual"
 style = "Regular"
